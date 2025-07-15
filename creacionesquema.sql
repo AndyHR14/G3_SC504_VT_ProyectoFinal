@@ -1,0 +1,5 @@
+CREATE USER Proyecto_Final IDENTIFIED BY 123;
+
+GRANT CONNECT, RESOURCE TO Proyecto_Final; 
+
+GRANT DBA TO Proyecto_Final;
