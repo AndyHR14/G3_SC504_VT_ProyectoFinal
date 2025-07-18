@@ -53,24 +53,7 @@
                 </select>
             </div>
 
-            <div class="form-group">
-                <label for="estado">Estado:</label>
-                <select id="estado" name="id_estado" required>
-                    <option value="">Seleccione un estado</option>
-                    <?php
-                    // Recorre el array $estados obtenido del controlador
-                    if (isset($estados) && is_array($estados)) {
-                        foreach ($estados as $estado) {
-                            // Marca la opción como seleccionada si coincide con el estado del usuario (en modo edición)
-                            $selected = (isset($usuario['ID_ESTADO']) && $usuario['ID_ESTADO'] == $estado['ID_ESTADO']) ? 'selected' : '';
-                            echo '<option value="' . htmlspecialchars($estado['ID_ESTADO']) . '" ' . $selected . '>' . htmlspecialchars($estado['NOMBRE_ESTADO']) . '</option>';
-                        }
-                    } else {
-                        echo '<option value="">Error: No se pudieron cargar los estados</option>';
-                    }
-                    ?>
-                </select>
-            </div>
+            
 
             <button type="submit" class="btn btn-primary">Guardar</button>
             <a href="index.php?action=listarUsuarios" class="btn btn-link">Volver</a>

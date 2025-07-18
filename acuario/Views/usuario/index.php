@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usuarios Registrados</title>
     <style>
-        /* Estilos básicos en línea para que la tabla se vea organizada de inmediato */
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
@@ -94,7 +94,8 @@
             <table>
                 <thead>
                     <tr>
-                        <th>ID</th> <th>Nombre</th>
+                        <th>ID</th> 
+                        <th>Nombre</th>
                         <th>Fecha Registro</th>
                         <th>Teléfono</th>
                         <th>Correo</th>
@@ -115,7 +116,8 @@
                             <td><?= htmlspecialchars($u['NOMBRE_ESTADO'] ?? '') ?></td>
                             <td class="actions">
                                 <a href="index.php?action=editarUsuario&id=<?= htmlspecialchars($u['ID_USUARIO'] ?? '') ?>">Modificar</a>
-                                </td>
+                                <a href="index.php?action=cambiarEstadoUsuario&id=<?= htmlspecialchars($u['ID_USUARIO'] ?? '') ?>">Eliminar</a>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -126,3 +128,4 @@
     </div>
 </body>
 </html>
+

@@ -6,23 +6,17 @@ class Usuario {
     private $conn_oracle; 
 
     public function __construct() {
-        // Al crear una instancia de Usuario, automáticamente se conecta a la base de datos
         $conexion_obj = new Conexion();
-        $this->conn_oracle = $conexion_obj->getConexion(); // Obtiene el recurso de conexión OCI
+        $this->conn_oracle = $conexion_obj->getConexion();
     }
 
-    /**
-     * Obtiene todos los usuarios de la base de datos,
-     * incluyendo el nombre del rol y el estado asociados, usando OCI8.
-     * @return array Un array de arrays asociativos con los datos de los usuarios.
-     */
     public function obtenerUsuarios() {
         try {
             $sql = "
                 SELECT
                     u.ID_USUARIO,
                     u.NOMBRE,
-                    TO_CHAR(u.FECHA_REGISTRO, 'DD/MM/YY') AS FECHA_REGISTRO, -- Formatear fecha para visualización
+                    TO_CHAR(u.FECHA_REGISTRO, 'DD/MM/YY') AS FECHA_REGISTRO,
                     u.TELEFONO,
                     u.CORREO,
                     r.NOMBRE_ROL,
@@ -45,17 +39,12 @@ class Usuario {
             }
             oci_free_statement($stmt); 
             return $usuarios;
-        } catch (Exception $e) { // OCI8 no lanza PDOException, usa Exception general o maneja oci_error()
+        } catch (Exception $e) {
             error_log("Error al obtener usuarios (OCI): " . $e->getMessage());
             return [];
         }
     }
 
-    /**
-     * Obtiene los detalles de un solo usuario por su ID, usando OCI8.
-     * @param int $id_usuario El ID del usuario a buscar.
-     * @return array|null Un array asociativo con los datos del usuario, o null si no se encuentra.
-     */
     public function obtenerUsuarioPorId($id_usuario) {
         try {
             $sql = "
@@ -69,13 +58,13 @@ class Usuario {
                 FROM
                     FIDE_USUARIO_TB
                 WHERE
-                    ID_USUARIO = :id_usuario -- Usar bind variables con nombre para OCI8
+                    ID_USUARIO = :id_usuario
             ";
             $stmt = oci_parse($this->conn_oracle, $sql);
             oci_bind_by_name($stmt, ':id_usuario', $id_usuario); 
             oci_execute($stmt);
 
-            $usuario = oci_fetch_assoc($stmt); // Devuelve un solo registro
+            $usuario = oci_fetch_assoc($stmt);
             oci_free_statement($stmt);
             return $usuario;
         } catch (Exception $e) {
@@ -84,33 +73,20 @@ class Usuario {
         }
     }
 
-    /**
-     * Inserta un nuevo usuario en la base de datos, usando OCI8.
-     * @param string $nombre
-     * @param string $telefono
-     * @param string $correo
-     * @param int $id_rol
-     * @param int $id_estado
-     * @return bool True si la inserción fue exitosa, false en caso contrario.
-     */
     public function insertarUsuario($nombre, $telefono, $correo, $id_rol, $id_estado) {
         try {
-            
-            
             $sql = "
                 INSERT INTO FIDE_USUARIO_TB (NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ROL, ID_ESTADO)
                 VALUES (:nombre, SYSDATE, :telefono, :correo, :id_rol, :id_estado)
             ";
             $stmt = oci_parse($this->conn_oracle, $sql);
 
-            // Bind de los parámetros
             oci_bind_by_name($stmt, ':nombre', $nombre);
             oci_bind_by_name($stmt, ':telefono', $telefono);
             oci_bind_by_name($stmt, ':correo', $correo);
             oci_bind_by_name($stmt, ':id_rol', $id_rol);
             oci_bind_by_name($stmt, ':id_estado', $id_estado);
 
-            // oci_execute devuelve TRUE en éxito, FALSE en fallo. OCI_COMMIT_ON_SUCCESS para commit automático.
             $result = oci_execute($stmt, OCI_COMMIT_ON_SUCCESS); 
             oci_free_statement($stmt);
             return $result; 
@@ -120,16 +96,6 @@ class Usuario {
         }
     }
 
-    /**
-     * Actualiza un usuario existente en la base de datos, usando OCI8.
-     * @param int $id_usuario El ID del usuario a actualizar.
-     * @param string $nombre
-     * @param string $telefono
-     * @param string $correo
-     * @param int $id_rol
-     * @param int $id_estado
-     * @return bool True si la actualización fue exitosa, false en caso contrario.
-     */
     public function actualizarUsuario($id_usuario, $nombre, $telefono, $correo, $id_rol, $id_estado) {
         try {
             $sql = "
@@ -160,4 +126,27 @@ class Usuario {
             return false;
         }
     }
+
+    /**
+     * Actualiza solo el estado del usuario (usado para eliminar lógico).
+     */
+    public function actualizarEstadoUsuario($id_usuario, $id_estado) {
+        try {
+            $sql = "
+                UPDATE FIDE_USUARIO_TB
+                SET ID_ESTADO = :id_estado
+                WHERE ID_USUARIO = :id_usuario
+            ";
+            $stmt = oci_parse($this->conn_oracle, $sql);
+            oci_bind_by_name($stmt, ':id_estado', $id_estado);
+            oci_bind_by_name($stmt, ':id_usuario', $id_usuario);
+
+            return oci_execute($stmt, OCI_COMMIT_ON_SUCCESS);
+        } catch (Exception $e) {
+            error_log("Error al actualizar estado del usuario: " . $e->getMessage());
+            return false;
+        }
+    }
 }
+
+
