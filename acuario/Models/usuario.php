@@ -93,32 +93,34 @@ class Usuario {
      * @param int $id_estado
      * @return bool True si la inserción fue exitosa, false en caso contrario.
      */
-    public function insertarUsuario($nombre, $telefono, $correo, $id_rol, $id_estado) {
-        try {
-            
-            
-            $sql = "
-                INSERT INTO FIDE_USUARIO_TB (NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ROL, ID_ESTADO)
-                VALUES (:nombre, SYSDATE, :telefono, :correo, :id_rol, :id_estado)
-            ";
-            $stmt = oci_parse($this->conn_oracle, $sql);
-
-            // Bind de los parámetros
-            oci_bind_by_name($stmt, ':nombre', $nombre);
-            oci_bind_by_name($stmt, ':telefono', $telefono);
-            oci_bind_by_name($stmt, ':correo', $correo);
-            oci_bind_by_name($stmt, ':id_rol', $id_rol);
-            oci_bind_by_name($stmt, ':id_estado', $id_estado);
-
-            // oci_execute devuelve TRUE en éxito, FALSE en fallo. OCI_COMMIT_ON_SUCCESS para commit automático.
-            $result = oci_execute($stmt, OCI_COMMIT_ON_SUCCESS); 
-            oci_free_statement($stmt);
-            return $result; 
-        } catch (Exception $e) {
-            error_log("Error al insertar usuario (OCI): " . $e->getMessage());
-            return false;
-        }
+    public function insertarUsuario($id_usuario, $nombre, $telefono, $correo, $id_rol, $id_estado) {
+    try {
+        // Llamada al procedimiento almacenado FIDE_INSERTAR_USUARIO_SP
+        $sql = "BEGIN FIDE_PROYECTO_FINAL_PCK.FIDE_INSERTAR_USUARIO_SP(:id_usuario, :nombre, SYSDATE, :telefono, :correo, :id_estado, :id_rol); END;";
+        
+        $stmt = oci_parse($this->conn_oracle, $sql);
+        
+        // Bind de los parámetros de entrada
+        oci_bind_by_name($stmt, ':id_usuario', $id_usuario);
+        oci_bind_by_name($stmt, ':nombre', $nombre);
+        oci_bind_by_name($stmt, ':telefono', $telefono);
+        oci_bind_by_name($stmt, ':correo', $correo);
+        oci_bind_by_name($stmt, ':id_estado', $id_estado);
+        oci_bind_by_name($stmt, ':id_rol', $id_rol);
+        
+        // Ejecutar el procedimiento
+        $success = oci_execute($stmt);
+        
+        oci_free_statement($stmt);
+        
+        return $success;
+        
+    } catch (Exception $e) {
+        error_log("Error al insertar usuario mediante el procedimiento almacenado: " . $e->getMessage());
+        return false;
     }
+    }
+
 
     /**
      * Actualiza un usuario existente en la base de datos, usando OCI8.
@@ -131,33 +133,51 @@ class Usuario {
      * @return bool True si la actualización fue exitosa, false en caso contrario.
      */
     public function actualizarUsuario($id_usuario, $nombre, $telefono, $correo, $id_rol, $id_estado) {
-        try {
-            $sql = "
-                UPDATE FIDE_USUARIO_TB
-                SET
-                    NOMBRE = :nombre,
-                    TELEFONO = :telefono,
-                    CORREO = :correo,
-                    ID_ROL = :id_rol,
-                    ID_ESTADO = :id_estado
-                WHERE
-                    ID_USUARIO = :id_usuario
-            ";
-            $stmt = oci_parse($this->conn_oracle, $sql);
-
-            oci_bind_by_name($stmt, ':nombre', $nombre);
-            oci_bind_by_name($stmt, ':telefono', $telefono);
-            oci_bind_by_name($stmt, ':correo', $correo);
-            oci_bind_by_name($stmt, ':id_rol', $id_rol);
-            oci_bind_by_name($stmt, ':id_estado', $id_estado);
-            oci_bind_by_name($stmt, ':id_usuario', $id_usuario);
-
-            $result = oci_execute($stmt, OCI_COMMIT_ON_SUCCESS);
-            oci_free_statement($stmt);
-            return $result;
-        } catch (Exception $e) {
-            error_log("Error al actualizar usuario (OCI): " . $e->getMessage());
-            return false;
-        }
+    try {
+        // Llamada al procedimiento almacenado FIDE_MODIFICAR_USUARIO_SP
+        $sql = "BEGIN FIDE_PROYECTO_FINAL_PCK.FIDE_MODIFICAR_USUARIO_SP(:id_usuario, :nombre, SYSDATE, :telefono, :correo, :id_estado, :id_rol); END;";
+        
+        $stmt = oci_parse($this->conn_oracle, $sql);
+        
+        // Bind de los parámetros de entrada
+        oci_bind_by_name($stmt, ':id_usuario', $id_usuario);
+        oci_bind_by_name($stmt, ':nombre', $nombre);
+        oci_bind_by_name($stmt, ':telefono', $telefono);
+        oci_bind_by_name($stmt, ':correo', $correo);
+        oci_bind_by_name($stmt, ':id_estado', $id_estado);
+        oci_bind_by_name($stmt, ':id_rol', $id_rol);
+        
+        // Ejecutar el procedimiento
+        $result = oci_execute($stmt);
+        
+        oci_free_statement($stmt);
+        return $result;
+        
+    } catch (Exception $e) {
+        error_log("Error al actualizar usuario mediante el procedimiento almacenado: " . $e->getMessage());
+        return false;
     }
+}
+
+    public function eliminarUsuario($id_usuario) {
+    try {
+        // Llamada al procedimiento almacenado FIDE_ELIMINAR_USUARIO_SP
+        $sql = "BEGIN FIDE_PROYECTO_FINAL_PCK.FIDE_ELIMINAR_USUARIO_SP(:id_usuario); END;";
+        
+        $stmt = oci_parse($this->conn_oracle, $sql);
+        
+        // Bind del parámetro de entrada
+        oci_bind_by_name($stmt, ':id_usuario', $id_usuario);
+        
+        // Ejecutar el procedimiento
+        $result = oci_execute($stmt);
+        
+        oci_free_statement($stmt);
+        return $result;
+        
+    } catch (Exception $e) {
+        error_log("Error al eliminar usuario mediante el procedimiento almacenado: " . $e->getMessage());
+        return false;
+    }
+}
 }
