@@ -40,6 +40,17 @@ switch ($action) {
         // Procesa los datos del formulario para actualizar un usuario.
         $controller->actualizar();
         break;
+
+     case 'cambiarEstadoUsuario':
+        // Muestra el formulario para cambiar el estado (eliminar lógico).
+        $controller->cambiarEstado();
+        break;
+
+    case 'guardarEstadoUsuario':
+        // Guarda el nuevo estado seleccionado desde el formulario.
+        $controller->guardarEstado();
+        break;
+
   
     default:
         // Si la acción no es reconocida, por defecto, se redirige a la lista de usuarios.
