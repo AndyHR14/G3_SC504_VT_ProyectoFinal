@@ -1,0 +1,650 @@
+
+CREATE OR REPLACE PACKAGE PROYECTO_FINAL_PCK IS
+
+  FUNCTION insertar_estado(
+    p_id_estado          NUMBER,
+    p_nombre_estado      VARCHAR2,
+    p_descripcion_estado VARCHAR2
+  ) RETURN VARCHAR2;
+
+  FUNCTION insertar_genero(
+    p_id_genero NUMBER,
+    p_genero    VARCHAR2,
+    p_id_estado NUMBER
+  ) RETURN VARCHAR2;
+
+  FUNCTION insertar_tipo(
+    p_id_tipo          NUMBER,
+    p_nombre_tipo      VARCHAR2,
+    p_descripcion_tipo VARCHAR2,
+    p_id_estado        NUMBER
+  ) RETURN VARCHAR2;
+
+  FUNCTION insertar_habitat(
+    p_id_habitat          NUMBER,
+    p_nombre_habitat      VARCHAR2,
+    p_descripcion_habitat VARCHAR2,
+    p_id_estado           NUMBER
+  ) RETURN VARCHAR2;
+
+  FUNCTION insertar_rutina(
+    p_id_rutina    NUMBER,
+    p_nombre_rutina VARCHAR2,
+    p_id_estado     NUMBER
+  ) RETURN VARCHAR2;
+
+  FUNCTION insertar_marca_alimento(
+    p_id_marca_alimento NUMBER,
+    p_nombre            VARCHAR2,
+    p_descripcion       VARCHAR2,
+    p_id_estado         NUMBER
+  ) RETURN VARCHAR2;
+
+  FUNCTION insertar_alimentacion(
+    p_id_alimentacion   NUMBER,
+    p_cantidad          NUMBER,
+    p_horario           VARCHAR2,
+    p_frecuencia        VARCHAR2,
+    p_id_marca_alimento NUMBER,
+    p_id_estado         NUMBER,
+    p_id_rutina         NUMBER
+  ) RETURN VARCHAR2;
+
+  FUNCTION insertar_animal(
+    p_id_animal       NUMBER,
+    p_nombre_animal   VARCHAR2,
+    p_fecha_ingreso   DATE,
+    p_edad            NUMBER,
+    p_peso            NUMBER,
+    p_observacion     VARCHAR2,
+    p_id_genero       NUMBER,
+    p_id_tipo         NUMBER,
+    p_id_habitat      NUMBER,
+    p_id_estado       NUMBER,
+    p_id_alimentacion NUMBER
+  ) RETURN VARCHAR2;
+
+  FUNCTION insertar_rol(
+    p_id_rol       NUMBER,
+    p_nombre_rol   VARCHAR2,
+    p_descripcion  VARCHAR2,
+    p_id_estado    NUMBER
+  ) RETURN VARCHAR2;
+
+  FUNCTION insertar_usuario(
+    p_id_usuario    NUMBER,
+    p_nombre        VARCHAR2,
+    p_fecha_registro DATE,
+    p_telefono      VARCHAR2,
+    p_correo        VARCHAR2,
+    p_id_estado     NUMBER,
+    p_id_rol        NUMBER
+  ) RETURN VARCHAR2;
+
+  FUNCTION insertar_horario(
+    p_id_horario NUMBER,
+    p_dia        VARCHAR2,
+    p_hora_inicio DATE,
+    p_hora_final DATE,
+    p_id_usuario NUMBER,
+    p_id_estado  NUMBER
+  ) RETURN VARCHAR2;
+
+  FUNCTION insertar_pais(
+    p_id_pais    NUMBER,
+    p_nombre_pais VARCHAR2,
+    p_id_estado  NUMBER
+  ) RETURN VARCHAR2;
+
+  FUNCTION insertar_provincia(
+    p_id_provincia     NUMBER,
+    p_nombre_provincia VARCHAR2,
+    p_id_estado        NUMBER
+  ) RETURN VARCHAR2;
+
+  FUNCTION insertar_canton(
+    p_id_canton     NUMBER,
+    p_nombre_canton VARCHAR2,
+    p_id_estado     NUMBER
+  ) RETURN VARCHAR2;
+
+  FUNCTION insertar_distrito(
+    p_id_distrito     NUMBER,
+    p_nombre_distrito VARCHAR2,
+    p_id_estado       NUMBER
+  ) RETURN VARCHAR2;
+
+  FUNCTION insertar_direccion(
+    p_id_direccion      NUMBER,
+    p_detalle_direccion VARCHAR2,
+    p_id_distrito       NUMBER,
+    p_id_canton         NUMBER,
+    p_id_provincia      NUMBER,
+    p_id_pais           NUMBER,
+    p_id_usuario        NUMBER,
+    p_id_estado         NUMBER
+  ) RETURN VARCHAR2;
+
+  FUNCTION insertar_empresa(
+    p_id_empresa     NUMBER,
+    p_nombre_empresa VARCHAR2,
+    p_telefono       VARCHAR2,
+    p_correo         VARCHAR2,
+    p_id_direccion   NUMBER,
+    p_id_estado      NUMBER
+  ) RETURN VARCHAR2;
+
+  FUNCTION insertar_entrega(
+    p_id_entrega  NUMBER,
+    p_fecha       DATE,
+    p_id_direccion NUMBER,
+    p_id_usuario   NUMBER,
+    p_id_estado    NUMBER
+  ) RETURN VARCHAR2;
+
+  FUNCTION insertar_detalle_entrega(
+    p_id_detalle  NUMBER,
+    p_descripcion VARCHAR2,
+    p_cantidad    NUMBER,
+    p_id_entrega  NUMBER,
+    p_id_estado   NUMBER
+  ) RETURN VARCHAR2;
+
+  FUNCTION insertar_categoria(
+    p_id_categoria    NUMBER,
+    p_nombre_categoria VARCHAR2,
+    p_id_estado       NUMBER
+  ) RETURN VARCHAR2;
+
+  FUNCTION insertar_unidad_medida(
+    p_id_unidad_medida      NUMBER,
+    p_nombre_unidad_medida  VARCHAR2,
+    p_id_estado             NUMBER
+  ) RETURN VARCHAR2;
+
+  FUNCTION insertar_producto(
+    p_id_producto NUMBER,
+    p_nombre      VARCHAR2,
+    p_id_categoria      NUMBER,
+    p_id_unidad_medida  NUMBER,
+    p_id_estado         NUMBER
+  ) RETURN VARCHAR2;
+
+  FUNCTION insertar_inventario(
+    p_id_inventario NUMBER,
+    p_cantidad      NUMBER,
+    p_fecha_ingreso DATE,
+    p_id_producto   NUMBER,
+    p_id_estado     NUMBER
+  ) RETURN VARCHAR2;
+
+  FUNCTION insertar_metodo_pago(
+    p_id_metodo_pago      NUMBER,
+    p_nombre_metodo_pago  VARCHAR2,
+    p_id_estado           NUMBER
+  ) RETURN VARCHAR2;
+
+  FUNCTION insertar_factura(
+    p_id_factura    NUMBER,
+    p_fecha_registro DATE,
+    p_monto_total   NUMBER,
+    p_subtotal      NUMBER,
+    p_iva           NUMBER,
+    p_descuento     NUMBER,
+    p_id_usuario    NUMBER,
+    p_id_metodo_pago NUMBER,
+    p_id_estado     NUMBER
+  ) RETURN VARCHAR2;
+
+  FUNCTION insertar_detalle_factura(
+    p_id_detalle     NUMBER,
+    p_cantidad       NUMBER,
+    p_precio_unitario NUMBER,
+    p_total           NUMBER,
+    p_id_factura     NUMBER,
+    p_id_producto    NUMBER,
+    p_id_estado      NUMBER
+  ) RETURN VARCHAR2;
+
+END PROYECTO_FINAL_PCK;
+/
+
+CREATE OR REPLACE PACKAGE BODY PROYECTO_FINAL_PCK IS
+
+  FUNCTION insertar_estado(
+    p_id_estado          NUMBER,
+    p_nombre_estado      VARCHAR2,
+    p_descripcion_estado VARCHAR2
+  ) RETURN VARCHAR2 IS
+  BEGIN
+    INSERT INTO FIDE_ESTADOS_TB (ID_ESTADO, NOMBRE_ESTADO, DESCRIPCION_ESTADO)
+      VALUES (p_id_estado, p_nombre_estado, p_descripcion_estado);
+    RETURN 'Estado insertado correctamente';
+  EXCEPTION WHEN OTHERS THEN
+    RETURN 'Error al insertar estado: ' || SQLERRM;
+  END insertar_estado;
+
+  FUNCTION insertar_genero(
+    p_id_genero NUMBER,
+    p_genero    VARCHAR2,
+    p_id_estado NUMBER
+  ) RETURN VARCHAR2 IS
+  BEGIN
+    INSERT INTO FIDE_GENERO_TB (ID_GENERO, GENERO, ID_ESTADO)
+      VALUES (p_id_genero, p_genero, p_id_estado);
+    RETURN 'Género insertado correctamente';
+  EXCEPTION WHEN OTHERS THEN
+    RETURN 'Error al insertar género: ' || SQLERRM;
+  END insertar_genero;
+
+  FUNCTION insertar_tipo(
+    p_id_tipo          NUMBER,
+    p_nombre_tipo      VARCHAR2,
+    p_descripcion_tipo VARCHAR2,
+    p_id_estado        NUMBER
+  ) RETURN VARCHAR2 IS
+  BEGIN
+    INSERT INTO FIDE_TIPO_TB (ID_TIPO, NOMBRE_TIPO, DESCRIPCION_TIPO, ID_ESTADO)
+      VALUES (p_id_tipo, p_nombre_tipo, p_descripcion_tipo, p_id_estado);
+    RETURN 'Tipo insertado correctamente';
+  EXCEPTION WHEN OTHERS THEN
+    RETURN 'Error al insertar tipo: ' || SQLERRM;
+  END insertar_tipo;
+
+  FUNCTION insertar_habitat(
+    p_id_habitat          NUMBER,
+    p_nombre_habitat      VARCHAR2,
+    p_descripcion_habitat VARCHAR2,
+    p_id_estado           NUMBER
+  ) RETURN VARCHAR2 IS
+  BEGIN
+    INSERT INTO FIDE_HABITAT_TB (ID_HABITAT, NOMBRE_HABITAT, DESCRIPCION_HABITAT, ID_ESTADO)
+      VALUES (p_id_habitat, p_nombre_habitat, p_descripcion_habitat, p_id_estado);
+    RETURN 'Hábitat insertado correctamente';
+  EXCEPTION WHEN OTHERS THEN
+    RETURN 'Error al insertar hábitat: ' || SQLERRM;
+  END insertar_habitat;
+
+  FUNCTION insertar_rutina(
+    p_id_rutina     NUMBER,
+    p_nombre_rutina VARCHAR2,
+    p_id_estado     NUMBER
+  ) RETURN VARCHAR2 IS
+  BEGIN
+    INSERT INTO FIDE_RUTINA_TB (ID_RUTINA, NOMBRE_RUTINA, ID_ESTADO)
+      VALUES (p_id_rutina, p_nombre_rutina, p_id_estado);
+    RETURN 'Rutina insertada correctamente';
+  EXCEPTION WHEN OTHERS THEN
+    RETURN 'Error al insertar rutina: ' || SQLERRM;
+  END insertar_rutina;
+
+  FUNCTION insertar_marca_alimento(
+    p_id_marca_alimento NUMBER,
+    p_nombre            VARCHAR2,
+    p_descripcion       VARCHAR2,
+    p_id_estado         NUMBER
+  ) RETURN VARCHAR2 IS
+  BEGIN
+    INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO)
+      VALUES (p_id_marca_alimento, p_nombre, p_descripcion, p_id_estado);
+    RETURN 'Marca de alimento insertada correctamente';
+  EXCEPTION WHEN OTHERS THEN
+    RETURN 'Error al insertar marca de alimento: ' || SQLERRM;
+  END insertar_marca_alimento;
+
+  FUNCTION insertar_alimentacion(
+    p_id_alimentacion   NUMBER,
+    p_cantidad          NUMBER,
+    p_horario           VARCHAR2,
+    p_frecuencia        VARCHAR2,
+    p_id_marca_alimento NUMBER,
+    p_id_estado         NUMBER,
+    p_id_rutina         NUMBER
+  ) RETURN VARCHAR2 IS
+  BEGIN
+    INSERT INTO FIDE_ALIMENTACION_TB (ID_ALIMENTACION, CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA)
+      VALUES (p_id_alimentacion, p_cantidad, p_horario, p_frecuencia, p_id_marca_alimento, p_id_estado, p_id_rutina);
+    RETURN 'Alimentación insertada correctamente';
+  EXCEPTION WHEN OTHERS THEN
+    RETURN 'Error al insertar alimentación: ' || SQLERRM;
+  END insertar_alimentacion;
+
+  FUNCTION insertar_animal(
+    p_id_animal       NUMBER,
+    p_nombre_animal   VARCHAR2,
+    p_fecha_ingreso   DATE,
+    p_edad            NUMBER,
+    p_peso            NUMBER,
+    p_observacion     VARCHAR2,
+    p_id_genero       NUMBER,
+    p_id_tipo         NUMBER,
+    p_id_habitat      NUMBER,
+    p_id_estado       NUMBER,
+    p_id_alimentacion NUMBER
+  ) RETURN VARCHAR2 IS
+  BEGIN
+    INSERT INTO FIDE_ANIMAL_TB (
+      ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION,
+      ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_ALIMENTACION
+    ) VALUES (
+      p_id_animal, p_nombre_animal, p_fecha_ingreso, p_edad, p_peso, p_observacion,
+      p_id_genero, p_id_tipo, p_id_habitat, p_id_estado, p_id_alimentacion
+    );
+    RETURN 'Animal insertado correctamente';
+  EXCEPTION WHEN OTHERS THEN
+    RETURN 'Error al insertar animal: ' || SQLERRM;
+  END insertar_animal;
+
+  FUNCTION insertar_rol(
+    p_id_rol      NUMBER,
+    p_nombre_rol  VARCHAR2,
+    p_descripcion VARCHAR2,
+    p_id_estado   NUMBER
+  ) RETURN VARCHAR2 IS
+  BEGIN
+    INSERT INTO FIDE_ROL_TB (ID_ROL, NOMBRE_ROL, DESCRIPCION, ID_ESTADO)
+      VALUES (p_id_rol, p_nombre_rol, p_descripcion, p_id_estado);
+    RETURN 'Rol insertado correctamente';
+  EXCEPTION WHEN OTHERS THEN
+    RETURN 'Error al insertar rol: ' || SQLERRM;
+  END insertar_rol;
+
+  FUNCTION insertar_usuario(
+    p_id_usuario     NUMBER,
+    p_nombre         VARCHAR2,
+    p_fecha_registro DATE,
+    p_telefono       VARCHAR2,
+    p_correo         VARCHAR2,
+    p_id_estado      NUMBER,
+    p_id_rol         NUMBER
+  ) RETURN VARCHAR2 IS
+  BEGIN
+    INSERT INTO FIDE_USUARIO_TB (
+      ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL
+    ) VALUES (
+      p_id_usuario, p_nombre, p_fecha_registro, p_telefono, p_correo, p_id_estado, p_id_rol
+    );
+    RETURN 'Usuario insertado correctamente';
+  EXCEPTION WHEN OTHERS THEN
+    RETURN 'Error al insertar usuario: ' || SQLERRM;
+  END insertar_usuario;
+
+  FUNCTION insertar_horario(
+    p_id_horario  NUMBER,
+    p_dia         VARCHAR2,
+    p_hora_inicio DATE,
+    p_hora_final  DATE,
+    p_id_usuario  NUMBER,
+    p_id_estado   NUMBER
+  ) RETURN VARCHAR2 IS
+  BEGIN
+    INSERT INTO FIDE_HORARIO_TB (
+      ID_HORARIO, DIA, HORA_INICIO, HORA_FINAL, ID_USUARIO, ID_ESTADO
+    ) VALUES (
+      p_id_horario, p_dia, p_hora_inicio, p_hora_final, p_id_usuario, p_id_estado
+    );
+    RETURN 'Horario insertado correctamente';
+  EXCEPTION WHEN OTHERS THEN
+    RETURN 'Error al insertar horario: ' || SQLERRM;
+  END insertar_horario;
+
+  FUNCTION insertar_pais(
+    p_id_pais     NUMBER,
+    p_nombre_pais VARCHAR2,
+    p_id_estado   NUMBER
+  ) RETURN VARCHAR2 IS
+  BEGIN
+    INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO)
+      VALUES (p_id_pais, p_nombre_pais, p_id_estado);
+    RETURN 'País insertado correctamente';
+  EXCEPTION WHEN OTHERS THEN
+    RETURN 'Error al insertar país: ' || SQLERRM;
+  END insertar_pais;
+
+  FUNCTION insertar_provincia(
+    p_id_provincia     NUMBER,
+    p_nombre_provincia VARCHAR2,
+    p_id_estado        NUMBER
+  ) RETURN VARCHAR2 IS
+  BEGIN
+    INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO)
+      VALUES (p_id_provincia, p_nombre_provincia, p_id_estado);
+    RETURN 'Provincia insertada correctamente';
+  EXCEPTION WHEN OTHERS THEN
+    RETURN 'Error al insertar provincia: ' || SQLERRM;
+  END insertar_provincia;
+
+  FUNCTION insertar_canton(
+    p_id_canton     NUMBER,
+    p_nombre_canton VARCHAR2,
+    p_id_estado     NUMBER
+  ) RETURN VARCHAR2 IS
+  BEGIN
+    INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO)
+      VALUES (p_id_canton, p_nombre_canton, p_id_estado);
+    RETURN 'Cantón insertado correctamente';
+  EXCEPTION WHEN OTHERS THEN
+    RETURN 'Error al insertar cantón: ' || SQLERRM;
+  END insertar_canton;
+
+  FUNCTION insertar_distrito(
+    p_id_distrito     NUMBER,
+    p_nombre_distrito VARCHAR2,
+    p_id_estado       NUMBER
+  ) RETURN VARCHAR2 IS
+  BEGIN
+    INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO)
+      VALUES (p_id_distrito, p_nombre_distrito, p_id_estado);
+    RETURN 'Distrito insertado correctamente';
+  EXCEPTION WHEN OTHERS THEN
+    RETURN 'Error al insertar distrito: ' || SQLERRM;
+  END insertar_distrito;
+
+  FUNCTION insertar_direccion(
+    p_id_direccion      NUMBER,
+    p_detalle_direccion VARCHAR2,
+    p_id_distrito       NUMBER,
+    p_id_canton         NUMBER,
+    p_id_provincia      NUMBER,
+    p_id_pais           NUMBER,
+    p_id_usuario        NUMBER,
+    p_id_estado         NUMBER
+  ) RETURN VARCHAR2 IS
+  BEGIN
+    INSERT INTO FIDE_DIRECCION_TB (
+      ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO,
+      ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO
+    ) VALUES (
+      p_id_direccion, p_detalle_direccion, p_id_distrito,
+      p_id_canton, p_id_provincia, p_id_pais, p_id_usuario, p_id_estado
+    );
+    RETURN 'Dirección insertada correctamente';
+  EXCEPTION WHEN OTHERS THEN
+    RETURN 'Error al insertar dirección: ' || SQLERRM;
+  END insertar_direccion;
+
+  FUNCTION insertar_empresa(
+    p_id_empresa     NUMBER,
+    p_nombre_empresa VARCHAR2,
+    p_telefono       VARCHAR2,
+    p_correo         VARCHAR2,
+    p_id_direccion   NUMBER,
+    p_id_estado      NUMBER
+  ) RETURN VARCHAR2 IS
+  BEGIN
+    INSERT INTO FIDE_EMPRESA_TB (
+      ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO
+    ) VALUES (
+      p_id_empresa, p_nombre_empresa, p_telefono, p_correo, p_id_direccion, p_id_estado
+    );
+    RETURN 'Empresa insertada correctamente';
+  EXCEPTION WHEN OTHERS THEN
+    RETURN 'Error al insertar empresa: ' || SQLERRM;
+  END insertar_empresa;
+
+  FUNCTION insertar_entrega(
+    p_id_entrega    NUMBER,
+    p_fecha         DATE,
+    p_id_direccion  NUMBER,
+    p_id_usuario    NUMBER,
+    p_id_estado     NUMBER
+  ) RETURN VARCHAR2 IS
+  BEGIN
+    INSERT INTO FIDE_ENTREGA_TB (
+      ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO
+    ) VALUES (
+      p_id_entrega, p_fecha, p_id_direccion, p_id_usuario, p_id_estado
+    );
+    RETURN 'Entrega insertada correctamente';
+  EXCEPTION WHEN OTHERS THEN
+    RETURN 'Error al insertar entrega: ' || SQLERRM;
+  END insertar_entrega;
+
+  FUNCTION insertar_detalle_entrega(
+    p_id_detalle  NUMBER,
+    p_descripcion VARCHAR2,
+    p_cantidad    NUMBER,
+    p_id_entrega  NUMBER,
+    p_id_estado   NUMBER
+  ) RETURN VARCHAR2 IS
+  BEGIN
+    INSERT INTO FIDE_DETALLE_ENTREGA_TB (
+      ID_DETALLE, DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO
+    ) VALUES (
+      p_id_detalle, p_descripcion, p_cantidad, p_id_entrega, p_id_estado
+    );
+    RETURN 'Detalle de entrega insertado correctamente';
+  EXCEPTION WHEN OTHERS THEN
+    RETURN 'Error al insertar detalle de entrega: ' || SQLERRM;
+  END insertar_detalle_entrega;
+
+  FUNCTION insertar_categoria(
+    p_id_categoria    NUMBER,
+    p_nombre_categoria VARCHAR2,
+    p_id_estado       NUMBER
+  ) RETURN VARCHAR2 IS
+  BEGIN
+    INSERT INTO FIDE_CATEGORIA_TB (
+      ID_CATEGORIA, NOMBRE_CATEGORIA, ID_ESTADO
+    ) VALUES (
+      p_id_categoria, p_nombre_categoria, p_id_estado
+    );
+    RETURN 'Categoría insertada correctamente';
+  EXCEPTION WHEN OTHERS THEN
+    RETURN 'Error al insertar categoría: ' || SQLERRM;
+  END insertar_categoria;
+
+  FUNCTION insertar_unidad_medida(
+    p_id_unidad_medida     NUMBER,
+    p_nombre_unidad_medida VARCHAR2,
+    p_id_estado            NUMBER
+  ) RETURN VARCHAR2 IS
+  BEGIN
+    INSERT INTO FIDE_UNIDAD_MEDIDA_TB (
+      ID_UNIDAD_MEDIDA, NOMBRE_UNIDAD_MEDIDA, ID_ESTADO
+    ) VALUES (
+      p_id_unidad_medida, p_nombre_unidad_medida, p_id_estado
+    );
+    RETURN 'Unidad de medida insertada correctamente';
+  EXCEPTION WHEN OTHERS THEN
+    RETURN 'Error al insertar unidad de medida: ' || SQLERRM;
+  END insertar_unidad_medida;
+
+  FUNCTION insertar_producto(
+    p_id_producto       NUMBER,
+    p_nombre            VARCHAR2,
+    p_id_categoria      NUMBER,
+    p_id_unidad_medida  NUMBER,
+    p_id_estado         NUMBER
+  ) RETURN VARCHAR2 IS
+  BEGIN
+    INSERT INTO FIDE_PRODUCTO_TB (
+      ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO
+    ) VALUES (
+      p_id_producto, p_nombre, p_id_categoria, p_id_unidad_medida, p_id_estado
+    );
+    RETURN 'Producto insertado correctamente';
+  EXCEPTION WHEN OTHERS THEN
+    RETURN 'Error al insertar producto: ' || SQLERRM;
+  END insertar_producto;
+
+  FUNCTION insertar_inventario(
+    p_id_inventario NUMBER,
+    p_cantidad      NUMBER,
+    p_fecha_ingreso DATE,
+    p_id_producto   NUMBER,
+    p_id_estado     NUMBER
+  ) RETURN VARCHAR2 IS
+  BEGIN
+    INSERT INTO FIDE_INVENTARIO_TB (
+      ID_INVENTARIO, CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO
+    ) VALUES (
+      p_id_inventario, p_cantidad, p_fecha_ingreso, p_id_producto, p_id_estado
+    );
+    RETURN 'Inventario insertado correctamente';
+  EXCEPTION WHEN OTHERS THEN
+    RETURN 'Error al insertar inventario: ' || SQLERRM;
+  END insertar_inventario;
+
+  FUNCTION insertar_metodo_pago(
+    p_id_metodo_pago     NUMBER,
+    p_nombre_metodo_pago VARCHAR2,
+    p_id_estado          NUMBER
+  ) RETURN VARCHAR2 IS
+  BEGIN
+    INSERT INTO FIDE_METODO_PAGO_TB (
+      ID_METODO_PAGO, NOMBRE_METODO_PAGO, ID_ESTADO
+    ) VALUES (
+      p_id_metodo_pago, p_nombre_metodo_pago, p_id_estado
+    );
+    RETURN 'Método de pago insertado correctamente';
+  EXCEPTION WHEN OTHERS THEN
+    RETURN 'Error al insertar método de pago: ' || SQLERRM;
+  END insertar_metodo_pago;
+
+  FUNCTION insertar_factura(
+    p_id_factura     NUMBER,
+    p_fecha_registro DATE,
+    p_monto_total    NUMBER,
+    p_subtotal       NUMBER,
+    p_iva            NUMBER,
+    p_descuento      NUMBER,
+    p_id_usuario     NUMBER,
+    p_id_metodo_pago NUMBER,
+    p_id_estado      NUMBER
+  ) RETURN VARCHAR2 IS
+  BEGIN
+    INSERT INTO FIDE_FACTURA_TB (
+      ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO,
+      ID_USUARIO, ID_METODO_PAGO, ID_ESTADO
+    ) VALUES (
+      p_id_factura, p_fecha_registro, p_monto_total, p_subtotal, p_iva, p_descuento,
+      p_id_usuario, p_id_metodo_pago, p_id_estado
+    );
+    RETURN 'Factura insertada correctamente';
+  EXCEPTION WHEN OTHERS THEN
+    RETURN 'Error al insertar factura: ' || SQLERRM;
+  END insertar_factura;
+
+  FUNCTION insertar_detalle_factura(
+    p_id_detalle     NUMBER,
+    p_cantidad       NUMBER,
+    p_precio_unitario NUMBER,
+    p_total           NUMBER,
+    p_id_factura     NUMBER,
+    p_id_producto    NUMBER,
+    p_id_estado      NUMBER
+  ) RETURN VARCHAR2 IS
+  BEGIN
+    INSERT INTO FIDE_DETALLE_FACTURA_TB (
+      ID_DETALLE, CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO
+    ) VALUES (
+      p_id_detalle, p_cantidad, p_precio_unitario, p_total, p_id_factura, p_id_producto, p_id_estado
+    );
+    RETURN 'Detalle de factura insertado correctamente';
+  EXCEPTION WHEN OTHERS THEN
+    RETURN 'Error al insertar detalle de factura: ' || SQLERRM;
+  END insertar_detalle_factura;
+
+END PROYECTO_FINAL_PCK;
+/
