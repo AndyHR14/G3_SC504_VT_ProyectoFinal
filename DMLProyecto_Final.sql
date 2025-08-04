@@ -1,413 +1,3400 @@
 --- INSERCIONES BASE DE DATOS PROYECTO_FINAL
-----INSERCION TABLA ESTADOS--
-INSERT INTO FIDE_ESTADOS_TB (ID_ESTADO, NOMBRE_ESTADO, DESCRIPCION_ESTADO) VALUES (1, 'Activo', 'Estado disponible y funcional');
-INSERT INTO FIDE_ESTADOS_TB (ID_ESTADO, NOMBRE_ESTADO, DESCRIPCION_ESTADO) VALUES (2, 'Inactivo', 'Estado no activo actualmente');
-INSERT INTO FIDE_ESTADOS_TB (ID_ESTADO, NOMBRE_ESTADO, DESCRIPCION_ESTADO) VALUES (3, 'En mantenimiento', 'Elemento en proceso de reparaci�n o revisi�n');
-INSERT INTO FIDE_ESTADOS_TB (ID_ESTADO, NOMBRE_ESTADO, DESCRIPCION_ESTADO) VALUES (4, 'Pendiente', 'En espera de ser procesado');
-INSERT INTO FIDE_ESTADOS_TB (ID_ESTADO, NOMBRE_ESTADO, DESCRIPCION_ESTADO) VALUES (5, 'Cancelado', 'Proceso anulado');
-INSERT INTO FIDE_ESTADOS_TB (ID_ESTADO, NOMBRE_ESTADO, DESCRIPCION_ESTADO) VALUES (6, 'Finalizado', 'Proceso completado');
-INSERT INTO FIDE_ESTADOS_TB (ID_ESTADO, NOMBRE_ESTADO, DESCRIPCION_ESTADO) VALUES (7, 'En revisi�n', 'Elemento en evaluaci�n');
-INSERT INTO FIDE_ESTADOS_TB (ID_ESTADO, NOMBRE_ESTADO, DESCRIPCION_ESTADO) VALUES (8, 'Aprobado', 'Validado correctamente');
-INSERT INTO FIDE_ESTADOS_TB (ID_ESTADO, NOMBRE_ESTADO, DESCRIPCION_ESTADO) VALUES (9, 'Rechazado', 'No cumple con los requisitos');
-INSERT INTO FIDE_ESTADOS_TB (ID_ESTADO, NOMBRE_ESTADO, DESCRIPCION_ESTADO) VALUES (10, 'Suspendido', 'Temporalmente detenido');
-INSERT INTO FIDE_ESTADOS_TB (ID_ESTADO, NOMBRE_ESTADO, DESCRIPCION_ESTADO) VALUES (11, 'En espera', 'Esperando acci�n o confirmaci�n');
-INSERT INTO FIDE_ESTADOS_TB (ID_ESTADO, NOMBRE_ESTADO, DESCRIPCION_ESTADO) VALUES (12, 'Concluido', 'Tarea completada');
-INSERT INTO FIDE_ESTADOS_TB (ID_ESTADO, NOMBRE_ESTADO, DESCRIPCION_ESTADO) VALUES (13, 'Reportado', 'Ha sido informado o denunciado');
+INSERT INTO FIDE_ESTADOS_TB (ID_ESTADO, NOMBRE_ESTADO, DESCRIPCION_ESTADO) VALUES (1, 'Activo', 'Disponible ');
+INSERT INTO FIDE_ESTADOS_TB (ID_ESTADO, NOMBRE_ESTADO, DESCRIPCION_ESTADO) VALUES (2, 'Inactivo', 'No disponible actualmente');
+INSERT INTO FIDE_ESTADOS_TB (ID_ESTADO, NOMBRE_ESTADO, DESCRIPCION_ESTADO) VALUES (3, 'Pendiente', 'En espera de revisión');
+INSERT INTO FIDE_ESTADOS_TB (ID_ESTADO, NOMBRE_ESTADO, DESCRIPCION_ESTADO) VALUES (4, 'En proceso', 'Acción en desarrollo');
+INSERT INTO FIDE_ESTADOS_TB (ID_ESTADO, NOMBRE_ESTADO, DESCRIPCION_ESTADO) VALUES (5, 'Finalizado', 'Proceso completado');
+INSERT INTO FIDE_ESTADOS_TB (ID_ESTADO, NOMBRE_ESTADO, DESCRIPCION_ESTADO) VALUES (6, 'Cancelado', 'Acción anulada');
+INSERT INTO FIDE_ESTADOS_TB (ID_ESTADO, NOMBRE_ESTADO, DESCRIPCION_ESTADO) VALUES (7, 'Reservado', 'Elemento reservado');
+INSERT INTO FIDE_ESTADOS_TB (ID_ESTADO, NOMBRE_ESTADO, DESCRIPCION_ESTADO) VALUES (8, 'Vencido', 'Fecha de uso ha pasado');
+INSERT INTO FIDE_ESTADOS_TB (ID_ESTADO, NOMBRE_ESTADO, DESCRIPCION_ESTADO) VALUES (9, 'Suspendido', 'Acción temporalmente pausada');
+INSERT INTO FIDE_ESTADOS_TB (ID_ESTADO, NOMBRE_ESTADO, DESCRIPCION_ESTADO) VALUES (10, 'Eliminado', 'Dato retirado del sistema');
+INSERT INTO FIDE_ESTADOS_TB (ID_ESTADO, NOMBRE_ESTADO, DESCRIPCION_ESTADO) VALUES (11, 'Validado', 'Aprobado y confirmado');
+INSERT INTO FIDE_ESTADOS_TB (ID_ESTADO, NOMBRE_ESTADO, DESCRIPCION_ESTADO) VALUES (12, 'En revisión', 'Requiere verificación');
+INSERT INTO FIDE_ESTADOS_TB (ID_ESTADO, NOMBRE_ESTADO, DESCRIPCION_ESTADO) VALUES (13, 'Disponible', 'Listo para uso inmediato');
+INSERT INTO FIDE_ESTADOS_TB (ID_ESTADO, NOMBRE_ESTADO, DESCRIPCION_ESTADO) VALUES (14, 'Asignado', 'Ya fue asociado a un elemento');
+INSERT INTO FIDE_ESTADOS_TB (ID_ESTADO, NOMBRE_ESTADO, DESCRIPCION_ESTADO) VALUES (15, 'Deshabilitado', 'No puede ser utilizado por ahora');
+
+INSERT INTO FIDE_HABITAT_TB (ID_HABITAT, NOMBRE_HABITAT, DESCRIPCION_HABITAT, ID_ESTADO)
+VALUES (1, 'Arrecife Tropical', 'Hábitat que simula un arrecife de coral, con peces coloridos y corales vivos.', 1);
+
+INSERT INTO FIDE_HABITAT_TB (ID_HABITAT, NOMBRE_HABITAT, DESCRIPCION_HABITAT, ID_ESTADO)
+VALUES (2, 'Río Amazónico', 'Representación de un ecosistema de río amazónico, ideal para pirañas y discos.', 1);
+
+INSERT INTO FIDE_HABITAT_TB (ID_HABITAT, NOMBRE_HABITAT, DESCRIPCION_HABITAT, ID_ESTADO)
+VALUES (3, 'Manglar Costero', 'Un hábitat que recrea un ecosistema de manglar, con agua salobre y raíces expuestas.', 1);
+
+INSERT INTO FIDE_HABITAT_TB (ID_HABITAT, NOMBRE_HABITAT, DESCRIPCION_HABITAT, ID_ESTADO)
+VALUES (4, 'Fosa Abisal', 'Hábitat oscuro y de alta presión, diseñado para especies de aguas profundas.', 1);
+
+INSERT INTO FIDE_HABITAT_TB (ID_HABITAT, NOMBRE_HABITAT, DESCRIPCION_HABITAT, ID_ESTADO)
+VALUES (5, 'Laguna Serena', 'Un espacio tranquilo con flora y fauna de laguna costera.', 1);
+
+INSERT INTO FIDE_GENERO_TB (ID_GENERO, GENERO, ID_ESTADO)
+VALUES (1, 'Macho', 1);
+
+INSERT INTO FIDE_GENERO_TB (ID_GENERO, GENERO, ID_ESTADO)
+VALUES (2, 'Hembra', 1);
+
+INSERT INTO FIDE_GENERO_TB (ID_GENERO, GENERO, ID_ESTADO)
+VALUES (3, 'Indeterminado', 1);
+
+INSERT INTO FIDE_TIPO_TB (ID_TIPO, NOMBRE_TIPO, DESCRIPCION_TIPO, ID_ESTADO)
+VALUES (1, 'Peces Pequeños de Arrecife', 'Peces marinos de tamaño pequeño, comunes en ecosistemas de arrecife.', 1);
+
+INSERT INTO FIDE_TIPO_TB (ID_TIPO, NOMBRE_TIPO, DESCRIPCION_TIPO, ID_ESTADO)
+VALUES (2, 'Peces Medianos de Arrecife', 'Peces marinos de tamaño mediano, típicos de arrecifes de coral y aguas costeras.', 1);
+
+INSERT INTO FIDE_TIPO_TB (ID_TIPO, NOMBRE_TIPO, DESCRIPCION_TIPO, ID_ESTADO)
+VALUES (3, 'Peces Grandes y Depredadores', 'Grandes peces, incluyendo tiburones, rayas y otros depredadores marinos o de agua dulce.', 1);
+
+INSERT INTO FIDE_TIPO_TB (ID_TIPO, NOMBRE_TIPO, DESCRIPCION_TIPO, ID_ESTADO)
+VALUES (4, 'Peces de Fondo y Peces Globo', 'Especies que habitan principalmente el fondo del acuario, incluyendo peces globo.', 1);
+
+INSERT INTO FIDE_TIPO_TB (ID_TIPO, NOMBRE_TIPO, DESCRIPCION_TIPO, ID_ESTADO)
+VALUES (5, 'Peces Exóticos y Especializados', 'Peces con características únicas o requisitos específicos de hábitat, a menudo de apariencia inusual.', 1);
+
+INSERT INTO FIDE_TIPO_TB (ID_TIPO, NOMBRE_TIPO, DESCRIPCION_TIPO, ID_ESTADO)
+VALUES (6, 'Invertebrados Marinos', 'Organismos marinos sin columna vertebral como medusas, anémonas y crustáceos.', 1);
+
+INSERT INTO FIDE_TIPO_TB (ID_TIPO, NOMBRE_TIPO, DESCRIPCION_TIPO, ID_ESTADO)
+VALUES (7, 'Peces de Agua Dulce Tropical', 'Peces de agua dulce que provienen de regiones tropicales, con requisitos de temperatura específicos.', 1);
+
+INSERT INTO FIDE_TIPO_TB (ID_TIPO, NOMBRE_TIPO, DESCRIPCION_TIPO, ID_ESTADO)
+VALUES (8, 'Peces de Agua Fría', 'Especies de peces adaptadas a temperaturas más bajas, como las carpas koi o algunos tipos de peces dorados.', 1);
+
+INSERT INTO FIDE_TIPO_TB (ID_TIPO, NOMBRE_TIPO, DESCRIPCION_TIPO, ID_ESTADO)
+VALUES (9, 'Corales y Anémonas', 'Organismos sésiles que forman parte del ecosistema de arrecife y proporcionan refugio a otros animales.', 1);
+
+INSERT INTO FIDE_TIPO_TB (ID_TIPO, NOMBRE_TIPO, DESCRIPCION_TIPO, ID_ESTADO)
+VALUES (10, 'Mamíferos Acuáticos Pequeños', 'Pequeños mamíferos adaptados a la vida acuática, como nutrias o castores .', 1);
+
+INSERT INTO FIDE_RUTINA_TB (ID_RUTINA, NOMBRE_RUTINA, ID_ESTADO) VALUES (1, 'Alimentación Diaria Mañana', 1);
+INSERT INTO FIDE_RUTINA_TB (ID_RUTINA, NOMBRE_RUTINA, ID_ESTADO) VALUES (2, 'Alimentación Diaria Tarde', 1);
+INSERT INTO FIDE_RUTINA_TB (ID_RUTINA, NOMBRE_RUTINA, ID_ESTADO) VALUES (3, 'Revisión de Parámetros de Agua', 1);
+INSERT INTO FIDE_RUTINA_TB (ID_RUTINA, NOMBRE_RUTINA, ID_ESTADO) VALUES (4, 'Limpieza de Cristales', 1);
+INSERT INTO FIDE_RUTINA_TB (ID_RUTINA, NOMBRE_RUTINA, ID_ESTADO) VALUES (5, 'Mantenimiento de Filtros', 1);
+INSERT INTO FIDE_RUTINA_TB (ID_RUTINA, NOMBRE_RUTINA, ID_ESTADO) VALUES (6, 'Cambio Parcial de Agua', 1);
+INSERT INTO FIDE_RUTINA_TB (ID_RUTINA, NOMBRE_RUTINA, ID_ESTADO) VALUES (7, 'Inspección de Salud Animal', 1);
+INSERT INTO FIDE_RUTINA_TB (ID_RUTINA, NOMBRE_RUTINA, ID_ESTADO) VALUES (8, 'Monitoreo de Comportamiento', 1);
+INSERT INTO FIDE_RUTINA_TB (ID_RUTINA, NOMBRE_RUTINA, ID_ESTADO) VALUES (9, 'Preparación de Alimentos Especiales', 1);
+INSERT INTO FIDE_RUTINA_TB (ID_RUTINA, NOMBRE_RUTINA, ID_ESTADO) VALUES (10, 'Limpieza de Decoración y Sustrato', 1);
+INSERT INTO FIDE_RUTINA_TB (ID_RUTINA, NOMBRE_RUTINA, ID_ESTADO) VALUES (11, 'Revisión de Iluminación', 1);
+INSERT INTO FIDE_RUTINA_TB (ID_RUTINA, NOMBRE_RUTINA, ID_ESTADO) VALUES (12, 'Limpieza de Skimmer/Proteína', 1);
+INSERT INTO FIDE_RUTINA_TB (ID_RUTINA, NOMBRE_RUTINA, ID_ESTADO) VALUES (13, 'Revisión de Bombas y Circulación', 1);
+INSERT INTO FIDE_RUTINA_TB (ID_RUTINA, NOMBRE_RUTINA, ID_ESTADO) VALUES (14, 'Inventario de Suministros', 1);
+INSERT INTO FIDE_RUTINA_TB (ID_RUTINA, NOMBRE_RUTINA, ID_ESTADO) VALUES (15, 'Mantenimiento de Plantas/Corales', 1);
+INSERT INTO FIDE_RUTINA_TB (ID_RUTINA, NOMBRE_RUTINA, ID_ESTADO) VALUES (16, 'Registro de Observaciones Diarias', 1);
+INSERT INTO FIDE_RUTINA_TB (ID_RUTINA, NOMBRE_RUTINA, ID_ESTADO) VALUES (17, 'Sesión de Enriquecimiento Ambiental', 1);
+INSERT INTO FIDE_RUTINA_TB (ID_RUTINA, NOMBRE_RUTINA, ID_ESTADO) VALUES (18, 'Administración de Medicamentos', 1);
+INSERT INTO FIDE_RUTINA_TB (ID_RUTINA, NOMBRE_RUTINA, ID_ESTADO) VALUES (19, 'Inspección de Cuarentena', 1);
+INSERT INTO FIDE_RUTINA_TB (ID_RUTINA, NOMBRE_RUTINA, ID_ESTADO) VALUES (20, 'Revisión de Sistemas de Calefacción/Refrigeración', 1);
+
+
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (1, 'AquaPro Premium', 'Alimento en gránulos de alta proteína para peces marinos.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (2, 'OceanFeast Vitality', 'Escamas enriquecidas con vitaminas para peces tropicales de agua dulce.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (3, 'CoralNourish Liquid', 'Suplemento líquido para corales y anémonas.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (4, 'FishGourmet Artemia', 'Alimento liofilizado de artemia para todo tipo de peces.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (5, 'VeggieDelight Spirulina', 'Discos de alga espirulina para peces herbívoros.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (6, 'BettaBoost Color', 'Pellets pequeños flotantes para peces Betta.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (7, 'CichlidPower Intense', 'Gránulos para cíclidos, mejora la coloración.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (8, 'ShrimpBits Complete', 'Alimento en tabletas para camarones y crustáceos.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (9, 'GoldFishFlakes Pro', 'Escamas especiales para peces dorados.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (10, 'BottomFeederPro Sinking', 'Pastillas de hundimiento rápido para peces de fondo.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (11, 'MarineMax Pellet', 'Alimento granulado para peces marinos exigentes.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (12, 'TropicalEssence Flake', 'Escamas con probióticos para peces tropicales.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (13, 'ReefFuel Phytoplankton', 'Mezcla de fitoplancton y zooplancton para acuarios de arrecife.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (14, 'FreezeDriedWorms Deluxe', 'Gusanos tubifex liofilizados, ricos en proteínas.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (15, 'AlgaeWafers Green', 'Obleas de alga para peces pleco y otros herbívoros.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (16, 'DiscusCare Granules', 'Fórmula especializada en gránulos para peces Discus.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (17, 'TurtleFeast Sticks', 'Pellets balanceados para tortugas acuáticas.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (18, 'KrillSuper Red', 'Krill deshidratado para potenciar el color.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (19, 'KoiGrowth Jumbo', 'Pellets flotantes para el crecimiento de Koi.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (20, 'CatfishSinks Pro', 'Alimento que se hunde para peces gato y lochas.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (21, 'NanoFishDiet Micro', 'Micro-gránulos para peces muy pequeños.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (22, 'FryFormula Plus', 'Alimento en polvo para alevines y peces jóvenes.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (23, 'SpirulinaBoost Tablets', 'Copos de espirulina pura para una dieta vegetal.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (24, 'MarineHerbivore Delight', 'Alimento especializado para peces marinos herbívoros.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (25, 'OmniPellets Balanced', 'Pellets para peces omnívoros, dieta balanceada.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (26, 'BrineShrimpPlus Enriched', 'Enriquecimiento para artemia viva.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (27, 'LiveFoodCulture Kit', 'Kits para cultivar alimento vivo.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (28, 'GobyGourmet Bites', 'Alimento granulado para gobios y blenios.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (29, 'PufferFeast Varied', 'Dieta variada para peces globo, ayuda a desgastar dientes.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (30, 'SharkBits Junior', 'Grandes pellets flotantes para tiburones pequeños.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (31, 'RayRoyale Discs', 'Alimento en tabletas para rayas de agua dulce.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (32, 'DeepSeaDiet Slow', 'Fórmula para peces de aguas profundas con bajo metabolismo.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (33, 'FreshwaterCarnivore Max', 'Pellets de alto contenido cárnico para depredadores de agua dulce.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (34, 'ColourEnhancer Pro', 'Alimento con carotenoides para intensificar los colores.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (35, 'ImmuneBoost Fortify', 'Fórmula con beta-glucanos para fortalecer el sistema inmune.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (36, 'SlowReleaseBlocks Vacation', 'Bloques de alimento de liberación lenta para vacaciones.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (37, 'JellyfishJelly Pro', 'Alimento especializado en gel para medusas.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (38, 'AquaticReptileMix Balanced', 'Mezcla nutritiva para reptiles acuáticos pequeños.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (39, 'LarvalDiet Ultra', 'Alimento microscópico para larvas de peces y crustáceos.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (40, 'MarineGel Soft', 'Alimento en gel para peces marinos delicados.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (41, 'ColdWaterFlakes Premium', 'Escamas para peces de agua fría.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (42, 'CoralFragFood Paste', 'Alimento en pasta para pequeños fragmentos de coral.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (43, 'PlanktonPlus Concentrated', 'Concentrado de plancton para invertebrados filtradores.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (44, 'OscarOptimal Large', 'Pellets grandes para el pez Óscar.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (45, 'ArowanaSupreme Sticks', 'Alimento en stick para Arowanas.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (46, 'ClownfishCuisine Formula', 'Fórmula específica para peces payaso y sus anémonas.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (47, 'SeahorseSymphony Frozen', 'Alimento para caballitos de mar y dragones marinos.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (48, 'GuppyGrowth Flakes', 'Pequeñas escamas para el crecimiento de guppies.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (49, 'SaltwaterSticks Mega', 'Sticks nutritivos para peces marinos grandes.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (50, 'CrabCubes Aquatic', 'Alimento en cubos para cangrejos y ermitaños acuáticos.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (51, 'AquaBlend Mix', 'Mezcla equilibrada de escamas y gránulos para acuarios comunitarios.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (52, 'VitaFish Drops', 'Gotas vitamínicas concentradas para añadir al alimento.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (53, 'PelletPro Grow', 'Pellets de crecimiento rápido para peces jóvenes.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (54, 'OceanFlora Wafers', 'Obleas vegetales enriquecidas para herbívoros.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (55, 'FrozenMysis Shrimp', 'Mysis liofilizado de alta calidad para peces marinos.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (56, 'ReefBuilder Calcium', 'Suplemento de calcio para corales duros.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (57, 'AlgaeClean Tablets', 'Tabletas para el control de algas en el acuario.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (58, 'DaphniaFreeze Dried', 'Daphnia liofilizada como fuente de fibra para peces.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (59, 'ShrimpPellets Daily', 'Pellets diarios para la dieta de camarones de agua dulce y salada.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (60, 'BottomDwellers Sticks', 'Sticks de hundimiento para peces de fondo de gran tamaño.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (61, 'TropicalBoost Powder', 'Polvo concentrado para fortalecer la vitalidad de peces tropicales.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (62, 'MarineVeggies Sheets', 'Hojas de alga nori para peces marinos herbívoros.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (63, 'GoldFishCubes', 'Cubos de alimento específicos para peces dorados.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (64, 'BettaBliss Formula', 'Alimento en escamas finas para Bettas.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (65, 'CichlidSticks Jumbo', 'Sticks grandes para cíclidos carnívoros.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (66, 'NanoGrowth Granules', 'Gránulos para el crecimiento de nano peces.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (67, 'FilterFeeder Food', 'Alimento líquido para corales y filtradores.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (68, 'ArowanaMonster Diet', 'Dieta de alta energía para arowanas gigantes.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (69, 'DiscusColor Enhancer', 'Gránulos para realzar el color en Discus.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (70, 'LoachLove Bites', 'Alimento en tableta para lochas y corydoras.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (71, 'PredatorPellets Max', 'Pellets para peces depredadores de gran tamaño.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (72, 'TetraColor Flakes', 'Escamas para intensificar el color de tetras.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (73, 'GouramiGuard Formula', 'Alimento para fortalecer la salud de gouramis.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (74, 'PufferTreats Crunchy', 'Premios crujientes para peces globo.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (75, 'AxolotlDiet Pellets', 'Pellets nutritivos para ajolotes y salamandras acuáticas.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (76, 'GuppyGlow Micro', 'Micro-escamas para realzar el brillo de guppies.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (77, 'ShrimpSafe Crumbs', 'Migajas de alimento seguro para crías de camarones.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (78, 'KoiBalance Mix', 'Mezcla equilibrada de alimentos para Koi.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (79, 'MarineVitamins Pro', 'Concentrado de vitaminas marinas para peces.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (80, 'AlgaeControl Pellets', 'Pellets para el control de algas en acuarios grandes.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (81, 'ReefEssentials Trace', 'Oligoelementos para acuarios de arrecife.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (82, 'TurtleBite Pellets', 'Pellets para tortugas jóvenes.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (83, 'NanoCoral Fuel', 'Alimento líquido para corales nano.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (84, 'FrogFeast Pellets', 'Pellets para ranas acuáticas.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (85, 'Bloodworms FreezeDried', 'Gusanos de sangre liofilizados.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (86, 'MarineOmnivore Pro', 'Alimento completo para peces marinos omnívoros.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (87, 'CarnivoreBits Crispy', 'Bocadillos crujientes para peces carnívoros.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (88, 'PlantFeeder Discs', 'Discos nutritivos para peces herbívoros plantados.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (89, 'AlgaeMax Wafers', 'Obleas con alta concentración de alga.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (90, 'ShrimpMineral Boost', 'Suplemento mineral para camarones.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (91, 'FreshwaterStaple Diet', 'Dieta básica para peces de agua dulce.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (92, 'CoralGlow Formula', 'Alimento para mejorar la fluorescencia de los corales.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (93, 'OscarGrowth Max', 'Fórmula de crecimiento intensivo para Óscares.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (94, 'BettaPower Pellets', 'Pellets de alto rendimiento para Bettas.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (95, 'TropicalProtein Mix', 'Mezcla de proteínas para peces tropicales.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (96, 'ReptilePond Pellets', 'Alimento para reptiles de estanque.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (97, 'CichlidVeggie Flakes', 'Escamas vegetales para cíclidos herbívoros.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (98, 'GoldFishVariety Flakes', 'Variedad de escamas para peces dorados.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (99, 'BottomFeederAlgae Wafers', 'Obleas de alga para peces de fondo.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (100, 'NanoPellets Community', 'Mini pellets para acuarios comunitarios.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (101, 'AquaZen Calm', 'Alimento con ingredientes que reducen el estrés en peces.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (102, 'OceanVitality Boost', 'Suplemento para mejorar la vitalidad de la vida marina.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (103, 'CoralPro SPS Food', 'Alimento específico para corales SPS.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (104, 'FreezeDriedTubifex Cubes', 'Cubos liofilizados de gusanos tubifex.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (105, 'VeggieSticks Algae', 'Sticks de alga para peces grandes herbívoros.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (106, 'BettaBalance Diet', 'Dieta equilibrada para Bettas.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (107, 'CichlidCarnivore Blend', 'Mezcla carnívora para cíclidos.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (108, 'ShrimpLovers Mix', 'Mezcla de alimentos para camarones.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (109, 'GoldFishGel Food', 'Alimento en gel para peces dorados.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (110, 'BottomFeederOptimal Health', 'Fórmula para la salud de peces de fondo.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (111, 'MarineFlakes Omega', 'Escamas marinas ricas en Omega-3.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (112, 'TropicalMax Growth', 'Alimento de máximo crecimiento para peces tropicales.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (113, 'ReefBio Culture', 'Cultivo de microorganismos para arrecifes.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (114, 'FreezeDriedBloodworms Large', 'Gusanos de sangre liofilizados grandes.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (115, 'AlgaeDiscs Sticky', 'Discos de alga adhesivos para cristales.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (116, 'DiscusVitality Pellets', 'Pellets para la vitalidad de peces Discus.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (117, 'TurtleHealth Formula', 'Fórmula de salud para tortugas.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (118, 'KrillBoost Natural', 'Krill 100% natural para realzar colores.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (119, 'KoiColor Enhance', 'Alimento para mejorar el color de Koi.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (120, 'CatfishSinks Omega', 'Alimento para peces gato con Omega-3.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (121, 'NanoFishVitality Crumbs', 'Migajas para la vitalidad de nano peces.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (122, 'FryStarter Dust', 'Polvo de arranque para alevines.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (123, 'SpirulinaFlakes Complete', 'Escamas de espirulina para una dieta completa.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (124, 'MarineOmni Flakes', 'Escamas para peces marinos omnívoros.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (125, 'OmniPellets Plus', 'Pellets avanzados para omnívoros.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (126, 'BrineShrimpPure', 'Artemia pura congelada.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (127, 'LiveCultures Probiotic', 'Cultivos vivos probióticos.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (128, 'GobyGourmet MicroPellets', 'Micropellets para gobios.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (129, 'PufferDental Formula', 'Fórmula dental para peces globo.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (130, 'SharkGrow Formula', 'Fórmula de crecimiento para tiburones.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (131, 'RayPower Pellets', 'Pellets de energía para rayas.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (132, 'DeepSeaEnergy Bites', 'Bocadillos energéticos para peces de profundidad.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (133, 'FreshwaterCarnivore Cubes', 'Cubos carnívoros para agua dulce.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (134, 'VibrantColor Boost', 'Alimento para un color vibrante.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (135, 'ImmunitySupport Flakes', 'Escamas de soporte inmunológico.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (136, 'VacationFeeder Slow', 'Dispensador de alimento lento para vacaciones.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (137, 'JellyfishActive Gel', 'Gel activo para medusas.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (138, 'AquaticReptileImmunity', 'Alimento para la inmunidad de reptiles acuáticos.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (139, 'LarvalGrow Liquid', 'Líquido de crecimiento para larvas.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (140, 'MarineGel Premium', 'Gel premium para peces marinos.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (141, 'ColdWaterPellets Boost', 'Pellets para agua fría con potenciador.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (142, 'CoralRegen Paste', 'Pasta de regeneración para corales.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (143, 'PlanktonConcentrate Pro', 'Concentrado de plancton profesional.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (144, 'OscarXL Pellets', 'Pellets extra grandes para Óscares.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (145, 'ArowanaGold Bites', 'Bocadillos dorados para Arowanas.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (146, 'ClownfishHealth Flakes', 'Escamas de salud para peces payaso.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (147, 'SeahorseMicro Pellets', 'Micropellets para caballitos de mar.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (148, 'GuppyColor Flakes', 'Escamas para realzar el color de guppies.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (149, 'SaltwaterOmega Sticks', 'Sticks marinos con Omega-3.', 1);
+INSERT INTO FIDE_MARCA_ALIMENTO_TB (ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO) VALUES (150, 'CrabMolt Support', 'Alimento de soporte para muda de cangrejos.', 1);
 
 
 
-------INSERCION TABLA PAIS---
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (1, 'Costa Rica', 12);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (2, 'Panam�', 7);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (3, 'Nicaragua', 13);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (4, 'Guatemala', 5);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (5, 'El Salvador', 3);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (6, 'Honduras', 1);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (7, 'M�xico', 13);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (8, 'Colombia', 1);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (9, 'Per�', 13);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (10, 'Chile', 11);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (11, 'Argentina', 10);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (12, 'Brasil', 7);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (13, 'Uruguay', 11);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (14, 'Paraguay', 4);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (15, 'Ecuador', 9);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (17, 'Bolivia', 6);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (18, 'Cuba', 12);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (19, 'Rep�blica Dominicana', 8);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (20, 'Puerto Rico', 11);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (21, 'Canad�', 9);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (22, 'Estados Unidos', 11);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (23, 'Espa�a', 3);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (24, 'Francia', 6);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (25, 'Alemania', 3);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (26, 'Italia', 2);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (27, 'Portugal', 10);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (28, 'Inglaterra', 13);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (29, 'Irlanda', 7);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (30, 'Australia', 1);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (32, 'Sud�frica', 3);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (34, 'India', 7);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (35, 'China', 10);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (36, 'Jap�n', 11);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (37, 'Corea del Sur', 1);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (38, 'Rusia', 6);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (39, 'Turqu�a', 2);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (40, 'Filipinas', 8);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (41, 'Indonesia', 5);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (42, 'Tailandia', 13);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (43, 'Vietnam', 12);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (44, 'Malasia', 3);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (45, 'Singapur', 9);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (46, 'Emiratos �rabes', 7);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (47, 'Arabia Saudita', 6);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (48, 'Israel', 8);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (49, 'Noruega', 4);
-INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (50, 'Suecia', 5);
-
-
------INSERCION TABLA PROVINCIA
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (1, 'San Jos�', 5);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (2, 'Alajuela', 6);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (3, 'Cartago', 13);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (4, 'Heredia', 11);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (5, 'Guanacaste', 7);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (6, 'Puntarenas', 13);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (7, 'Lim�n', 11);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (8, 'Chiriqu�', 9);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (9, 'Veraguas', 6);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (10, 'Cocl�', 6);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (11, 'Panam�', 2);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (12, 'Col�n', 2);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (13, 'Antioquia', 1);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (14, 'Cundinamarca', 8);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (15, 'Valle del Cauca', 6);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (16, 'Amazonas', 12);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (17, 'Pichincha', 5);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (18, 'Guayas', 10);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (19, 'Azuay', 3);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (20, 'Santa Elena', 7);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (21, 'Buenos Aires', 1);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (22, 'C�rdoba', 6);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (23, 'Mendoza', 5);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (24, 'Santa Fe', 5);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (25, 'Salta', 5);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (26, 'Ontario', 2);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (27, 'Quebec', 6);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (28, 'British Columbia', 9);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (29, 'Alberta', 9);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (30, 'Nova Scotia', 4);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (31, 'Texas', 6);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (32, 'California', 1);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (33, 'Florida', 10);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (34, 'New York', 3);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (35, 'Nevada', 2);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (36, 'Madrid', 4);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (37, 'Catalu�a', 5);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (38, 'Andaluc�a', 6);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (39, 'Galicia', 7);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (40, 'Castilla y Le�n', 8);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (41, 'Paran�', 9);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (42, 'Bah�a', 10);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (43, 'Pernambuco', 11);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (44, 'Minas Gerais', 12);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (45, 'R�o de Janeiro', 13);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (46, 'Tokyo', 1);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (47, 'Osaka', 2);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (48, 'Hokkaido', 3);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (49, 'Kyoto', 4);
-INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (50, 'Fukuoka', 5);
-
-------INSERCION TABLA CANT�N
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (1, 'Central', 10);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (2, 'Escaz�', 12);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (3, 'Desamparados', 10);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (4, 'Alajuelita', 7);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (5, 'Goicoechea', 6);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (6, 'Santa Ana', 6);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (7, 'Tibas', 9);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (8, 'Moravia', 11);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (9, 'Montes de Oca', 2);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (10, 'Curridabat', 9);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (11, 'Alajuela', 11);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (12, 'San Ram�n', 1);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (13, 'Grecia', 10);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (14, 'Atenas', 3);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (15, 'Po�s', 1);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (16, 'Cartago', 9);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (17, 'Para�so', 8);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (18, 'La Uni�n', 11);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (19, 'Jim�nez', 2);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (20, 'Turrialba', 8);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (21, 'Heredia', 6);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (22, 'Barva', 13);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (23, 'Santo Domingo', 1);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (24, 'San Rafael', 13);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (25, 'Sarapiqu�', 3);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (26, 'Liberia', 11);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (27, 'Nicoya', 12);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (28, 'Santa Cruz', 13);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (29, 'Bagaces', 2);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (30, 'Ca�as', 4);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (31, 'Puntarenas', 3);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (32, 'Esparza', 4);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (33, 'Buenos Aires', 1);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (34, 'Golfito', 9);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (35, 'Osa', 3);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (36, 'Lim�n', 11);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (37, 'Pococ�', 6);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (38, 'Siquirres', 4);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (39, 'Talamanca', 2);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (40, 'Matina', 5);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (41, 'Chitr�', 10);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (42, 'David', 6);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (43, 'Santiago', 3);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (44, 'Penonom�', 11);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (45, 'La Chorrera', 1);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (46, 'Guadalupe', 6);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (47, 'Zapote', 8);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (48, 'San Pedro', 4);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (49, 'San Pablo', 9);
-INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (50, 'El Carmen', 7);
-
-------INSERCION TABLA DISTRITO
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (1, 'Carmen', 4);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (2, 'Merced', 8);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (3, 'Hospital', 13);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (4, 'Catedral', 12);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (5, 'Zapote', 11);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (6, 'San Francisco', 3);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (7, 'San Sebasti�n', 3);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (8, 'Hatillo', 10);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (9, 'Pavas', 2);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (10, 'Uruca', 9);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (11, 'San Rafael', 13);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (12, 'San Antonio', 12);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (13, 'San Miguel', 13);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (14, 'San Juan', 1);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (15, 'San Pedro', 1);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (16, 'Sabanilla', 5);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (17, 'Mercedes', 1);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (18, 'San Pablo', 10);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (19, 'San Vicente', 5);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (20, 'Santo Domingo', 10);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (21, 'Carrandi', 5);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (22, 'Matama', 10);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (23, 'Lim�n Centro', 9);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (24, 'Gu�piles', 7);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (25, 'Jim�nez', 5);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (26, 'Tucurrique', 4);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (27, 'La Suiza', 11);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (28, 'Pejibaye', 4);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (29, 'Turrialba', 4);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (30, 'Santa Cruz', 11);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (31, 'Liberia', 12);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (32, 'Filadelfia', 3);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (33, 'Nicoya', 6);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (34, 'Santa Rosa', 4);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (35, 'Quebrada Honda', 2);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (36, 'Puerto Viejo', 7);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (37, 'Cahuita', 1);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (38, 'Bribr�', 8);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (39, 'Sixaola', 12);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (40, 'Paraiso', 10);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (41, 'Orosi', 6);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (42, 'Cach�', 8);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (43, 'Tejar', 9);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (44, 'Tres R�os', 11);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (45, 'San Diego', 10);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (46, 'Curridabat', 3);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (47, 'Granadilla', 9);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (48, 'S�nchez', 13);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (49, 'San Rafael Abajo', 1);
-INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (50, 'San Rafael Arriba', 3);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (50, '08:00 AM', 'Diaria', 1, 1, 1);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (75, '04:00 PM', 'Diaria', 2, 1, 2);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (100, '10:00 AM', 'Semanal', 3, 1, 3);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (125, '03:00 PM', 'Cada 2 días', 4, 1, 4);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (150, '09:00 AM', 'Mensual', 5, 1, 5);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (175, '11:00 AM', 'Quincenal', 6, 1, 6);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (200, '09:30 AM', 'Diaria', 7, 1, 7);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (25, '01:00 PM', 'Diaria', 8, 1, 8);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (40, '07:00 AM', 'Según necesidad', 9, 1, 9);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (60, '02:00 PM', 'Mensual', 10, 1, 10);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (50, '06:00 PM', 'Semanal', 11, 1, 11);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (75, '08:30 AM', 'Semanal', 12, 1, 12);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (100, '10:30 AM', 'Mensual', 13, 1, 13);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (125, '09:00 AM', 'Mensual', 14, 1, 14);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (150, '03:30 PM', 'Quincenal', 15, 1, 15);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (175, '05:00 PM', 'Diaria', 16, 1, 16);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (200, '02:30 PM', 'Semanal', 17, 1, 17);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (25, '09:00 AM', 'Según prescripción', 18, 1, 18);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (40, '11:00 AM', 'Diaria', 19, 1, 19);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (60, '07:00 AM', 'Mensual', 20, 1, 20);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (50, '08:00 AM', 'Diaria', 21, 1, 1);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (75, '04:00 PM', 'Diaria', 22, 1, 2);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (100, '10:00 AM', 'Semanal', 23, 1, 3);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (125, '03:00 PM', 'Cada 2 días', 24, 1, 4);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (150, '09:00 AM', 'Mensual', 25, 1, 5);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (175, '11:00 AM', 'Quincenal', 26, 1, 6);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (200, '09:30 AM', 'Diaria', 27, 1, 7);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (25, '01:00 PM', 'Diaria', 28, 1, 8);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (40, '07:00 AM', 'Según necesidad', 29, 1, 9);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (60, '02:00 PM', 'Mensual', 30, 1, 10);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (50, '06:00 PM', 'Semanal', 31, 1, 11);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (75, '08:30 AM', 'Semanal', 32, 1, 12);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (100, '10:30 AM', 'Mensual', 33, 1, 13);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (125, '09:00 AM', 'Mensual', 34, 1, 14);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (150, '03:30 PM', 'Quincenal', 35, 1, 15);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (175, '05:00 PM', 'Diaria', 36, 1, 16);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (200, '02:30 PM', 'Semanal', 37, 1, 17);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (25, '09:00 AM', 'Según prescripción', 38, 1, 18);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (40, '11:00 AM', 'Diaria', 39, 1, 19);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (60, '07:00 AM', 'Mensual', 40, 1, 20);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (50, '08:00 AM', 'Diaria', 41, 1, 1);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (75, '04:00 PM', 'Diaria', 42, 1, 2);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (100, '10:00 AM', 'Semanal', 43, 1, 3);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (125, '03:00 PM', 'Cada 2 días', 44, 1, 4);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (150, '09:00 AM', 'Mensual', 45, 1, 5);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (175, '11:00 AM', 'Quincenal', 46, 1, 6);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (200, '09:30 AM', 'Diaria', 47, 1, 7);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (25, '01:00 PM', 'Diaria', 48, 1, 8);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (40, '07:00 AM', 'Según necesidad', 49, 1, 9);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (60, '02:00 PM', 'Mensual', 50, 1, 10);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (50, '06:00 PM', 'Semanal', 51, 1, 11);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (75, '08:30 AM', 'Semanal', 52, 1, 12);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (100, '10:30 AM', 'Mensual', 53, 1, 13);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (125, '09:00 AM', 'Mensual', 54, 1, 14);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (150, '03:30 PM', 'Quincenal', 55, 1, 15);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (175, '05:00 PM', 'Diaria', 56, 1, 16);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (200, '02:30 PM', 'Semanal', 57, 1, 17);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (25, '09:00 AM', 'Según prescripción', 58, 1, 18);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (40, '11:00 AM', 'Diaria', 59, 1, 19);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (60, '07:00 AM', 'Mensual', 60, 1, 20);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (50, '08:00 AM', 'Diaria', 61, 1, 1);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (75, '04:00 PM', 'Diaria', 62, 1, 2);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (100, '10:00 AM', 'Semanal', 63, 1, 3);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (125, '03:00 PM', 'Cada 2 días', 64, 1, 4);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (150, '09:00 AM', 'Mensual', 65, 1, 5);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (175, '11:00 AM', 'Quincenal', 66, 1, 6);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (200, '09:30 AM', 'Diaria', 67, 1, 7);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (25, '01:00 PM', 'Diaria', 68, 1, 8);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (40, '07:00 AM', 'Según necesidad', 69, 1, 9);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (60, '02:00 PM', 'Mensual', 70, 1, 10);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (50, '06:00 PM', 'Semanal', 71, 1, 11);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (75, '08:30 AM', 'Semanal', 72, 1, 12);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (100, '10:30 AM', 'Mensual', 73, 1, 13);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (125, '09:00 AM', 'Mensual', 74, 1, 14);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (150, '03:30 PM', 'Quincenal', 75, 1, 15);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (175, '05:00 PM', 'Diaria', 76, 1, 16);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (200, '02:30 PM', 'Semanal', 77, 1, 17);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (25, '09:00 AM', 'Según prescripción', 78, 1, 18);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (40, '11:00 AM', 'Diaria', 79, 1, 19);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (60, '07:00 AM', 'Mensual', 80, 1, 20);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (50, '08:00 AM', 'Diaria', 81, 1, 1);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (75, '04:00 PM', 'Diaria', 82, 1, 2);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (100, '10:00 AM', 'Semanal', 83, 1, 3);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (125, '03:00 PM', 'Cada 2 días', 84, 1, 4);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (150, '09:00 AM', 'Mensual', 85, 1, 5);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (175, '11:00 AM', 'Quincenal', 86, 1, 6);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (200, '09:30 AM', 'Diaria', 87, 1, 7);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (25, '01:00 PM', 'Diaria', 88, 1, 8);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (40, '07:00 AM', 'Según necesidad', 89, 1, 9);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (60, '02:00 PM', 'Mensual', 90, 1, 10);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (50, '06:00 PM', 'Semanal', 91, 1, 11);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (75, '08:30 AM', 'Semanal', 92, 1, 12);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (100, '10:30 AM', 'Mensual', 93, 1, 13);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (125, '09:00 AM', 'Mensual', 94, 1, 14);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (150, '03:30 PM', 'Quincenal', 95, 1, 15);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (175, '05:00 PM', 'Diaria', 96, 1, 16);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (200, '02:30 PM', 'Semanal', 97, 1, 17);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (25, '09:00 AM', 'Según prescripción', 98, 1, 18);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (40, '11:00 AM', 'Diaria', 99, 1, 19);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (60, '07:00 AM', 'Mensual', 100, 1, 20);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (50, '08:00 AM', 'Diaria', 101, 1, 1);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (75, '04:00 PM', 'Diaria', 102, 1, 2);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (100, '10:00 AM', 'Semanal', 103, 1, 3);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (125, '03:00 PM', 'Cada 2 días', 104, 1, 4);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (150, '09:00 AM', 'Mensual', 105, 1, 5);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (175, '11:00 AM', 'Quincenal', 106, 1, 6);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (200, '09:30 AM', 'Diaria', 107, 1, 7);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (25, '01:00 PM', 'Diaria', 108, 1, 8);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (40, '07:00 AM', 'Según necesidad', 109, 1, 9);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (60, '02:00 PM', 'Mensual', 110, 1, 10);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (50, '06:00 PM', 'Semanal', 111, 1, 11);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (75, '08:30 AM', 'Semanal', 112, 1, 12);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (100, '10:30 AM', 'Mensual', 113, 1, 13);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (125, '09:00 AM', 'Mensual', 114, 1, 14);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (150, '03:30 PM', 'Quincenal', 115, 1, 15);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (175, '05:00 PM', 'Diaria', 116, 1, 16);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (200, '02:30 PM', 'Semanal', 117, 1, 17);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (25, '09:00 AM', 'Según prescripción', 118, 1, 18);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (40, '11:00 AM', 'Diaria', 119, 1, 19);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (60, '07:00 AM', 'Mensual', 120, 1, 20);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (50, '08:00 AM', 'Diaria', 121, 1, 1);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (75, '04:00 PM', 'Diaria', 122, 1, 2);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (100, '10:00 AM', 'Semanal', 123, 1, 3);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (125, '03:00 PM', 'Cada 2 días', 124, 1, 4);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (150, '09:00 AM', 'Mensual', 125, 1, 5);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (175, '11:00 AM', 'Quincenal', 126, 1, 6);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (200, '09:30 AM', 'Diaria', 127, 1, 7);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (25, '01:00 PM', 'Diaria', 128, 1, 8);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (40, '07:00 AM', 'Según necesidad', 129, 1, 9);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (60, '02:00 PM', 'Mensual', 130, 1, 10);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (50, '06:00 PM', 'Semanal', 131, 1, 11);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (75, '08:30 AM', 'Semanal', 132, 1, 12);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (100, '10:30 AM', 'Mensual', 133, 1, 13);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (125, '09:00 AM', 'Mensual', 134, 1, 14);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (150, '03:30 PM', 'Quincenal', 135, 1, 15);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (175, '05:00 PM', 'Diaria', 136, 1, 16);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (200, '02:30 PM', 'Semanal', 137, 1, 17);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (25, '09:00 AM', 'Según prescripción', 138, 1, 18);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (40, '11:00 AM', 'Diaria', 139, 1, 19);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (60, '07:00 AM', 'Mensual', 140, 1, 20);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (50, '08:00 AM', 'Diaria', 141, 1, 1);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (75, '04:00 PM', 'Diaria', 142, 1, 2);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (100, '10:00 AM', 'Semanal', 143, 1, 3);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (125, '03:00 PM', 'Cada 2 días', 144, 1, 4);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (150, '09:00 AM', 'Mensual', 145, 1, 5);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (175, '11:00 AM', 'Quincenal', 146, 1, 6);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (200, '09:30 AM', 'Diaria', 147, 1, 7);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (25, '01:00 PM', 'Diaria', 148, 1, 8);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (40, '07:00 AM', 'Según necesidad', 149, 1, 9);
+INSERT INTO FIDE_ALIMENTACION_TB (CANTIDAD, HORARIO, FRECUENCIA, ID_MARCA_ALIMENTO, ID_ESTADO, ID_RUTINA) VALUES (60, '02:00 PM', 'Mensual', 150, 1, 10);
 
 
 
-------INSERCION TABLA DIRECCION
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (1, 'Frente al acuario principal', 1, 1, 1, 1, 101, 7);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (2, 'Detr�s del tanque de medusas', 2, 2, 2, 2, 102, 9);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (3, 'Cerca del �rea de tiburones', 3, 3, 3, 3, 103, 12);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (4, 'Contiguo a la entrada principal', 4, 4, 4, 4, 104, 11);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (5, 'Junto al estanque de tortugas', 5, 5, 5, 5, 105, 13);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (6, 'Segundo piso, zona administrativa', 6, 6, 6, 6, 106, 3);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (7, 'Pasillo oeste, m�dulo 3', 7, 7, 7, 7, 107, 7);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (8, 'Zona de cuarentena de peces', 8, 8, 8, 8, 108, 1);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (9, 'Planta baja, al lado del elevador', 9, 9, 9, 9, 109, 13);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (10, 'Frente a la tienda de regalos', 10, 10, 10, 10, 110, 10);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (11, 'Contiguo a la cafeter�a', 11, 11, 11, 11, 111, 10);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (12, 'Oficina de mantenimiento', 12, 12, 12, 12, 112, 11);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (13, 'Frente a la entrada de proveedores', 13, 13, 13, 13, 113, 8);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (14, 'Cerca del estanque de mantarrayas', 14, 14, 14, 14, 114, 3);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (15, '�rea de investigaci�n', 15, 15, 15, 15, 115, 11);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (16, 'Edificio azul, entrada lateral', 16, 16, 16, 16, 116, 2);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (17, 'Junto al laboratorio marino', 17, 17, 17, 17, 117, 1);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (18, 'Zona educativa, sal�n 1', 18, 18, 18, 18, 118, 6);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (19, 'Pasillo este, m�dulo 2', 19, 19, 19, 19, 119, 10);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (20, '�rea de eventos', 20, 20, 20, 20, 120, 13);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (21, 'Estacionamiento subterr�neo', 21, 21, 21, 21, 121, 2);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (22, 'Cerca del �rea de delfines', 22, 22, 22, 22, 122, 8);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (23, 'Oficina de direcci�n', 23, 23, 23, 23, 123, 8);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (24, 'Bodega general', 24, 24, 24, 24, 124, 11);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (25, 'Segundo nivel, escalera norte', 25, 25, 25, 25, 125, 13);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (26, 'Al lado de la recepci�n', 26, 26, 26, 26, 126, 12);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (27, 'Pasillo de exhibici�n', 27, 27, 27, 27, 127, 13);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (28, 'Puerta de acceso restringido', 28, 28, 28, 28, 128, 13);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (29, 'Edificio verde, segundo piso', 29, 29, 29, 29, 129, 12);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (30, 'Zona de reproducci�n', 30, 30, 30, 30, 130, 5);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (31, 'Laboratorio de agua', 31, 31, 31, 31, 131, 8);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (32, 'Contiguo al tanque tropical', 32, 32, 32, 32, 132, 3);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (33, 'Frente a la salida de emergencia', 33, 33, 33, 33, 133, 5);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (34, 'Zona de seguridad', 34, 34, 34, 34, 134, 2);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (35, 'Sala de conferencias', 35, 35, 35, 35, 135, 2);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (36, 'Zona t�cnica de filtraci�n', 36, 36, 36, 36, 136, 9);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (37, '�rea de voluntarios', 37, 37, 37, 37, 137, 8);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (38, 'Tercer piso, m�dulo B', 38, 38, 38, 38, 138, 13);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (39, 'Acceso personal autorizado', 39, 39, 39, 39, 139, 6);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (40, 'Zona de iluminaci�n', 40, 40, 40, 40, 140, 2);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (41, 'Cerca del h�bitat de ping�inos', 41, 41, 41, 41, 141, 5);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (42, 'Zona de entrenamiento', 42, 42, 42, 42, 142, 4);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (43, 'Centro de visitantes', 43, 43, 43, 43, 143, 12);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (44, '�rea de primeros auxilios', 44, 44, 44, 44, 144, 12);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (45, 'Junto al sistema de bombeo', 45, 45, 45, 45, 145, 5);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (46, 'Almac�n de alimentos', 46, 46, 46, 46, 146, 11);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (47, 'Contiguo al t�nel submarino', 47, 47, 47, 47, 147, 6);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (48, 'Zona de fotograf�a', 48, 48, 48, 48, 148, 5);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (49, 'Puerta 7, m�dulo de servicio', 49, 49, 49, 49, 149, 8);
-INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_USUARIO, ID_ESTADO) VALUES (50, 'Sector noroeste, punto de control', 50, 50, 50, 50, 150, 12);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (1, 'Tiburón Martillo Juvenil A', TO_DATE('2023-05-16', 'YYYY-MM-DD'), 2, 25.5, 'Activo y en crecimiento. Muestra buen apetito.', 1, 3, 2, 1, 1, 1);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (2, 'Pez Payaso Ocellaris A', TO_DATE('2022-01-20', 'YYYY-MM-DD'), 1, 0.5, 'Se adapta bien a la anémona de su hábitat.', 2, 1, 1, 1, 2, 2);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (3, 'Manta Raya Gigante A', TO_DATE('2020-03-10', 'YYYY-MM-DD'), 7, 750.0, 'Nado elegante y constante. Interactúa con el personal.', 1, 3, 5, 1, 3, 3);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (4, 'Pez Cirujano Azul Regal A', TO_DATE('2021-07-01', 'YYYY-MM-DD'), 3, 0.8, 'Colores vibrantes, muy activo. Sin signos de enfermedad.', 2, 2, 1, 1, 4, 4);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (5, 'Pez Ángel Emperador Joven A', TO_DATE('2024-02-15', 'YYYY-MM-DD'), 0, 0.3, 'Mostrando cambios de coloración a patrón adulto.', 1, 2, 1, 1, 5, 5);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (6, 'Pez Mandarín Espléndido A', TO_DATE('2023-11-05', 'YYYY-MM-DD'), 1, 0.1, 'Se alimenta de microfauna en las rocas.', 2, 1, 3, 1, 6, 6);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (7, 'Pez Gobio Fuego Rojo A', TO_DATE('2022-09-20', 'YYYY-MM-DD'), 1, 0.2, 'Excavando túneles en el sustrato.', 1, 1, 1, 1, 7, 7);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (8, 'Pez Betta Corona Azul A', TO_DATE('2023-04-12', 'YYYY-MM-DD'), 0, 0.05, 'Aletas en excelente estado. Muy territorial.', 1, 3, 4, 1, 8, 8);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (9, 'Pez Disco Turquesa Adulto A', TO_DATE('2019-08-01', 'YYYY-MM-DD'), 5, 1.2, 'Colores intensos. Se alimenta con voracidad.', 2, 3, 3, 1, 9, 9);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (10, 'Pez Cebra Danio Rosado A', TO_DATE('2023-03-01', 'YYYY-MM-DD'), 0, 0.02, 'Nado en cardumen. Muy activo.', 1, 7, 2, 1, 10, 10);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (11, 'Pez Tetra Neón Brillante A', TO_DATE('2022-06-10', 'YYYY-MM-DD'), 1, 0.03, 'Línea iridiscente muy marcada.', 2, 7, 2, 1, 11, 11);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (12, 'Pez Guppy Endler Macho A', TO_DATE('2024-01-01', 'YYYY-MM-DD'), 0, 0.01, 'Colores muy vivos. Persigue a las hembras.', 1, 7, 2, 1, 12, 12);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (13, 'Pez Molly Balón Dorado A', TO_DATE('2023-08-20', 'YYYY-MM-DD'), 1, 0.15, 'Se reproduce con frecuencia. Muy robusto.', 2, 7, 2, 1, 13, 13);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (14, 'Pez Platy Coral Rojo A', TO_DATE('2022-05-10', 'YYYY-MM-DD'), 1, 0.1, 'Muy pacífico. Convive bien con otras especies.', 1, 7, 2, 1, 14, 14);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (15, 'Pez Espada Cola de Lira A', TO_DATE('2021-04-01', 'YYYY-MM-DD'), 2, 0.2, 'Aleta caudal muy desarrollada. Nado elegante.', 1, 7, 2, 1, 15, 15);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (16, 'Pez Killi Americano Fuego A', TO_DATE('2023-09-01', 'YYYY-MM-DD'), 0, 0.04, 'Colores intensos durante la época de apareamiento.', 1, 7, 2, 1, 16, 16);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (17, 'Pez Locha Payaso Grande A', TO_DATE('2020-11-11', 'YYYY-MM-DD'), 4, 0.7, 'Muy sociable. Se esconde en las cuevas.', 2, 4, 1, 1, 17, 17);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (18, 'Pez Gato Corydora Panda A', TO_DATE('2023-06-01', 'YYYY-MM-DD'), 1, 0.05, 'Limpia el fondo del acuario. Muy activo.', 1, 4, 1, 1, 18, 18);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (19, 'Pez Pleco Común Gigante A', TO_DATE('2018-02-01', 'YYYY-MM-DD'), 7, 2.5, 'Controla el crecimiento de algas en los cristales.', 1, 4, 2, 1, 19, 19);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (20, 'Pez Óscar Tigre Joven A', TO_DATE('2023-01-01', 'YYYY-MM-DD'), 1, 0.4, 'Creciendo rápidamente. Muestra agresividad con peces pequeños.', 2, 3, 3, 1, 20, 20);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (21, 'Pez Arowana Plata Adulto A', TO_DATE('2019-05-01', 'YYYY-MM-DD'), 6, 3.0, 'Nado en superficie. Salta por alimento.', 1, 5, 3, 1, 1, 21);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (22, 'Pez Piraña Roja Joven A', TO_DATE('2023-07-07', 'YYYY-MM-DD'), 1, 0.3, 'Se alimenta en grupo. Cuidado al manipular.', 2, 3, 2, 1, 2, 22);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (23, 'Pez Globo Puffer Manchas A', TO_DATE('2022-04-01', 'YYYY-MM-DD'), 2, 0.6, 'Infla su cuerpo al sentirse amenazado.', 1, 4, 5, 1, 3, 23);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (24, 'Pez León Volitán Adulto A', TO_DATE('2020-09-01', 'YYYY-MM-DD'), 4, 0.9, 'Espinas venenosas. Caza peces pequeños.', 1, 3, 1, 1, 4, 24);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (25, 'Pez Escorpión Hoja Camuflado A', TO_DATE('2023-02-01', 'YYYY-MM-DD'), 1, 0.4, 'Excelente camuflaje entre la decoración.', 2, 5, 4, 1, 5, 25);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (26, 'Tiburón Punta Negra Juvenil A', TO_DATE('2024-03-01', 'YYYY-MM-DD'), 0, 15.0, 'Nado rápido y constante. Cola oscura.', 1, 3, 1, 1, 6, 26);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (27, 'Pez Tiburón Bambú Rayado A', TO_DATE('2023-01-01', 'YYYY-MM-DD'), 1, 10.0, 'Se esconde entre las rocas durante el día.', 2, 3, 3, 1, 7, 27);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (28, 'Pez Tiburón Cebra Adulto A', TO_DATE('2020-06-01', 'YYYY-MM-DD'), 4, 50.0, 'Patrón de rayas distintivo. Nado lento.', 1, 3, 3, 1, 8, 28);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (29, 'Pez Raya Eléctrica Manchas A', TO_DATE('2022-08-01', 'YYYY-MM-DD'), 2, 5.0, 'Descarga eléctrica para defensa. Cuidado al manipular.', 2, 3, 4, 1, 9, 29);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (30, 'Pez Raya Leopardo Grande A', TO_DATE('2021-03-01', 'YYYY-MM-DD'), 3, 20.0, 'Patrón de manchas único. Se entierra en la arena.', 1, 3, 5, 1, 10, 30);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (31, 'Pez Raya Águila Manchada A', TO_DATE('2023-05-01', 'YYYY-MM-DD'), 1, 10.0, 'Nado con aletas pectorales como alas.', 2, 3, 5, 1, 11, 31);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (32, 'Pez Pez Piedra Camuflado A', TO_DATE('2022-11-01', 'YYYY-MM-DD'), 2, 0.7, 'Extremadamente venenoso. Se camufla en el fondo.', 1, 5, 1, 1, 12, 32);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (33, 'Pez Pez Rana Peludo A', TO_DATE('2023-04-01', 'YYYY-MM-DD'), 1, 0.3, 'Utiliza señuelo para atraer presas.', 2, 5, 1, 1, 13, 33);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (34, 'Pez Dragón Marino Foliáceo A', TO_DATE('2021-09-01', 'YYYY-MM-DD'), 3, 0.5, 'Camuflaje perfecto con algas marinas.', 1, 5, 1, 1, 14, 34);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (35, 'Pez Murciélago Marino Joven A', TO_DATE('2024-01-01', 'YYYY-MM-DD'), 0, 0.2, 'Aletas juveniles muy largas. Nado lento.', 2, 5, 1, 1, 15, 35);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (36, 'Pez Vaca Cuernos Largos A', TO_DATE('2023-03-01', 'YYYY-MM-DD'), 1, 0.4, 'Curioso y pacífico. Se alimenta de algas.', 1, 4, 1, 1, 16, 36);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (37, 'Pez Cerdo Marino A', TO_DATE('2022-07-01', 'YYYY-MM-DD'), 2, 0.6, 'Excava en el sustrato. Muy robusto.', 2, 4, 1, 1, 17, 37);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (38, 'Pez Puercoespín Manchado A', TO_DATE('2021-05-01', 'YYYY-MM-DD'), 3, 0.8, 'Púas eréctiles para defensa. Nado lento.', 1, 4, 1, 1, 18, 38);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (39, 'Pez Erizo de Mar A', TO_DATE('2023-06-01', 'YYYY-MM-DD'), 1, 0.3, 'Se alimenta de algas en las rocas.', 3, 6, 1, 1, 19, 39);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (40, 'Pez Ballesta Picasso A', TO_DATE('2022-03-01', 'YYYY-MM-DD'), 2, 0.5, 'Colores llamativos. Territorial con otros peces.', 1, 4, 1, 1, 20, 40);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (41, 'Pez Ballesta Payaso A', TO_DATE('2021-08-01', 'YYYY-MM-DD'), 3, 0.7, 'Patrones de color únicos. Muy activo.', 2, 4, 1, 1, 1, 41);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (42, 'Pez Ballesta Titán A', TO_DATE('2020-04-01', 'YYYY-MM-DD'), 4, 1.0, 'Gran tamaño. Puede ser agresivo.', 1, 4, 1, 1, 2, 42);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (43, 'Pez Damisela Cola Amarilla A', TO_DATE('2023-07-01', 'YYYY-MM-DD'), 1, 0.08, 'Muy resistente. Ideal para principiantes.', 2, 1, 1, 1, 3, 43);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (44, 'Pez Damisela Azul Joven A', TO_DATE('2024-01-01', 'YYYY-MM-DD'), 0, 0.05, 'Color azul intenso. Muy activo.', 1, 1, 1, 1, 4, 44);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (45, 'Pez Damisela Tres Bandas A', TO_DATE('2023-02-01', 'YYYY-MM-DD'), 1, 0.07, 'Patrón de tres rayas. Territorial.', 2, 1, 1, 1, 5, 45);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (46, 'Pez Damisela Domadora A', TO_DATE('2022-05-01', 'YYYY-MM-DD'), 2, 0.09, 'Puede ser agresiva con otras damiselas.', 1, 1, 1, 1, 6, 46);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (47, 'Pez Cardenal Banggai A', TO_DATE('2023-08-01', 'YYYY-MM-DD'), 1, 0.1, 'Nado lento. Se esconde entre corales.', 2, 1, 3, 1, 7, 47);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (48, 'Pez Cardenal Pijama A', TO_DATE('2024-01-01', 'YYYY-MM-DD'), 0, 0.08, 'Patrón de color distintivo. Muy pacífico.', 1, 1, 3, 1, 8, 48);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (49, 'Pez Halcón Nariz Larga A', TO_DATE('2022-06-01', 'YYYY-MM-DD'), 2, 0.2, 'Se posa en las rocas. Caza pequeños invertebrados.', 1, 5, 1, 1, 9, 49);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (50, 'Pez Halcón Flama Roja A', TO_DATE('2023-03-01', 'YYYY-MM-DD'), 1, 0.15, 'Color rojo brillante. Muy territorial.', 2, 5, 1, 1, 10, 50);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (51, 'Pez Zorro Cara de Zorro A', TO_DATE('2022-09-01', 'YYYY-MM-DD'), 2, 0.6, 'Se alimenta de algas. Muy pacífico.', 1, 5, 1, 1, 11, 51);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (52, 'Pez Zorro Magnífico A', TO_DATE('2021-04-01', 'YYYY-MM-DD'), 3, 0.8, 'Colores vibrantes. Nado lento.', 2, 5, 1, 1, 12, 52);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (53, 'Pez Unicornio Narigudo A', TO_DATE('2020-11-01', 'YYYY-MM-DD'), 4, 1.5, 'Cuerno distintivo. Nado rápido.', 1, 5, 2, 1, 13, 53);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (54, 'Pez Soldado Rojo Grande A', TO_DATE('2022-07-01', 'YYYY-MM-DD'), 2, 0.9, 'Ojos grandes. Activo por la noche.', 2, 2, 1, 1, 14, 54);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (55, 'Pez Ardilla Común A', TO_DATE('2023-01-01', 'YYYY-MM-DD'), 1, 0.7, 'Color rojo brillante. Se esconde en grietas.', 1, 2, 1, 1, 15, 55);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (56, 'Pez Ángel Reina Caribeña A', TO_DATE('2021-05-01', 'YYYY-MM-DD'), 3, 1.0, 'Colores espectaculares. Nado majestuoso.', 2, 2, 1, 1, 16, 56);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (57, 'Pez Ángel Francés Adulto A', TO_DATE('2020-02-01', 'YYYY-MM-DD'), 4, 1.2, 'Patrón de color único. Puede ser territorial.', 1, 2, 1, 1, 17, 57);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (58, 'Pez Ángel Gris Grande A', TO_DATE('2019-07-01', 'YYYY-MM-DD'), 5, 1.5, 'Color gris oscuro. Muy robusto.', 2, 2, 1, 1, 18, 58);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (59, 'Pez Mariposa Copperband A', TO_DATE('2023-04-01', 'YYYY-MM-DD'), 1, 0.3, 'Nariz larga para buscar alimento en grietas.', 1, 2, 1, 1, 19, 59);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (60, 'Pez Mariposa Cuatro Ojos A', TO_DATE('2022-08-01', 'YYYY-MM-DD'), 2, 0.4, 'Manchas que simulan ojos para confundir depredadores.', 2, 2, 1, 1, 20, 60);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (61, 'Pez Mariposa Perla A', TO_DATE('2023-01-01', 'YYYY-MM-DD'), 1, 0.35, 'Patrón de puntos que parecen perlas.', 1, 2, 1, 1, 1, 61);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (62, 'Pez Cirujano Amarillo Brillante A', TO_DATE('2022-06-01', 'YYYY-MM-DD'), 2, 0.5, 'Color amarillo intenso. Muy activo.', 2, 2, 1, 1, 2, 62);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (63, 'Pez Cirujano Púrpura A', TO_DATE('2021-09-01', 'YYYY-MM-DD'), 3, 0.6, 'Color púrpura vibrante. Puede ser territorial.', 1, 2, 1, 1, 3, 63);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (64, 'Pez Cirujano Scopas A', TO_DATE('2020-11-01', 'YYYY-MM-DD'), 4, 0.8, 'Coloración variable. Se alimenta de algas.', 2, 2, 1, 1, 4, 64);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (65, 'Pez Gobio Neón Verde A', TO_DATE('2023-05-01', 'YYYY-MM-DD'), 1, 0.04, 'Línea azul brillante. Muy pacífico.', 1, 1, 1, 1, 5, 65);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (66, 'Pez Gobio Diamante A', TO_DATE('2022-07-01', 'YYYY-MM-DD'), 2, 0.1, 'Filtra la arena para alimentarse.', 2, 1, 1, 1, 6, 66);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (67, 'Pez Gobio Tigre Rayado A', TO_DATE('2023-01-01', 'YYYY-MM-DD'), 1, 0.09, 'Patrón de rayas negras y amarillas.', 1, 1, 1, 1, 7, 67);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (68, 'Pez Locha Kuhli Negra A', TO_DATE('2022-04-01', 'YYYY-MM-DD'), 2, 0.07, 'Se esconde en el sustrato. Activa por la noche.', 2, 4, 1, 1, 8, 68);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (69, 'Pez Locha Cebra Rayada A', TO_DATE('2023-06-01', 'YYYY-MM-DD'), 1, 0.08, 'Patrón de cebra distintivo. Muy sociable.', 1, 4, 1, 1, 9, 69);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (70, 'Pez Locha Botia Payaso A', TO_DATE('2021-08-01', 'YYYY-MM-DD'), 3, 0.6, 'Coloración naranja y negra. Muy juguetona.', 2, 4, 1, 1, 10, 70);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (71, 'Pez Gato Pictus Manchado A', TO_DATE('2022-09-01', 'YYYY-MM-DD'), 2, 0.3, 'Nado rápido. Muy activo por la noche.', 1, 4, 2, 1, 11, 71);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (72, 'Pez Gato Cristal Transparente B', TO_DATE('2023-03-01', 'YYYY-MM-DD'), 1, 0.05, 'Cuerpo transparente. Nado en cardumen.', 2, 4, 2, 1, 12, 72);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (73, 'Pez Gato Invertido A', TO_DATE('2022-05-01', 'YYYY-MM-DD'), 2, 0.2, 'Nado boca abajo. Muy peculiar.', 1, 4, 2, 1, 13, 73);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (74, 'Pez Pleco Cebra Blanco A', TO_DATE('2021-07-01', 'YYYY-MM-DD'), 3, 0.4, 'Patrón de cebra distintivo. Limpia la madera.', 2, 4, 2, 1, 14, 74);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (75, 'Pez Pleco Rey Tigre A', TO_DATE('2020-10-01', 'YYYY-MM-DD'), 4, 0.6, 'Patrón de tigre único. Muy buscado.', 1, 4, 2, 1, 15, 75);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (76, 'Pez Pleco Fantasma A', TO_DATE('2023-02-01', 'YYYY-MM-DD'), 1, 0.3, 'Cuerpo transparente. Muy tímido.', 2, 4, 2, 1, 16, 76);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (77, 'Pez Óscar Albino Adulto A', TO_DATE('2019-03-01', 'YYYY-MM-DD'), 5, 1.5, 'Color blanco puro. Muy inteligente.', 1, 3, 3, 1, 17, 77);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (78, 'Pez Óscar Rojo Grande A', TO_DATE('2020-05-01', 'YYYY-MM-DD'), 4, 1.3, 'Color rojo intenso. Puede ser agresivo.', 2, 3, 3, 1, 18, 78);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (79, 'Pez Disco Azul Diamante A', TO_DATE('2022-08-01', 'YYYY-MM-DD'), 2, 0.7, 'Color azul brillante. Muy delicado.', 1, 3, 3, 1, 19, 79);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (80, 'Pez Disco Rojo Turquesa A', TO_DATE('2021-04-01', 'YYYY-MM-DD'), 3, 0.8, 'Patrón de color rojo y turquesa. Requiere agua de calidad.', 2, 3, 3, 1, 20, 80);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (81, 'Pez Arowana Jardín A', TO_DATE('2023-01-01', 'YYYY-MM-DD'), 1, 1.0, 'Nado en superficie. Puede saltar.', 1, 5, 3, 1, 1, 81);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (82, 'Pez Arowana Roja Adulta A', TO_DATE('2019-06-01', 'YYYY-MM-DD'), 5, 2.5, 'Color rojo intenso. Muy valorada.', 2, 5, 3, 1, 2, 82);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (83, 'Pez Arowana Dorada Joven A', TO_DATE('2022-09-01', 'YYYY-MM-DD'), 2, 1.2, 'Escamas doradas. Nado elegante.', 1, 5, 3, 1, 3, 83);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (84, 'Pez Tiburón Toro Grande A', TO_DATE('2018-01-01', 'YYYY-MM-DD'), 6, 800.0, 'Muy territorial. Puede ser agresivo.', 1, 3, 3, 1, 4, 84);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (85, 'Pez Tiburón Martillo Adulto A', TO_DATE('2019-04-01', 'YYYY-MM-DD'), 5, 300.0, 'Cabeza en forma de martillo. Nado rápido.', 2, 3, 2, 1, 5, 85);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (86, 'Pez Tiburón Nodriza Pacífico A', TO_DATE('2021-07-01', 'YYYY-MM-DD'), 3, 150.0, 'Descansa en el fondo. Muy tranquilo.', 1, 3, 3, 1, 6, 86);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (87, 'Pez Tiburón Ballena Gigante A', TO_DATE('2020-09-01', 'YYYY-MM-DD'), 4, 1500.0, 'El pez más grande. Se alimenta por filtración.', 3, 3, 3, 1, 7, 87);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (88, 'Pez Tiburón Blanco Joven A', TO_DATE('2022-03-01', 'YYYY-MM-DD'), 2, 100.0, 'Depredador tope. Nado potente.', 1, 3, 2, 1, 8, 88);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (89, 'Pez Tiburón Tigre Rayado A', TO_DATE('2021-05-01', 'YYYY-MM-DD'), 3, 200.0, 'Patrón de rayas oscuras. Muy adaptable.', 2, 3, 5, 1, 9, 89);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (90, 'Pez Raya Común A', TO_DATE('2023-01-01', 'YYYY-MM-DD'), 1, 5.0, 'Se entierra en la arena. Cola con aguijón.', 1, 3, 5, 1, 10, 90);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (91, 'Pez Raya Cola Larga A', TO_DATE('2022-06-01', 'YYYY-MM-DD'), 2, 7.0, 'Cola muy larga. Se alimenta de invertebrados.', 2, 3, 4, 1, 11, 91);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (92, 'Pez Raya Azul de Arrecife A', TO_DATE('2023-03-01', 'YYYY-MM-DD'), 1, 4.0, 'Color azul con manchas. Muy hermoso.', 1, 3, 1, 1, 12, 92);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (93, 'Pez Raya Agua Dulce Motoro A', TO_DATE('2022-10-01', 'YYYY-MM-DD'), 2, 8.0, 'Patrón de manchas. Requiere agua blanda.', 2, 3, 2, 1, 13, 93);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (94, 'Pez Raya Agua Salada Redonda A', TO_DATE('2021-05-01', 'YYYY-MM-DD'), 3, 6.0, 'Forma redonda. Se entierra en la arena.', 1, 3, 5, 1, 14, 94);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (95, 'Pez Luna Oceánico A', TO_DATE('2020-08-01', 'YYYY-MM-DD'), 4, 500.0, 'Gran tamaño. Nado vertical.', 3, 5, 4, 1, 15, 95);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (96, 'Pez Sol de Arrecife A', TO_DATE('2023-02-01', 'YYYY-MM-DD'), 1, 0.5, 'Coloración brillante. Muy activo.', 1, 1, 1, 1, 16, 96);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (97, 'Pez Estrella de Mar Roja A', TO_DATE('2022-09-01', 'YYYY-MM-DD'), 2, 0.3, 'Se mueve lentamente. Se alimenta de detritos.', 3, 6, 1, 1, 17, 97);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (98, 'Pez Globo Verde Manchado A', TO_DATE('2023-04-01', 'YYYY-MM-DD'), 1, 0.4, 'Puede inflarse. Requiere agua salobre.', 1, 4, 3, 1, 18, 98);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (99, 'Pez Globo Agua Dulce Enano A', TO_DATE('2024-01-01', 'YYYY-MM-DD'), 0, 0.05, 'Muy pequeño. Caza caracoles.', 2, 4, 2, 1, 19, 99);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (100, 'Pez Globo Agua Salada Gigante A', TO_DATE('2021-06-01', 'YYYY-MM-DD'), 3, 1.0, 'Gran tamaño. Puede ser agresivo.', 1, 4, 5, 1, 20, 100);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (101, 'Pez Cuchillo Fantasma A', TO_DATE('2022-08-01', 'YYYY-MM-DD'), 2, 0.5, 'Cuerpo alargado. Nado ondulante.', 1, 5, 2, 1, 1, 101);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (102, 'Pez Elefante Africano A', TO_DATE('2023-03-01', 'YYYY-MM-DD'), 1, 0.3, 'Nariz en forma de trompa. Emite pulsos eléctricos.', 2, 5, 2, 1, 2, 102);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (103, 'Pez Hacha Mariposa A', TO_DATE('2022-05-01', 'YYYY-MM-DD'), 2, 0.08, 'Cuerpo en forma de hacha. Salta del agua.', 1, 7, 2, 1, 3, 103);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (104, 'Pez Loro Arcoíris A', TO_DATE('2021-07-01', 'YYYY-MM-DD'), 3, 0.7, 'Colores brillantes. Pico para raspar algas.', 2, 2, 1, 1, 4, 104);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (105, 'Pez Serpiente de Fango A', TO_DATE('2023-01-01', 'YYYY-MM-DD'), 1, 0.4, 'Cuerpo alargado. Se esconde en el fango.', 1, 5, 3, 1, 5, 105);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (106, 'Pez Murciélago Marino Joven B', TO_DATE('2024-02-01', 'YYYY-MM-DD'), 0, 0.25, 'Aletas juveniles muy largas. Nado lento.', 2, 5, 1, 1, 6, 106);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (107, 'Pez Ángel Imperator Adulto A', TO_DATE('2019-09-01', 'YYYY-MM-DD'), 5, 1.8, 'Colores majestuosos. Muy territorial.', 1, 2, 1, 1, 7, 107);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (108, 'Pez Ángel Flame Rojo A', TO_DATE('2022-04-01', 'YYYY-MM-DD'), 2, 0.3, 'Color rojo fuego. Muy activo.', 2, 2, 1, 1, 8, 108);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (109, 'Pez Ángel Coral Beauty A', TO_DATE('2023-01-01', 'YYYY-MM-DD'), 1, 0.2, 'Color azul y naranja. Muy pacífico.', 1, 2, 1, 1, 9, 109);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (110, 'Pez Mariposa Racoon A', TO_DATE('2022-06-01', 'YYYY-MM-DD'), 2, 0.4, 'Máscara negra alrededor de los ojos.', 2, 2, 1, 1, 10, 110);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (111, 'Pez Mariposa Banded A', TO_DATE('2023-03-01', 'YYYY-MM-DD'), 1, 0.35, 'Patrón de bandas verticales.', 1, 2, 1, 1, 11, 111);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (112, 'Pez Mariposa Longnose A', TO_DATE('2021-08-01', 'YYYY-MM-DD'), 3, 0.45, 'Nariz larga para buscar alimento.', 2, 2, 1, 1, 12, 112);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (113, 'Pez Cirujano Powder Blue A', TO_DATE('2022-09-01', 'YYYY-MM-DD'), 2, 0.6, 'Color azul polvo. Muy popular.', 1, 2, 1, 1, 13, 113);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (114, 'Pez Cirujano Achilles A', TO_DATE('2021-04-01', 'YYYY-MM-DD'), 3, 0.7, 'Mancha naranja en la cola. Muy activo.', 2, 2, 1, 1, 14, 114);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (115, 'Pez Cirujano Naso Elegante A', TO_DATE('2020-11-01', 'YYYY-MM-DD'), 4, 1.0, 'Nariz prominente. Nado rápido.', 1, 2, 1, 1, 15, 115);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (116, 'Pez Gobio Watchman Amarillo A', TO_DATE('2023-05-01', 'YYYY-MM-DD'), 1, 0.1, 'Convive con camarones pistola. Muy interesante.', 2, 1, 1, 1, 16, 116);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (117, 'Pez Gobio Diamante Azul A', TO_DATE('2022-07-01', 'YYYY-MM-DD'), 2, 0.12, 'Color azul brillante. Filtra la arena.', 1, 1, 1, 1, 17, 117);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (118, 'Pez Locha Skunk A', TO_DATE('2023-01-01', 'YYYY-MM-DD'), 1, 0.06, 'Línea negra en el cuerpo. Muy pacífica.', 2, 4, 1, 1, 18, 118);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (119, 'Pez Gato Cristal Transparente C', TO_DATE('2022-04-01', 'YYYY-MM-DD'), 2, 0.05, 'Cuerpo transparente. Nado en cardumen.', 1, 4, 2, 1, 19, 119);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (120, 'Pez Pleco Royal Grande A', TO_DATE('2021-07-01', 'YYYY-MM-DD'), 3, 0.8, 'Patrón de líneas. Limpia la madera.', 2, 4, 2, 1, 20, 120);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (121, 'Pez Óscar Lemon Amarillo A', TO_DATE('2023-02-01', 'YYYY-MM-DD'), 1, 0.4, 'Color amarillo limón. Muy interactivo.', 1, 3, 3, 1, 1, 121);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (122, 'Pez Disco Snake Skin A', TO_DATE('2022-09-01', 'YYYY-MM-DD'), 2, 0.7, 'Patrón que simula piel de serpiente.', 2, 3, 3, 1, 2, 122);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (123, 'Pez Arowana Australiana A', TO_DATE('2021-04-01', 'YYYY-MM-DD'), 3, 1.5, 'Nado en superficie. Puede saltar.', 1, 5, 3, 1, 3, 123);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (124, 'Tiburón Punta Blanca de Arrecife A', TO_DATE('2020-11-01', 'YYYY-MM-DD'), 4, 80.0, 'Puntas blancas en las aletas. Nado en el fondo.', 2, 3, 1, 1, 4, 124);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (125, 'Pez Raya Azul Manchada A', TO_DATE('2023-05-01', 'YYYY-MM-DD'), 1, 3.0, 'Manchas azules. Se entierra en la arena.', 1, 3, 5, 1, 5, 125);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (126, 'Pez Globo Figura 8 A', TO_DATE('2022-07-01', 'YYYY-MM-DD'), 2, 0.2, 'Patrón en forma de 8. Requiere agua salobre.', 2, 4, 3, 1, 6, 126);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (127, 'Pez León Radiata A', TO_DATE('2023-01-01', 'YYYY-MM-DD'), 1, 0.4, 'Aletas con rayas. Muy llamativo.', 1, 3, 1, 1, 7, 127);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (128, 'Pez Escorpión Weedy A', TO_DATE('2022-04-01', 'YYYY-MM-DD'), 2, 0.3, 'Apariencia de alga. Excelente camuflaje.', 2, 5, 4, 1, 8, 128);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (129, 'Pez Ballesta Naranja Lineada A', TO_DATE('2023-06-01', 'YYYY-MM-DD'), 1, 0.5, 'Líneas naranjas. Puede ser agresivo.', 1, 4, 1, 1, 9, 129);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (130, 'Pez Damisela Sargento Mayor A', TO_DATE('2021-08-01', 'YYYY-MM-DD'), 3, 0.09, 'Patrón de rayas. Muy resistente.', 2, 1, 1, 1, 10, 130);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (131, 'Pez Cardenal Flama A', TO_DATE('2022-09-01', 'YYYY-MM-DD'), 2, 0.1, 'Color rojo brillante. Muy pacífico.', 1, 1, 3, 1, 11, 131);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (132, 'Pez Halcón Pixy A', TO_DATE('2023-03-01', 'YYYY-MM-DD'), 1, 0.15, 'Pequeño y colorido. Se posa en las rocas.', 2, 5, 1, 1, 12, 132);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (133, 'Pez Zorro Siganus A', TO_DATE('2022-05-01', 'YYYY-MM-DD'), 2, 0.6, 'Se alimenta de algas. Puede ser venenoso.', 1, 5, 1, 1, 13, 133);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (134, 'Pez Unicornio Vlamingi A', TO_DATE('2021-07-01', 'YYYY-MM-DD'), 3, 1.8, 'Gran tamaño. Cuerno prominente.', 2, 5, 2, 1, 14, 134);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (135, 'Pez Soldado Ojo Grande A', TO_DATE('2023-01-01', 'YYYY-MM-DD'), 1, 0.8, 'Ojos grandes. Activo por la noche.', 1, 2, 1, 1, 15, 135);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (136, 'Pez Ardilla Coronada A', TO_DATE('2022-09-01', 'YYYY-MM-DD'), 2, 0.7, 'Color rojo. Se esconde en grietas.', 2, 2, 1, 1, 16, 136);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (137, 'Pez Ángel Koran Juvenil A', TO_DATE('2024-02-01', 'YYYY-MM-DD'), 0, 0.3, 'Patrón de color juvenil. Muy activo.', 1, 2, 1, 1, 17, 137);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (138, 'Pez Mariposa Vagabundo A', TO_DATE('2023-03-01', 'YYYY-MM-DD'), 1, 0.4, 'Patrón de bandas. Muy pacífico.', 2, 2, 1, 1, 18, 138);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (139, 'Pez Cirujano Powder Brown A', TO_DATE('2022-05-01', 'YYYY-MM-DD'), 2, 0.5, 'Color marrón. Se alimenta de algas.', 1, 2, 1, 1, 19, 139);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (140, 'Pez Gobio Ingeniero A', TO_DATE('2021-07-01', 'YYYY-MM-DD'), 3, 0.15, 'Excava túneles complejos. Muy interesante.', 2, 1, 1, 1, 20, 140);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (141, 'Pez Locha YoYo A', TO_DATE('2023-01-01', 'YYYY-MM-DD'), 1, 0.08, 'Patrón que forma letras. Muy juguetona.', 1, 4, 1, 1, 1, 141);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (142, 'Pez Gato Cola Roja A', TO_DATE('2022-09-01', 'YYYY-MM-DD'), 2, 0.6, 'Cola roja brillante. Gran tamaño.', 2, 4, 2, 1, 2, 142);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (143, 'Pez Pleco Bristlenose Albino A', TO_DATE('2021-04-01', 'YYYY-MM-DD'), 3, 0.4, 'Color blanco. Limpia algas.', 1, 4, 2, 1, 3, 143);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (144, 'Pez Óscar Rojo Tigre A', TO_DATE('2020-11-01', 'YYYY-MM-DD'), 4, 1.2, 'Patrón rojo y negro. Muy inteligente.', 2, 3, 3, 1, 4, 144);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (145, 'Pez Disco Leopardo A', TO_DATE('2023-05-01', 'YYYY-MM-DD'), 1, 0.6, 'Patrón de manchas de leopardo.', 1, 3, 3, 1, 5, 145);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (146, 'Pez Arowana Asiática Roja A', TO_DATE('2022-07-01', 'YYYY-MM-DD'), 2, 1.8, 'Color rojo intenso. Muy valorada.', 2, 5, 3, 1, 6, 146);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (147, 'Tiburón Leopardo Manchado A', TO_DATE('2023-01-01', 'YYYY-MM-DD'), 1, 50.0, 'Patrón de manchas. Muy tranquilo.', 1, 3, 5, 1, 7, 147);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (148, 'Pez Raya Motoro Negra A', TO_DATE('2022-04-01', 'YYYY-MM-DD'), 2, 6.0, 'Color negro con manchas. Muy buscada.', 2, 3, 2, 1, 8, 148);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (149, 'Pez Globo Dogface A', TO_DATE('2023-06-01', 'YYYY-MM-DD'), 1, 0.7, 'Cara de perro. Puede inflarse.', 1, 4, 5, 1, 9, 149);
+INSERT INTO FIDE_ANIMAL_TB (ID_ANIMAL, NOMBRE_ANIMAL, FECHA_INGRESO, EDAD, PESO, OBSERVACION, ID_GENERO, ID_TIPO, ID_HABITAT, ID_ESTADO, ID_RUTINA, ID_MARCA_ALIMENTO) VALUES (150, 'Pez León Enano A', TO_DATE('2021-08-01', 'YYYY-MM-DD'), 3, 0.25, 'Tamaño pequeño. Espinas venenosas.', 2, 3, 1, 1, 10, 150);
 
 
-SELECT *FROM FIDE_DIRECCION_TB;
+INSERT INTO FIDE_ROL_TB (ID_ROL, NOMBRE_ROL, DESCRIPCION, ID_ESTADO) VALUES (1, 'Administrador General', 'Encargado de la gestión y supervisión general del acuario.', 1);
+INSERT INTO FIDE_ROL_TB (ID_ROL, NOMBRE_ROL, DESCRIPCION, ID_ESTADO) VALUES (2, 'Gerente de Operaciones', 'Supervisa las operaciones diarias y el personal.', 1);
+INSERT INTO FIDE_ROL_TB (ID_ROL, NOMBRE_ROL, DESCRIPCION, ID_ESTADO) VALUES (3, 'Cuidador Principal de Animales', 'Responsable directo del bienestar y alimentación de los animales.', 1);
+INSERT INTO FIDE_ROL_TB (ID_ROL, NOMBRE_ROL, DESCRIPCION, ID_ESTADO) VALUES (4, 'Veterinario Acuático', 'Especialista en la salud y tratamiento de enfermedades de especies acuáticas.', 1);
+INSERT INTO FIDE_ROL_TB (ID_ROL, NOMBRE_ROL, DESCRIPCION, ID_ESTADO) VALUES (5, 'Especialista en Calidad de Agua', 'Monitorea y mantiene los parámetros óptimos del agua en los hábitats.', 1);
+INSERT INTO FIDE_ROL_TB (ID_ROL, NOMBRE_ROL, DESCRIPCION, ID_ESTADO) VALUES (6, 'Biólogo Marino', 'Investiga y asesora sobre la conservación y reproducción de especies.', 1);
+INSERT INTO FIDE_ROL_TB (ID_ROL, NOMBRE_ROL, DESCRIPCION, ID_ESTADO) VALUES (7, 'Técnico de Mantenimiento', 'Encargado del mantenimiento de equipos, tanques e instalaciones.', 1);
+INSERT INTO FIDE_ROL_TB (ID_ROL, NOMBRE_ROL, DESCRIPCION, ID_ESTADO) VALUES (8, 'Guía Educativo', 'Dirige tours y programas educativos para visitantes.', 1);
+INSERT INTO FIDE_ROL_TB (ID_ROL, NOMBRE_ROL, DESCRIPCION, ID_ESTADO) VALUES (9, 'Personal de Limpieza', 'Mantiene la higiene y limpieza de las áreas públicas y de trabajo.', 1);
+INSERT INTO FIDE_ROL_TB (ID_ROL, NOMBRE_ROL, DESCRIPCION, ID_ESTADO) VALUES (10, 'Oficial de Seguridad', 'Garantiza la seguridad de los visitantes, personal y animales.', 1);
+INSERT INTO FIDE_ROL_TB (ID_ROL, NOMBRE_ROL, DESCRIPCION, ID_ESTADO) VALUES (11, 'Recepcionista/Atención al Cliente', 'Primer punto de contacto para visitantes y consultas.', 1);
+INSERT INTO FIDE_ROL_TB (ID_ROL, NOMBRE_ROL, DESCRIPCION, ID_ESTADO) VALUES (12, 'Especialista en Nutrición Animal', 'Diseña y supervisa las dietas de los animales.', 1);
+INSERT INTO FIDE_ROL_TB (ID_ROL, NOMBRE_ROL, DESCRIPCION, ID_ESTADO) VALUES (13, 'Investigador Científico', 'Realiza estudios y proyectos de investigación en el acuario.', 1);
+INSERT INTO FIDE_ROL_TB (ID_ROL, NOMBRE_ROL, DESCRIPCION, ID_ESTADO) VALUES (14, 'Voluntario de Acuario', 'Apoya en diversas tareas operativas y educativas.', 1);
+INSERT INTO FIDE_ROL_TB (ID_ROL, NOMBRE_ROL, DESCRIPCION, ID_ESTADO) VALUES (15, 'Director de Conservación', 'Lidera iniciativas y proyectos de conservación de especies.', 1);
+INSERT INTO FIDE_ROL_TB (ID_ROL, NOMBRE_ROL, DESCRIPCION, ID_ESTADO) VALUES (16, 'Cliente', 'Usuario interesado en el acuario.', 1);
+
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (1, 'Costa Rica', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (2, 'México', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (3, 'Colombia', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (4, 'España', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (5, 'Argentina', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (6, 'Chile', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (7, 'Perú', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (8, 'Canadá', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (9, 'Estados Unidos', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (10, 'Brasil', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (11, 'Alemania', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (12, 'Francia', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (13, 'Reino Unido', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (14, 'Italia', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (15, 'Japón', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (16, 'Australia', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (17, 'Sudáfrica', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (18, 'Egipto', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (19, 'India', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (20, 'China', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (21, 'Rusia', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (22, 'Nueva Zelanda', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (23, 'Suecia', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (24, 'Noruega', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (25, 'Suiza', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (26, 'Corea del Sur', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (27, 'Portugal', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (28, 'Bélgica', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (29, 'Países Bajos', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (30, 'Grecia', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (31, 'Turquía', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (32, 'Emiratos Árabes Unidos', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (33, 'Singapur', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (34, 'Tailandia', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (35, 'Vietnam', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (36, 'Indonesia', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (37, 'Filipinas', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (38, 'Malasia', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (39, 'Arabia Saudita', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (40, 'Israel', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (41, 'Nigeria', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (42, 'Kenia', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (43, 'Etiopía', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (44, 'Canadá', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (45, 'Ecuador', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (46, 'Venezuela', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (47, 'Cuba', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (48, 'República Dominicana', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (49, 'Panamá', 1);
+INSERT INTO FIDE_PAIS_TB (ID_PAIS, NOMBRE_PAIS, ID_ESTADO) VALUES (50, 'Guatemala', 1);
 
 
------INSERCION TABLA ROL--
-INSERT INTO FIDE_ROL_TB (ID_ROL, NOMBRE_ROL, DESCRIPCION, ID_ESTADO) VALUES (1, 'Administrador', 'Gesti�n del sistema y usuarios', 12);
-INSERT INTO FIDE_ROL_TB (ID_ROL, NOMBRE_ROL, DESCRIPCION, ID_ESTADO) VALUES (2, 'Veterinario', 'Cuida la salud de los animales', 7);
-INSERT INTO FIDE_ROL_TB (ID_ROL, NOMBRE_ROL, DESCRIPCION, ID_ESTADO) VALUES (3, 'Cuidador', 'Atiende animales', 13);
-INSERT INTO FIDE_ROL_TB (ID_ROL, NOMBRE_ROL, DESCRIPCION, ID_ESTADO) VALUES (4, 'Gu�a tur�stico', 'Gu�a a los visitantes', 2);
-INSERT INTO FIDE_ROL_TB (ID_ROL, NOMBRE_ROL, DESCRIPCION, ID_ESTADO) VALUES (5, 'Recepcionista', 'Atiende al p�blico', 1);
-INSERT INTO FIDE_ROL_TB (ID_ROL, NOMBRE_ROL, DESCRIPCION, ID_ESTADO) VALUES (6, 'Bi�logo Marino', 'Estudia vida marina', 8);
-INSERT INTO FIDE_ROL_TB (ID_ROL, NOMBRE_ROL, DESCRIPCION, ID_ESTADO) VALUES (7, 'Encargado de Tienda', 'Administra productos', 5);
-INSERT INTO FIDE_ROL_TB (ID_ROL, NOMBRE_ROL, DESCRIPCION, ID_ESTADO) VALUES (8, 'Encargado de Seguridad', 'Controla accesos', 12);
-INSERT INTO FIDE_ROL_TB (ID_ROL, NOMBRE_ROL, DESCRIPCION, ID_ESTADO) VALUES (9, 'Limpiador de Tanques', 'Limpieza de acuarios', 11);
-INSERT INTO FIDE_ROL_TB (ID_ROL, NOMBRE_ROL, DESCRIPCION, ID_ESTADO) VALUES (10, 'Encargado de Alimentaci�n', 'Suministra alimentos', 13);
-INSERT INTO FIDE_ROL_TB (ID_ROL, NOMBRE_ROL, DESCRIPCION, ID_ESTADO) VALUES (11, 'T�cnico en Filtraci�n', 'Mantiene el sistema de agua', 11);
-INSERT INTO FIDE_ROL_TB (ID_ROL, NOMBRE_ROL, DESCRIPCION, ID_ESTADO) VALUES (12, 'Entrenador de Mam�feros', 'Entrena delfines y focas', 6);
-INSERT INTO FIDE_ROL_TB (ID_ROL, NOMBRE_ROL, DESCRIPCION, ID_ESTADO) VALUES (13, 'Investigador', 'Realiza estudios', 7);
-INSERT INTO FIDE_ROL_TB (ID_ROL, NOMBRE_ROL, DESCRIPCION, ID_ESTADO) VALUES (14, 'Asistente Educativo', 'Apoya en educaci�n ambiental', 12);
-INSERT INTO FIDE_ROL_TB (ID_ROL, NOMBRE_ROL, DESCRIPCION, ID_ESTADO) VALUES (15, 'T�cnico de Sistemas', 'Administra la infraestructura TI', 6);
-
-
-
-SELECT*FROM FIDE_ROL_TB;
-
-
--------INSERCION TABLA USUARIO---
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (101, 'Andr�s', TO_DATE('2024-01-02', 'YYYY-MM-DD'), '8801-001', 'andr�s@acuario.com', 3, 6);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (102, 'Melany', TO_DATE('2024-01-03', 'YYYY-MM-DD'), '8802-002', 'melany@acuario.com', 10, 2);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (103, 'Nataly', TO_DATE('2024-01-04', 'YYYY-MM-DD'), '8803-003', 'nataly@acuario.com', 2, 11);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (104, 'Carlos', TO_DATE('2024-01-05', 'YYYY-MM-DD'), '8804-004', 'carlos@acuario.com', 5, 4);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (105, 'Sof�a', TO_DATE('2024-01-06', 'YYYY-MM-DD'), '8805-005', 'sof�a@acuario.com', 2, 10);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (106, 'Daniel', TO_DATE('2024-01-07', 'YYYY-MM-DD'), '8806-006', 'daniel@acuario.com', 10, 12);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (107, 'Valeria', TO_DATE('2024-01-08', 'YYYY-MM-DD'), '8807-007', 'valeria@acuario.com', 8, 6);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (108, 'Jos�', TO_DATE('2024-01-09', 'YYYY-MM-DD'), '8808-008', 'jos�@acuario.com', 12, 7);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (109, 'Mar�a', TO_DATE('2024-01-10', 'YYYY-MM-DD'), '8809-009', 'mar�a@acuario.com', 6, 4);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (110, 'Luis', TO_DATE('2024-01-11', 'YYYY-MM-DD'), '8810-000', 'luis@acuario.com', 11, 1);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (111, 'Isabela', TO_DATE('2024-01-12', 'YYYY-MM-DD'), '8811-001', 'isabela@acuario.com', 10, 5);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (112, 'Javier', TO_DATE('2024-01-13', 'YYYY-MM-DD'), '8812-002', 'javier@acuario.com', 1, 6);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (113, 'Camila', TO_DATE('2024-01-14', 'YYYY-MM-DD'), '8813-003', 'camila@acuario.com', 11, 15);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (114, 'Alejandro', TO_DATE('2024-01-15', 'YYYY-MM-DD'), '8814-004', 'alejandro@acuario.com', 6, 14);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (115, 'Gabriela', TO_DATE('2024-01-16', 'YYYY-MM-DD'), '8815-005', 'gabriela@acuario.com', 9, 11);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (116, 'Fernando', TO_DATE('2024-01-17', 'YYYY-MM-DD'), '8816-006', 'fernando@acuario.com', 12, 6);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (117, 'Daniela', TO_DATE('2024-01-18', 'YYYY-MM-DD'), '8817-007', 'daniela@acuario.com', 9, 1);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (118, 'Ricardo', TO_DATE('2024-01-19', 'YYYY-MM-DD'), '8818-008', 'ricardo@acuario.com', 2, 3);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (119, 'Laura', TO_DATE('2024-01-20', 'YYYY-MM-DD'), '8819-009', 'laura@acuario.com', 6, 15);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (120, 'Marco', TO_DATE('2024-01-21', 'YYYY-MM-DD'), '8820-000', 'marco@acuario.com', 6, 12);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (121, 'Nicole', TO_DATE('2024-01-22', 'YYYY-MM-DD'), '8821-001', 'nicole@acuario.com', 9, 4);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (122, 'Diego', TO_DATE('2024-01-23', 'YYYY-MM-DD'), '8822-002', 'diego@acuario.com', 12, 12);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (123, 'Luc�a', TO_DATE('2024-01-24', 'YYYY-MM-DD'), '8823-003', 'luc�a@acuario.com', 12, 6);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (124, 'Sebasti�n', TO_DATE('2024-01-25', 'YYYY-MM-DD'), '8824-004', 'sebasti�n@acuario.com', 2, 13);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (125, 'Ana', TO_DATE('2024-01-26', 'YYYY-MM-DD'), '8825-005', 'ana@acuario.com', 8, 15);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (126, 'David', TO_DATE('2024-01-27', 'YYYY-MM-DD'), '8826-006', 'david@acuario.com', 9, 3);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (127, 'Jimena', TO_DATE('2024-01-28', 'YYYY-MM-DD'), '8827-007', 'jimena@acuario.com', 6, 4);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (128, 'Cristian', TO_DATE('2024-01-29', 'YYYY-MM-DD'), '8828-008', 'cristian@acuario.com', 4, 15);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (129, 'Pamela', TO_DATE('2024-01-30', 'YYYY-MM-DD'), '8829-009', 'pamela@acuario.com', 5, 12);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (130, 'Enrique', TO_DATE('2024-01-31', 'YYYY-MM-DD'), '8830-000', 'enrique@acuario.com', 10, 10);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (131, 'Alexa', TO_DATE('2024-02-01', 'YYYY-MM-DD'), '8831-001', 'alexa@acuario.com', 10, 7);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (132, 'Mauricio', TO_DATE('2024-02-02', 'YYYY-MM-DD'), '8832-002', 'mauricio@acuario.com', 1, 9);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (133, 'Bianca', TO_DATE('2024-02-03', 'YYYY-MM-DD'), '8833-003', 'bianca@acuario.com', 6, 2);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (134, 'Pablo', TO_DATE('2024-02-04', 'YYYY-MM-DD'), '8834-004', 'pablo@acuario.com', 13, 5);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (135, 'Karina', TO_DATE('2024-02-05', 'YYYY-MM-DD'), '8835-005', 'karina@acuario.com', 11, 14);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (136, 'Kevin', TO_DATE('2024-02-06', 'YYYY-MM-DD'), '8836-006', 'kevin@acuario.com', 11, 2);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (137, 'M�nica', TO_DATE('2024-02-07', 'YYYY-MM-DD'), '8837-007', 'm�nica@acuario.com', 5, 10);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (138, 'Allan', TO_DATE('2024-02-08', 'YYYY-MM-DD'), '8838-008', 'allan@acuario.com', 4, 12);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (139, 'Elena', TO_DATE('2024-02-09', 'YYYY-MM-DD'), '8839-009', 'elena@acuario.com', 10, 3);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (140, 'Esteban', TO_DATE('2024-02-10', 'YYYY-MM-DD'), '8840-000', 'esteban@acuario.com', 11, 3);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (141, 'Michelle', TO_DATE('2024-02-11', 'YYYY-MM-DD'), '8841-001', 'michelle@acuario.com', 4, 2);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (142, 'Jonathan', TO_DATE('2024-02-12', 'YYYY-MM-DD'), '8842-002', 'jonathan@acuario.com', 1, 5);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (143, 'Juliana', TO_DATE('2024-02-13', 'YYYY-MM-DD'), '8843-003', 'juliana@acuario.com', 11, 4);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (144, 'Tom�s', TO_DATE('2024-02-14', 'YYYY-MM-DD'), '8844-004', 'tom�s@acuario.com', 12, 11);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (145, 'Paola', TO_DATE('2024-02-15', 'YYYY-MM-DD'), '8845-005', 'paola@acuario.com', 7, 14);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (146, 'Manuel', TO_DATE('2024-02-16', 'YYYY-MM-DD'), '8846-006', 'manuel@acuario.com', 10, 1);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (147, 'Adriana', TO_DATE('2024-02-17', 'YYYY-MM-DD'), '8847-007', 'adriana@acuario.com', 4, 11);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (148, 'Eduardo', TO_DATE('2024-02-18', 'YYYY-MM-DD'), '8848-008', 'eduardo@acuario.com', 4, 4);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (149, 'Melissa', TO_DATE('2024-02-19', 'YYYY-MM-DD'), '8849-009', 'melissa@acuario.com', 8, 13);
-INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL) VALUES (150, 'Fabi�n', TO_DATE('2024-02-20', 'YYYY-MM-DD'), '8850-000', 'fabi�n@acuario.com', 12, 14);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (1, 'San José', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (2, 'Alajuela', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (3, 'Cartago', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (4, 'Heredia', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (5, 'Guanacaste', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (6, 'Puntarenas', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (7, 'Limón', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (8, 'Ciudad de México', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (9, 'Buenos Aires', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (10, 'Valparaíso', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (11, 'Madrid', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (12, 'Barcelona', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (13, 'Ontario', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (14, 'Quebec', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (15, 'California', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (16, 'Florida', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (17, 'Río de Janeiro', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (18, 'São Paulo', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (19, 'Berlín', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (20, 'Baviera', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (21, 'Isla de Francia', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (22, 'Londres', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (23, 'Roma', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (24, 'Tokio', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (25, 'Sídney', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (26, 'Seúl', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (27, 'Lisboa', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (28, 'Bruselas', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (29, 'Ámsterdam', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (30, 'Atenas', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (31, 'Estambul', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (32, 'Dubái', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (33, 'Singapur', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (34, 'Bangkok', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (35, 'Hanoi', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (36, 'Yakarta', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (37, 'Manila', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (38, 'Kuala Lumpur', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (39, 'Riad', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (40, 'Jerusalén', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (41, 'Lagos', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (42, 'Nairobi', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (43, 'Adís Abeba', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (44, 'Alberta', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (45, 'Guayas', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (46, 'Miranda', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (47, 'La Habana', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (48, 'Santo Domingo', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (49, 'Panamá', 1);
+INSERT INTO FIDE_PROVINCIA_TB (ID_PROVINCIA, NOMBRE_PROVINCIA, ID_ESTADO) VALUES (50, 'Guatemala', 1);
 
 
 
 
------INSERCION TABLA EMPRESA--
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (1, 'AquaVida S.A.', '22001-001', 'aquavidasa@acuario.com', 1, 12);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (2, 'Oceanarium CR', '22002-002', 'oceanariumcr@acuario.com', 2, 9);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (3, 'Mar y Tierra Ltda.', '22003-003', 'marytierraltda@acuario.com', 3, 5);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (4, 'Reino Marino', '22004-004', 'reinomarino@acuario.com', 4, 6);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (5, 'EcoAcuario Tropical', '22005-005', 'ecoacuariotropical@acuario.com', 5, 5);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (6, 'Corales del Sur', '22006-006', 'coralesdelsur@acuario.com', 6, 10);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (7, 'Acuaventuras', '22007-007', 'acuaventuras@acuario.com', 7, 10);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (8, 'Mundo Submarino', '22008-008', 'mundosubmarino@acuario.com', 8, 6);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (9, 'Mar Azul Acuarios', '22009-009', 'marazulacuarios@acuario.com', 9, 8);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (10, 'Acuatech Innovations', '22010-000', 'acuatechinnovations@acuario.com', 10, 5);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (11, 'Aqualandia', '22011-001', 'aqualandia@acuario.com', 11, 1);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (12, 'Vida Marina S.A.', '22012-002', 'vidamarinasa@acuario.com', 12, 3);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (13, 'Planeta Acu�tico', '22013-003', 'planetaacuatico@acuario.com', 13, 13);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (14, 'Burbujas del Caribe', '22014-004', 'burbujasdelcaribe@acuario.com', 14, 10);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (15, 'Tropical Reef Ltda.', '22015-005', 'tropicalreefltda@acuario.com', 15, 4);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (16, 'Oce�nica Costa Rica', '22016-006', 'oceanicacostarica@acuario.com', 16, 10);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (17, 'Aquaria EcoPark', '22017-007', 'aquariaecopark@acuario.com', 17, 3);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (18, 'CoralVivo CR', '22018-008', 'coralvivocr@acuario.com', 18, 6);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (19, 'NaturaAqua', '22019-009', 'naturaaqua@acuario.com', 19, 4);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (20, 'BlueSea Dynamics', '22020-000', 'blueseadynamics@acuario.com', 20, 1);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (21, 'Acuarios Atl�ntida', '22021-001', 'acuariosatlantida@acuario.com', 21, 13);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (22, 'Pacific AquaWorld', '22022-002', 'pacificaquaworld@acuario.com', 22, 7);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (23, 'BioAqua Systems', '22023-003', 'bioaquasystems@acuario.com', 23, 8);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (24, 'Cristal Marino', '22024-004', 'cristalmarino@acuario.com', 24, 1);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (25, 'Reef World', '22025-005', 'reefworld@acuario.com', 25, 3);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (26, 'Acuamagic', '22026-006', 'acuamagic@acuario.com', 26, 9);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (27, 'Ecosistemas Marinos', '22027-007', 'ecosistemasmarinos@acuario.com', 27, 3);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (28, 'Mar Interior S.A.', '22028-008', 'marinteriorsa@acuario.com', 28, 8);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (29, 'Oc�ano y Ciencia', '22029-009', 'oceanoyciencia@acuario.com', 29, 13);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (30, 'OceanLife CR', '22030-000', 'oceanlifecr@acuario.com', 30, 7);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (31, 'Agua Clara Ltda.', '22031-001', 'aguaclaraltda@acuario.com', 31, 1);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (32, 'Mar Profundo', '22032-002', 'marprofundo@acuario.com', 32, 5);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (33, 'ExploraAcuarios', '22033-003', 'exploraacuarios@acuario.com', 33, 8);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (34, 'Coral Dreams', '22034-004', 'coraldreams@acuario.com', 34, 11);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (35, 'Reino Coralino', '22035-005', 'reinocoralino@acuario.com', 35, 5);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (36, 'BlueDrop Ltda.', '22036-006', 'bluedropltda@acuario.com', 36, 1);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (37, 'Zool�gico Marino', '22037-007', 'zoologicomarino@acuario.com', 37, 13);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (38, 'Aquatecnia Avanzada', '22038-008', 'aquatecniaavanzada@acuario.com', 38, 4);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (39, 'Mar y Vida', '22039-009', 'maryvida@acuario.com', 39, 3);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (40, 'EcoReef Innovaciones', '22040-000', 'ecoreefinnovaciones@acuario.com', 40, 13);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (41, 'OceanView Costa Rica', '22041-001', 'oceanviewcostarica@acuario.com', 41, 8);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (42, 'Acuasoluciones', '22042-002', 'acuasoluciones@acuario.com', 42, 1);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (43, 'Nautilus CR', '22043-003', 'nautiluscr@acuario.com', 43, 2);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (44, 'Acuaterra', '22044-004', 'acuaterra@acuario.com', 44, 10);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (45, 'DeepBlue Research', '22045-005', 'deepblueresearch@acuario.com', 45, 2);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (46, 'Aquazone CR', '22046-006', 'aquazonecr@acuario.com', 46, 4);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (47, 'CoralCare', '22047-007', 'coralcare@acuario.com', 47, 4);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (48, 'HydroAcuario', '22048-008', 'hydroacuario@acuario.com', 48, 5);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (49, 'Mares Tropicales', '22049-009', 'marestropicales@acuario.com', 49, 1);
-INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO) VALUES (50, 'AquaNaturaleza', '22050-000', 'aquanaturaleza@acuario.com', 50, 7);
-SELECT*FROM  FIDE_EMPRESA_TB ;
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (1, 'Central San José', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (2, 'Escazú', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (3, 'Desamparados', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (4, 'Goicoechea', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (5, 'Santa Ana', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (6, 'Curridabat', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (7, 'Flores', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (8, 'La Cruz', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (9, 'Osa', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (10, 'Talamanca', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (11, 'Atenas', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (12, 'San Carlos', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (13, 'Pérez Zeledón', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (14, 'Liberia', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (15, 'Nicoya', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (16, 'Puntarenas Central', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (17, 'Limón Central', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (18, 'Cartago Central', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (19, 'Heredia Central', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (20, 'Alajuela Central', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (21, 'Guadalajara', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (22, 'Córdoba', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (23, 'Medellín', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (24, 'Valparaíso Urbano', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (25, 'Santiago Metropolitano', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (26, 'Gangnam', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (27, 'Cascais', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (28, 'Amberes', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (29, 'Utrecht', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (30, 'Pireo', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (31, 'Kad?köy', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (32, 'Jebel Ali', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (33, 'Jurong', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (34, 'Phra Nakhon', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (35, 'Hoan Kiem', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (36, 'Central Jakarta', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (37, 'Makati', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (38, 'Petaling Jaya', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (39, 'Jeddah', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (40, 'Tel Aviv', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (41, 'Ikeja', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (42, 'Mombasa', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (43, 'Addis Ababa Central', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (44, 'Vancouver', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (45, 'Guayaquil', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (46, 'Caracas', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (47, 'Plaza de la Revolución', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (48, 'Distrito Nacional', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (49, 'Ciudad de Panamá', 1);
+INSERT INTO FIDE_CANTON_TB (ID_CANTON, NOMBRE_CANTON, ID_ESTADO) VALUES (50, 'Antigua Guatemala', 1);
+
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (1, 'Carmen', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (2, 'Merced', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (3, 'Hospital', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (4, 'Catedral', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (5, 'Zapote', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (6, 'San Sebastián', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (7, 'Pavas', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (8, 'Hatillo', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (9, 'Curridabat', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (10, 'San Pedro', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (11, 'San Rafael', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (12, 'La Fortuna', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (13, 'Guápiles', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (14, 'Puerto Viejo', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (15, 'Quepos', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (16, 'Jacó', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (17, 'Tamarindo', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (18, 'Monteverde', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (19, 'La Cruz', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (20, 'Bagaces', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (21, 'Centro Histórico', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (22, 'Zona Rosa', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (23, 'El Poblado', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (24, 'Bellavista', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (25, 'Providencia', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (26, 'Las Condes', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (27, 'Palermo', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (28, 'Recoleta', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (29, 'Chueca', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (30, 'Gràcia', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (31, 'Condado de Orange', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (32, 'Brooklyn', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (33, 'Manhattan', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (34, 'Copacabana', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (35, 'Ipanema', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (36, 'Mitte', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (37, 'Kreuzberg', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (38, 'Le Marais', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (39, 'Westminster', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (40, 'Trastevere', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (41, 'Shinjuku', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (42, 'Bondi', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (43, 'Camps Bay', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (44, 'Giza', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (45, 'Connaught Place', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (46, 'Pudong', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (47, 'Soho', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (48, 'Midtown', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (49, 'Downtown', 1);
+INSERT INTO FIDE_DISTRITO_TB (ID_DISTRITO, NOMBRE_DISTRITO, ID_ESTADO) VALUES (50, 'Uptown', 1);
+
+
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (1, 'Calle 1, Avenida Central', 1, 1, 1, 1, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (2, 'Barrio Los Pinos, Casa #123', 2, 2, 2, 2, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (3, 'Condominio Las Flores, Torre B', 3, 3, 3, 3, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (4, 'Residencial El Roble, Lote 45', 4, 4, 4, 4, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (5, 'Apartamento 5A, Edificio Sol', 5, 5, 5, 5, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (6, 'Frente a la Plaza Mayor', 6, 6, 6, 6, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (7, 'Cerca del Parque Nacional', 7, 7, 7, 7, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (8, 'Zona Industrial, Nave 3', 8, 8, 8, 8, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (9, 'Centro Comercial, Local 10', 9, 9, 9, 9, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (10, 'A la par de la Iglesia Antigua', 10, 10, 10, 10, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (11, 'Urbanización Las Palmas, Casa 7', 11, 11, 11, 11, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (12, 'Boulevard Principal, Edificio C', 12, 12, 12, 12, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (13, 'Sector Norte, Bodega 2', 13, 13, 13, 13, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (14, 'Avenida del Río, Casa 4B', 14, 14, 14, 14, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (15, 'Conjunto Residencial Sol, Apto 9', 15, 15, 15, 15, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (16, 'Plaza Central, Oficina 201', 16, 16, 16, 16, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (17, 'Barrio La Montaña, Finca 5', 17, 17, 17, 17, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (18, 'Zona Turística, Hotel Vista Mar', 18, 18, 18, 18, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (19, 'Cerca de la Universidad', 19, 19, 19, 19, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (20, 'Parque Industrial, Lote 8', 20, 20, 20, 20, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (21, 'Residencial Los Sauces, Casa 1', 21, 21, 21, 21, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (22, 'Centro Financiero, Piso 10', 22, 22, 22, 22, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (23, 'Barrio Antiguo, Calle Empedrada', 23, 23, 23, 23, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (24, 'Zona Comercial, Tienda 3', 24, 24, 24, 24, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (25, 'Cerca del Lago, Cabaña 6', 25, 25, 25, 25, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (26, 'Avenida Costanera, Apartamento 1A', 26, 26, 26, 26, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (27, 'Sector Residencial, Casa Grande', 27, 27, 27, 27, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (28, 'Distrito Central, Oficina 505', 28, 28, 28, 28, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (29, 'Barrio Artístico, Estudio 1', 29, 29, 29, 29, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (30, 'Zona Portuaria, Almacén 4', 30, 30, 30, 30, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (31, 'Calle del Sol, Casa 8', 31, 31, 31, 31, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (32, 'Avenida de la Luna, Edificio 2', 32, 32, 32, 32, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (33, 'Parque Central, Kiosco 1', 33, 33, 33, 33, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (34, 'Sector Histórico, Museo', 34, 34, 34, 34, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (35, 'Barrio Moderno, Apartamento 12B', 35, 35, 35, 35, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (36, 'Zona de Negocios, Torre Alfa', 36, 36, 36, 36, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (37, 'Urbanización Tranquila, Casa 15', 37, 37, 37, 37, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (38, 'Avenida Principal, Local 7', 38, 38, 38, 38, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (39, 'Sector Comercial, Tienda de Ropa', 39, 39, 39, 39, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (40, 'Cerca de la Estación de Tren', 40, 40, 40, 40, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (41, 'Barrio Nuevo, Edificio 3', 41, 41, 41, 41, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (42, 'Zona Residencial, Villa 10', 42, 42, 42, 42, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (43, 'Avenida de los Árboles, Casa 22', 43, 43, 43, 43, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (44, 'Sector Industrial, Planta Baja', 44, 44, 44, 44, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (45, 'Cerca del Estadio, Apartamento 7B', 45, 45, 45, 45, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (46, 'Barrio Histórico, Calle Principal', 46, 46, 46, 46, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (47, 'Zona Universitaria, Residencia 5', 47, 47, 47, 47, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (48, 'Avenida del Mar, Local 1', 48, 48, 48, 48, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (49, 'Urbanización Verde, Casa 20', 49, 49, 49, 49, 1);
+INSERT INTO FIDE_DIRECCION_TB (ID_DIRECCION, DETALLE_DIRECCION, ID_DISTRITO, ID_CANTON, ID_PROVINCIA, ID_PAIS, ID_ESTADO) VALUES (50, 'Sector Montañoso, Finca El Cielo', 50, 50, 50, 50, 1);
+
+
+
+
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (1, 'Juan Pérez', TO_DATE('2023-01-15', 'YYYY-MM-DD'), '5551111', 'juan.perez@email.com', 1, 1, 1);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (2, 'María García', TO_DATE('2023-02-20', 'YYYY-MM-DD'), '5552222', 'maria.garcia@email.com', 1, 2, 2);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (3, 'Carlos López', TO_DATE('2023-03-10', 'YYYY-MM-DD'), '5553333', 'carlos.lopez@email.com', 1, 3, 3);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (4, 'Ana Martínez', TO_DATE('2023-04-05', 'YYYY-MM-DD'), '5554444', 'ana.martinez@email.com', 1, 4, 4);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (5, 'Pedro Rodríguez', TO_DATE('2023-05-18', 'YYYY-MM-DD'), '5555555', 'pedro.rodriguez@email.com', 1, 5, 5);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (6, 'Sofía Hernández', TO_DATE('2023-06-22', 'YYYY-MM-DD'), '5556666', 'sofia.hernandez@email.com', 1, 6, 6);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (7, 'Luis González', TO_DATE('2023-07-01', 'YYYY-MM-DD'), '5557777', 'luis.gonzalez@email.com', 1, 7, 7);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (8, 'Laura Díaz', TO_DATE('2023-08-14', 'YYYY-MM-DD'), '5558888', 'laura.diaz@email.com', 1, 8, 8);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (9, 'Diego Sánchez', TO_DATE('2023-09-03', 'YYYY-MM-DD'), '5559999', 'diego.sanchez@email.com', 1, 9, 9);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (10, 'Valeria Torres', TO_DATE('2023-10-25', 'YYYY-MM-DD'), '5550000', 'valeria.torres@email.com', 1, 10, 10);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (11, 'Jorge Ramírez', TO_DATE('2023-11-11', 'YYYY-MM-DD'), '5551010', 'jorge.ramirez@email.com', 1, 11, 11);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (12, 'Camila Flores', TO_DATE('2023-12-01', 'YYYY-MM-DD'), '5551212', 'camila.flores@email.com', 1, 12, 12);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (13, 'Ricardo Morales', TO_DATE('2024-01-05', 'YYYY-MM-DD'), '5551313', 'ricardo.morales@email.com', 1, 13, 13);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (14, 'Andrea Castro', TO_DATE('2024-02-10', 'YYYY-MM-DD'), '5551414', 'andrea.castro@email.com', 1, 14, 14);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (15, 'Fernando Rojas', TO_DATE('2024-03-17', 'YYYY-MM-DD'), '5551515', 'fernando.rojas@email.com', 1, 15, 15);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (16, 'Gabriela Soto', TO_DATE('2024-04-21', 'YYYY-MM-DD'), '5551616', 'gabriela.soto@email.com', 1, 16, 16);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (17, 'Manuel Vargas', TO_DATE('2023-01-25', 'YYYY-MM-DD'), '5551717', 'manuel.vargas@email.com', 1, 1, 17);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (18, 'Isabel Núñez', TO_DATE('2023-02-01', 'YYYY-MM-DD'), '5551818', 'isabel.nunez@email.com', 1, 2, 18);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (19, 'Pablo Gil', TO_DATE('2023-03-08', 'YYYY-MM-DD'), '5551919', 'pablo.gil@email.com', 1, 3, 19);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (20, 'Natalia Blanco', TO_DATE('2023-04-12', 'YYYY-MM-DD'), '5552020', 'natalia.blanco@email.com', 1, 4, 20);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (21, 'Alejandro Cruz', TO_DATE('2023-05-01', 'YYYY-MM-DD'), '5552121', 'alejandro.cruz@email.com', 1, 5, 21);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (22, 'Daniela Vega', TO_DATE('2023-06-05', 'YYYY-MM-DD'), '5552223', 'daniela.vega@email.com', 1, 6, 22);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (23, 'Felipe Solís', TO_DATE('2023-07-09', 'YYYY-MM-DD'), '5552323', 'felipe.solis@email.com', 1, 7, 23);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (24, 'Mariana Mora', TO_DATE('2023-08-20', 'YYYY-MM-DD'), '5552424', 'mariana.mora@email.com', 1, 8, 24);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (25, 'Gustavo Jiménez', TO_DATE('2023-09-15', 'YYYY-MM-DD'), '5552525', 'gustavo.jimenez@email.com', 1, 9, 25);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (26, 'Elena Pardo', TO_DATE('2023-10-01', 'YYYY-MM-DD'), '5552626', 'elena.pardo@email.com', 1, 10, 26);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (27, 'Sergio Rivas', TO_DATE('2023-11-08', 'YYYY-MM-DD'), '5552727', 'sergio.rivas@email.com', 1, 11, 27);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (28, 'Patricia León', TO_DATE('2023-12-12', 'YYYY-MM-DD'), '5552828', 'patricia.leon@email.com', 1, 12, 28);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (29, 'Andrés Soto', TO_DATE('2024-01-20', 'YYYY-MM-DD'), '5552929', 'andres.soto@email.com', 1, 13, 29);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (30, 'Verónica Salas', TO_DATE('2024-02-25', 'YYYY-MM-DD'), '5553030', 'veronica.salas@email.com', 1, 14, 30);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (31, 'Roberto Quesada', TO_DATE('2024-03-05', 'YYYY-MM-DD'), '5553131', 'roberto.quesada@email.com', 1, 15, 31);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (32, 'Silvia Herrera', TO_DATE('2024-04-10', 'YYYY-MM-DD'), '5553232', 'silvia.herrera@email.com', 1, 16, 32);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (33, 'Mario Guzmán', TO_DATE('2023-01-01', 'YYYY-MM-DD'), '5553334', 'mario.guzman@email.com', 1, 1, 33);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (34, 'Lorena Jiménez', TO_DATE('2023-02-02', 'YYYY-MM-DD'), '5553434', 'lorena.jimenez@email.com', 1, 2, 34);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (35, 'Francisco Soto', TO_DATE('2023-03-03', 'YYYY-MM-DD'), '5553535', 'francisco.soto@email.com', 1, 3, 35);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (36, 'Paula Vega', TO_DATE('2023-04-04', 'YYYY-MM-DD'), '5553636', 'paula.vega@email.com', 1, 4, 36);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (37, 'Javier Castro', TO_DATE('2023-05-05', 'YYYY-MM-DD'), '5553737', 'javier.castro@email.com', 1, 5, 37);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (38, 'Mónica Salas', TO_DATE('2023-06-06', 'YYYY-MM-DD'), '5553838', 'monica.salas@email.com', 1, 6, 38);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (39, 'Rodrigo Quesada', TO_DATE('2023-07-07', 'YYYY-MM-DD'), '5553939', 'rodrigo.quesada@email.com', 1, 7, 39);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (40, 'Carolina Herrera', TO_DATE('2023-08-08', 'YYYY-MM-DD'), '5554040', 'carolina.herrera@email.com', 1, 8, 40);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (41, 'Alejandra Guzmán', TO_DATE('2023-09-09', 'YYYY-MM-DD'), '5554141', 'alejandra.guzman@email.com', 1, 9, 41);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (42, 'Daniela Núñez', TO_DATE('2023-10-10', 'YYYY-MM-DD'), '5554242', 'daniela.nunez@email.com', 1, 10, 42);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (43, 'Esteban Blanco', TO_DATE('2023-11-11', 'YYYY-MM-DD'), '5554343', 'esteban.blanco@email.com', 1, 11, 43);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (44, 'Laura Gil', TO_DATE('2023-12-12', 'YYYY-MM-DD'), '5554444', 'laura.gil@email.com', 1, 12, 44);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (45, 'Miguel Vargas', TO_DATE('2024-01-13', 'YYYY-MM-DD'), '5554545', 'miguel.vargas@email.com', 1, 13, 45);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (46, 'Sofía Mora', TO_DATE('2024-02-14', 'YYYY-MM-DD'), '5554646', 'sofia.mora@email.com', 1, 14, 46);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (47, 'David Pardo', TO_DATE('2024-03-15', 'YYYY-MM-DD'), '5554747', 'david.pardo@email.com', 1, 15, 47);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (48, 'Natalia Rivas', TO_DATE('2024-04-16', 'YYYY-MM-DD'), '5554848', 'natalia.rivas@email.com', 1, 16, 48);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (49, 'Juan Carlos León', TO_DATE('2023-01-20', 'YYYY-MM-DD'), '5554949', 'juancarlos.leon@email.com', 1, 1, 49);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (50, 'Marta Soto', TO_DATE('2023-02-28', 'YYYY-MM-DD'), '5555050', 'marta.soto@email.com', 1, 2, 50);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (51, 'Roberto Morales', TO_DATE('2023-03-10', 'YYYY-MM-DD'), '5555151', 'roberto.morales@email.com', 1, 3, 1);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (52, 'Lucía Castro', TO_DATE('2023-04-05', 'YYYY-MM-DD'), '5555252', 'lucia.castro@email.com', 1, 4, 2);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (53, 'Pedro Salas', TO_DATE('2023-05-18', 'YYYY-MM-DD'), '5555353', 'pedro.salas@email.com', 1, 5, 3);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (54, 'Sofía Quesada', TO_DATE('2023-06-22', 'YYYY-MM-DD'), '5555454', 'sofia.quesada@email.com', 1, 6, 4);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (55, 'Luis Herrera', TO_DATE('2023-07-01', 'YYYY-MM-DD'), '5555556', 'luis.herrera@email.com', 1, 7, 5);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (56, 'Laura Guzmán', TO_DATE('2023-08-14', 'YYYY-MM-DD'), '5555656', 'laura.guzman@email.com', 1, 8, 6);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (57, 'Diego Núñez', TO_DATE('2023-09-03', 'YYYY-MM-DD'), '5555757', 'diego.nunez@email.com', 1, 9, 7);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (58, 'Valeria Blanco', TO_DATE('2023-10-25', 'YYYY-MM-DD'), '5555858', 'valeria.blanco@email.com', 1, 10, 8);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (59, 'Jorge Gil', TO_DATE('2023-11-11', 'YYYY-MM-DD'), '5555959', 'jorge.gil@email.com', 1, 11, 9);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (60, 'Camila Vargas', TO_DATE('2023-12-01', 'YYYY-MM-DD'), '5556060', 'camila.vargas@email.com', 1, 12, 10);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (61, 'Ricardo Mora', TO_DATE('2024-01-05', 'YYYY-MM-DD'), '5556161', 'ricardo.mora@email.com', 1, 13, 11);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (62, 'Andrea Pardo', TO_DATE('2024-02-10', 'YYYY-MM-DD'), '5556262', 'andrea.pardo@email.com', 1, 14, 12);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (63, 'Fernando Rivas', TO_DATE('2024-03-17', 'YYYY-MM-DD'), '5556363', 'fernando.rivas@email.com', 1, 15, 13);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (64, 'Gabriela León', TO_DATE('2024-04-21', 'YYYY-MM-DD'), '5556464', 'gabriela.leon@email.com', 1, 16, 14);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (65, 'Manuel Soto', TO_DATE('2023-01-25', 'YYYY-MM-DD'), '5556565', 'manuel.soto@email.com', 1, 1, 15);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (66, 'Isabel Morales', TO_DATE('2023-02-01', 'YYYY-MM-DD'), '5556667', 'isabel.morales@email.com', 1, 2, 16);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (67, 'Pablo Castro', TO_DATE('2023-03-08', 'YYYY-MM-DD'), '5556767', 'pablo.castro@email.com', 1, 3, 17);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (68, 'Natalia Salas', TO_DATE('2023-04-12', 'YYYY-MM-DD'), '5556868', 'natalia.salas@email.com', 1, 4, 18);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (69, 'Alejandro Quesada', TO_DATE('2023-05-01', 'YYYY-MM-DD'), '5556969', 'alejandro.quesada@email.com', 1, 5, 19);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (70, 'Daniela Herrera', TO_DATE('2023-06-05', 'YYYY-MM-DD'), '5557070', 'daniela.herrera@email.com', 1, 6, 20);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (71, 'Felipe Guzmán', TO_DATE('2023-07-09', 'YYYY-MM-DD'), '5557171', 'felipe.guzman@email.com', 1, 7, 21);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (72, 'Mariana Núñez', TO_DATE('2023-08-20', 'YYYY-MM-DD'), '5557272', 'mariana.nunez@email.com', 1, 8, 22);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (73, 'Gustavo Blanco', TO_DATE('2023-09-15', 'YYYY-MM-DD'), '5557373', 'gustavo.blanco@email.com', 1, 9, 23);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (74, 'Elena Gil', TO_DATE('2023-10-01', 'YYYY-MM-DD'), '5557474', 'elena.gil@email.com', 1, 10, 24);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (75, 'Sergio Vargas', TO_DATE('2023-11-08', 'YYYY-MM-DD'), '5557575', 'sergio.vargas@email.com', 1, 11, 25);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (76, 'Patricia Mora', TO_DATE('2023-12-12', 'YYYY-MM-DD'), '5557676', 'patricia.mora@email.com', 1, 12, 26);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (77, 'Andrés Pardo', TO_DATE('2024-01-20', 'YYYY-MM-DD'), '5557778', 'andres.pardo@email.com', 1, 13, 27);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (78, 'Verónica Rivas', TO_DATE('2024-02-25', 'YYYY-MM-DD'), '5557878', 'veronica.rivas@email.com', 1, 14, 28);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (79, 'Roberto León', TO_DATE('2024-03-05', 'YYYY-MM-DD'), '5557979', 'roberto.leon@email.com', 1, 15, 29);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (80, 'Silvia Soto', TO_DATE('2024-04-10', 'YYYY-MM-DD'), '5558080', 'silvia.soto@email.com', 1, 16, 30);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (81, 'Mario Morales', TO_DATE('2023-01-01', 'YYYY-MM-DD'), '5558181', 'mario.morales@email.com', 1, 1, 31);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (82, 'Lorena Castro', TO_DATE('2023-02-02', 'YYYY-MM-DD'), '5558282', 'lorena.castro@email.com', 1, 2, 32);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (83, 'Francisco Salas', TO_DATE('2023-03-03', 'YYYY-MM-DD'), '5558383', 'francisco.salas@email.com', 1, 3, 33);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (84, 'Paula Quesada', TO_DATE('2023-04-04', 'YYYY-MM-DD'), '5558484', 'paula.quesada@email.com', 1, 4, 34);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (85, 'Javier Herrera', TO_DATE('2023-05-05', 'YYYY-MM-DD'), '5558585', 'javier.herrera@email.com', 1, 5, 35);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (86, 'Mónica Guzmán', TO_DATE('2023-06-06', 'YYYY-MM-DD'), '5558686', 'monica.guzman@email.com', 1, 6, 36);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (87, 'Rodrigo Núñez', TO_DATE('2023-07-07', 'YYYY-MM-DD'), '5558787', 'rodrigo.nunez@email.com', 1, 7, 37);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (88, 'Carolina Blanco', TO_DATE('2023-08-08', 'YYYY-MM-DD'), '5558889', 'carolina.blanco@email.com', 1, 8, 38);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (89, 'Alejandra Gil', TO_DATE('2023-09-09', 'YYYY-MM-DD'), '5558989', 'alejandra.gil@email.com', 1, 9, 39);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (90, 'Daniela Vargas', TO_DATE('2023-10-10', 'YYYY-MM-DD'), '5559090', 'daniela.vargas@email.com', 1, 10, 40);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (91, 'Esteban Mora', TO_DATE('2023-11-11', 'YYYY-MM-DD'), '5559191', 'esteban.mora@email.com', 1, 11, 41);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (92, 'Laura Pardo', TO_DATE('2023-12-12', 'YYYY-MM-DD'), '5559292', 'laura.pardo@email.com', 1, 12, 42);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (93, 'Miguel Rivas', TO_DATE('2024-01-13', 'YYYY-MM-DD'), '5559393', 'miguel.rivas@email.com', 1, 13, 43);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (94, 'Sofía León', TO_DATE('2024-02-14', 'YYYY-MM-DD'), '5559494', 'sofia.leon@email.com', 1, 14, 44);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (95, 'David Soto', TO_DATE('2024-03-15', 'YYYY-MM-DD'), '5559595', 'david.soto@email.com', 1, 15, 45);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (96, 'Natalia Morales', TO_DATE('2024-04-16', 'YYYY-MM-DD'), '5559696', 'natalia.morales@email.com', 1, 16, 46);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (97, 'Juan Quesada', TO_DATE('2023-01-20', 'YYYY-MM-DD'), '5559797', 'juan.quesada@email.com', 1, 1, 47);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (98, 'Marta Herrera', TO_DATE('2023-02-28', 'YYYY-MM-DD'), '5559898', 'marta.herrera@email.com', 1, 2, 48);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (99, 'Roberto Guzmán', TO_DATE('2023-03-10', 'YYYY-MM-DD'), '5559990', 'roberto.guzman@email.com', 1, 3, 49);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (100, 'Lucía Núñez', TO_DATE('2023-04-05', 'YYYY-MM-DD'), '5550001', 'lucia.nunez@email.com', 1, 4, 50);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (101, 'Pedro Blanco', TO_DATE('2023-05-18', 'YYYY-MM-DD'), '5550101', 'pedro.blanco@email.com', 1, 5, 1);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (102, 'Sofía Gil', TO_DATE('2023-06-22', 'YYYY-MM-DD'), '5550202', 'sofia.gil@email.com', 1, 6, 2);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (103, 'Luis Vargas', TO_DATE('2023-07-01', 'YYYY-MM-DD'), '5550303', 'luis.vargas@email.com', 1, 7, 3);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (104, 'Laura Mora', TO_DATE('2023-08-14', 'YYYY-MM-DD'), '5550404', 'laura.mora@email.com', 1, 8, 4);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (105, 'Diego Pardo', TO_DATE('2023-09-03', 'YYYY-MM-DD'), '5550505', 'diego.pardo@email.com', 1, 9, 5);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (106, 'Valeria Rivas', TO_DATE('2023-10-25', 'YYYY-MM-DD'), '5550606', 'valeria.rivas@email.com', 1, 10, 6);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (107, 'Jorge León', TO_DATE('2023-11-11', 'YYYY-MM-DD'), '5550707', 'jorge.leon@email.com', 1, 11, 7);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (108, 'Camila Soto', TO_DATE('2023-12-01', 'YYYY-MM-DD'), '5550808', 'camila.soto@email.com', 1, 12, 8);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (109, 'Ricardo Morales', TO_DATE('2024-01-05', 'YYYY-MM-DD'), '5550909', 'ricardo.morales2@email.com', 1, 13, 9);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (110, 'Andrea Castro', TO_DATE('2024-02-10', 'YYYY-MM-DD'), '5551011', 'andrea.castro2@email.com', 1, 14, 10);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (111, 'Fernando Rojas', TO_DATE('2024-03-17', 'YYYY-MM-DD'), '5551112', 'fernando.rojas2@email.com', 1, 15, 11);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (112, 'Gabriela Soto', TO_DATE('2024-04-21', 'YYYY-MM-DD'), '5551213', 'gabriela.soto2@email.com', 1, 16, 12);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (113, 'Manuel Vargas', TO_DATE('2023-01-25', 'YYYY-MM-DD'), '5551314', 'manuel.vargas2@email.com', 1, 1, 13);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (114, 'Isabel Núñez', TO_DATE('2023-02-01', 'YYYY-MM-DD'), '5551415', 'isabel.nunez2@email.com', 1, 2, 14);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (115, 'Pablo Gil', TO_DATE('2023-03-08', 'YYYY-MM-DD'), '5551516', 'pablo.gil2@email.com', 1, 3, 15);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (116, 'Natalia Blanco', TO_DATE('2023-04-12', 'YYYY-MM-DD'), '5551617', 'natalia.blanco2@email.com', 1, 4, 16);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (117, 'Alejandro Cruz', TO_DATE('2023-05-01', 'YYYY-MM-DD'), '5551718', 'alejandro.cruz2@email.com', 1, 5, 17);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (118, 'Daniela Vega', TO_DATE('2023-06-05', 'YYYY-MM-DD'), '5551819', 'daniela.vega2@email.com', 1, 6, 18);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (119, 'Felipe Solís', TO_DATE('2023-07-09', 'YYYY-MM-DD'), '5551920', 'felipe.solis2@email.com', 1, 7, 19);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (120, 'Mariana Mora', TO_DATE('2023-08-20', 'YYYY-MM-DD'), '5552021', 'mariana.mora2@email.com', 1, 8, 20);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (121, 'Gustavo Jiménez', TO_DATE('2023-09-15', 'YYYY-MM-DD'), '5552122', 'gustavo.jimenez2@email.com', 1, 9, 21);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (122, 'Elena Pardo', TO_DATE('2023-10-01', 'YYYY-MM-DD'), '5552224', 'elena.pardo2@email.com', 1, 10, 22);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (123, 'Sergio Rivas', TO_DATE('2023-11-08', 'YYYY-MM-DD'), '5552324', 'sergio.rivas2@email.com', 1, 11, 23);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (124, 'Patricia León', TO_DATE('2023-12-12', 'YYYY-MM-DD'), '5552425', 'patricia.leon2@email.com', 1, 12, 24);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (125, 'Andrés Soto', TO_DATE('2024-01-20', 'YYYY-MM-DD'), '5552526', 'andres.soto2@email.com', 1, 13, 25);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (126, 'Verónica Salas', TO_DATE('2024-02-25', 'YYYY-MM-DD'), '5552627', 'veronica.salas2@email.com', 1, 14, 26);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (127, 'Roberto Quesada', TO_DATE('2024-03-05', 'YYYY-MM-DD'), '5552728', 'roberto.quesada2@email.com', 1, 15, 27);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (128, 'Silvia Herrera', TO_DATE('2024-04-10', 'YYYY-MM-DD'), '5552829', 'silvia.herrera2@email.com', 1, 16, 28);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (129, 'Mario Guzmán', TO_DATE('2023-01-01', 'YYYY-MM-DD'), '5552930', 'mario.guzman2@email.com', 1, 1, 29);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (130, 'Lorena Jiménez', TO_DATE('2023-02-02', 'YYYY-MM-DD'), '5553031', 'lorena.jimenez2@email.com', 1, 2, 30);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (131, 'Francisco Soto', TO_DATE('2023-03-03', 'YYYY-MM-DD'), '5553132', 'francisco.soto2@email.com', 1, 3, 31);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (132, 'Paula Vega', TO_DATE('2023-04-04', 'YYYY-MM-DD'), '5553233', 'paula.vega2@email.com', 1, 4, 32);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (133, 'Javier Castro', TO_DATE('2023-05-05', 'YYYY-MM-DD'), '5553335', 'javier.castro2@email.com', 1, 5, 33);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (134, 'Mónica Salas', TO_DATE('2023-06-06', 'YYYY-MM-DD'), '5553435', 'monica.salas2@email.com', 1, 6, 34);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (135, 'Rodrigo Quesada', TO_DATE('2023-07-07', 'YYYY-MM-DD'), '5553536', 'rodrigo.quesada2@email.com', 1, 7, 35);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (136, 'Carolina Herrera', TO_DATE('2023-08-08', 'YYYY-MM-DD'), '5553637', 'carolina.herrera2@email.com', 1, 8, 36);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (137, 'Alejandra Guzmán', TO_DATE('2023-09-09', 'YYYY-MM-DD'), '5553738', 'alejandra.guzman2@email.com', 1, 9, 37);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (138, 'Daniela Núñez', TO_DATE('2023-10-10', 'YYYY-MM-DD'), '5553839', 'daniela.nunez2@email.com', 1, 10, 38);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (139, 'Esteban Blanco', TO_DATE('2023-11-11', 'YYYY-MM-DD'), '5553940', 'esteban.blanco2@email.com', 1, 11, 39);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (140, 'Laura Gil', TO_DATE('2023-12-12', 'YYYY-MM-DD'), '5554041', 'laura.gil2@email.com', 1, 12, 40);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (141, 'Miguel Vargas', TO_DATE('2024-01-13', 'YYYY-MM-DD'), '5554142', 'miguel.vargas2@email.com', 1, 13, 41);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (142, 'Sofía Mora', TO_DATE('2024-02-14', 'YYYY-MM-DD'), '5554243', 'sofia.mora2@email.com', 1, 14, 42);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (143, 'David Pardo', TO_DATE('2024-03-15', 'YYYY-MM-DD'), '5554344', 'david.pardo2@email.com', 1, 15, 43);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (144, 'Natalia Rivas', TO_DATE('2024-04-16', 'YYYY-MM-DD'), '5554445', 'natalia.rivas2@email.com', 1, 16, 44);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (145, 'Juan Carlos León', TO_DATE('2023-01-20', 'YYYY-MM-DD'), '5554546', 'juancarlos.leon2@email.com', 1, 1, 45);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (146, 'Marta Soto', TO_DATE('2023-02-28', 'YYYY-MM-DD'), '5554647', 'marta.soto2@email.com', 1, 2, 46);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (147, 'Roberto Morales', TO_DATE('2023-03-10', 'YYYY-MM-DD'), '5554748', 'roberto.morales2@email.com', 1, 3, 47);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (148, 'Lucía Castro', TO_DATE('2023-04-05', 'YYYY-MM-DD'), '5554849', 'lucia.castro2@email.com', 1, 4, 48);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (149, 'Pedro Salas', TO_DATE('2023-05-18', 'YYYY-MM-DD'), '5554950', 'pedro.salas2@email.com', 1, 5, 49);
+INSERT INTO FIDE_USUARIO_TB (ID_USUARIO, NOMBRE, FECHA_REGISTRO, TELEFONO, CORREO, ID_ESTADO, ID_ROL, ID_DIRECCION) VALUES (150, 'Sofía Quesada', TO_DATE('2023-06-22', 'YYYY-MM-DD'), '5555051', 'sofia.quesada2@email.com', 1, 6, 50);
+
+SELECT * FROM FIDE_USUARIO_TB ;
+
+
+INSERT INTO FIDE_HORARIO_TB (ID_HORARIO, DIA, HORA_INICIO, HORA_FINAL, ID_USUARIO, ID_ESTADO) VALUES (1, 'Lunes', TO_DATE('08:00 AM', 'HH:MI AM'), TO_DATE('05:00 PM', 'HH:MI AM'), 1, 1);
+INSERT INTO FIDE_HORARIO_TB (ID_HORARIO, DIA, HORA_INICIO, HORA_FINAL, ID_USUARIO, ID_ESTADO) VALUES (2, 'Martes', TO_DATE('09:00 AM', 'HH:MI AM'), TO_DATE('06:00 PM', 'HH:MI AM'), 2, 1);
+INSERT INTO FIDE_HORARIO_TB (ID_HORARIO, DIA, HORA_INICIO, HORA_FINAL, ID_USUARIO, ID_ESTADO) VALUES (3, 'Miércoles', TO_DATE('07:30 AM', 'HH:MI AM'), TO_DATE('04:30 PM', 'HH:MI AM'), 3, 1);
+INSERT INTO FIDE_HORARIO_TB (ID_HORARIO, DIA, HORA_INICIO, HORA_FINAL, ID_USUARIO, ID_ESTADO) VALUES (4, 'Jueves', TO_DATE('10:00 AM', 'HH:MI AM'), TO_DATE('07:00 PM', 'HH:MI AM'), 4, 1);
+INSERT INTO FIDE_HORARIO_TB (ID_HORARIO, DIA, HORA_INICIO, HORA_FINAL, ID_USUARIO, ID_ESTADO) VALUES (5, 'Viernes', TO_DATE('08:00 AM', 'HH:MI AM'), TO_DATE('04:00 PM', 'HH:MI AM'), 5, 1);
+INSERT INTO FIDE_HORARIO_TB (ID_HORARIO, DIA, HORA_INICIO, HORA_FINAL, ID_USUARIO, ID_ESTADO) VALUES (6, 'Sábado', TO_DATE('09:00 AM', 'HH:MI AM'), TO_DATE('01:00 PM', 'HH:MI AM'), 6, 1);
+INSERT INTO FIDE_HORARIO_TB (ID_HORARIO, DIA, HORA_INICIO, HORA_FINAL, ID_USUARIO, ID_ESTADO) VALUES (7, 'Lunes', TO_DATE('08:30 AM', 'HH:MI AM'), TO_DATE('05:30 PM', 'HH:MI AM'), 7, 1);
+INSERT INTO FIDE_HORARIO_TB (ID_HORARIO, DIA, HORA_INICIO, HORA_FINAL, ID_USUARIO, ID_ESTADO) VALUES (8, 'Martes', TO_DATE('07:00 AM', 'HH:MI AM'), TO_DATE('04:00 PM', 'HH:MI AM'), 8, 1);
+INSERT INTO FIDE_HORARIO_TB (ID_HORARIO, DIA, HORA_INICIO, HORA_FINAL, ID_USUARIO, ID_ESTADO) VALUES (9, 'Miércoles', TO_DATE('09:00 AM', 'HH:MI AM'), TO_DATE('05:00 PM', 'HH:MI AM'), 9, 1);
+INSERT INTO FIDE_HORARIO_TB (ID_HORARIO, DIA, HORA_INICIO, HORA_FINAL, ID_USUARIO, ID_ESTADO) VALUES (10, 'Jueves', TO_DATE('08:00 AM', 'HH:MI AM'), TO_DATE('06:00 PM', 'HH:MI AM'), 10, 1);
+INSERT INTO FIDE_HORARIO_TB (ID_HORARIO, DIA, HORA_INICIO, HORA_FINAL, ID_USUARIO, ID_ESTADO) VALUES (11, 'Viernes', TO_DATE('10:00 AM', 'HH:MI AM'), TO_DATE('03:00 PM', 'HH:MI AM'), 11, 1);
+INSERT INTO FIDE_HORARIO_TB (ID_HORARIO, DIA, HORA_INICIO, HORA_FINAL, ID_USUARIO, ID_ESTADO) VALUES (12, 'Sábado', TO_DATE('08:00 AM', 'HH:MI AM'), TO_DATE('12:00 PM', 'HH:MI AM'), 12, 1);
+INSERT INTO FIDE_HORARIO_TB (ID_HORARIO, DIA, HORA_INICIO, HORA_FINAL, ID_USUARIO, ID_ESTADO) VALUES (13, 'Lunes', TO_DATE('09:30 AM', 'HH:MI AM'), TO_DATE('06:30 PM', 'HH:MI AM'), 13, 1);
+INSERT INTO FIDE_HORARIO_TB (ID_HORARIO, DIA, HORA_INICIO, HORA_FINAL, ID_USUARIO, ID_ESTADO) VALUES (14, 'Martes', TO_DATE('08:00 AM', 'HH:MI AM'), TO_DATE('05:00 PM', 'HH:MI AM'), 14, 1);
+INSERT INTO FIDE_HORARIO_TB (ID_HORARIO, DIA, HORA_INICIO, HORA_FINAL, ID_USUARIO, ID_ESTADO) VALUES (15, 'Miércoles', TO_DATE('07:00 AM', 'HH:MI AM'), TO_DATE('03:00 PM', 'HH:MI AM'), 15, 1);
+INSERT INTO FIDE_HORARIO_TB (ID_HORARIO, DIA, HORA_INICIO, HORA_FINAL, ID_USUARIO, ID_ESTADO) VALUES (16, 'Jueves', TO_DATE('09:00 AM', 'HH:MI AM'), TO_DATE('06:00 PM', 'HH:MI AM'), 16, 1);
+INSERT INTO FIDE_HORARIO_TB (ID_HORARIO, DIA, HORA_INICIO, HORA_FINAL, ID_USUARIO, ID_ESTADO) VALUES (17, 'Viernes', TO_DATE('08:30 AM', 'HH:MI AM'), TO_DATE('04:30 PM', 'HH:MI AM'), 1, 1);
+INSERT INTO FIDE_HORARIO_TB (ID_HORARIO, DIA, HORA_INICIO, HORA_FINAL, ID_USUARIO, ID_ESTADO) VALUES (18, 'Lunes', TO_DATE('10:00 AM', 'HH:MI AM'), TO_DATE('07:00 PM', 'HH:MI AM'), 2, 1);
+INSERT INTO FIDE_HORARIO_TB (ID_HORARIO, DIA, HORA_INICIO, HORA_FINAL, ID_USUARIO, ID_ESTADO) VALUES (19, 'Martes', TO_DATE('07:00 AM', 'HH:MI AM'), TO_DATE('05:00 PM', 'HH:MI AM'), 3, 1);
+INSERT INTO FIDE_HORARIO_TB (ID_HORARIO, DIA, HORA_INICIO, HORA_FINAL, ID_USUARIO, ID_ESTADO) VALUES (20, 'Miércoles', TO_DATE('08:00 AM', 'HH:MI AM'), TO_DATE('04:00 PM', 'HH:MI AM'), 4, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (1, 'Coral Corp.', '2222-1001', 'coralcorp@acuario.com', 1, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (2, 'Marea Alta Solutions', '2222-1002', 'mareaaltasolutions@acuario.com', 2, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (3, 'Marino Solutions', '2222-1003', 'marinosolutions@acuario.com', 3, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (4, 'Anémona International', '2222-1004', 'anemonainternational@acuario.com', 4, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (5, 'Sirena S.A.', '2222-1005', 'sirenasa@acuario.com', 5, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (6, 'Estrella Marina International', '2222-1006', 'estrellamarinainternational@acuario.com', 6, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (7, 'Refugio Marino Corp.', '2222-1007', 'refugiomarinocorp@acuario.com', 7, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (8, 'Pacífico Solutions', '2222-1008', 'pacificosolutions@acuario.com', 8, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (9, 'Vida Marina Solutions', '2222-1009', 'vidamarinasolutions@acuario.com', 9, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (10, 'Caballito de Mar Ltda.', '2222-1010', 'caballitodemarltda@acuario.com', 10, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (11, 'Blue Waters Ltda.', '2222-1011', 'bluewatersltda@acuario.com', 11, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (12, 'Coral S.A.', '2222-1012', 'coralsa@acuario.com', 12, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (13, 'Perla Marina Group', '2222-1013', 'perlamarinagroup@acuario.com', 13, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (14, 'Brisa Marina Corp.', '2222-1014', 'brisamarinacorp@acuario.com', 14, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (15, 'Tiburón Blanco S.A.', '2222-1015', 'tiburonblancosa@acuario.com', 15, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (16, 'Brisa Marina Group', '2222-1016', 'brisamarinagroup@acuario.com', 16, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (17, 'Acuario S.A.', '2222-1017', 'acuariosa@acuario.com', 17, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (18, 'Vida Marina Ltda.', '2222-1018', 'vidamarinaltda@acuario.com', 18, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (19, 'Reef Life Ltda.', '2222-1019', 'reeflifeltda@acuario.com', 19, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (20, 'Perla Marina International', '2222-1020', 'perlamarinainternational@acuario.com', 20, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (21, 'Tridente International', '2222-1021', 'tridenteinternational@acuario.com', 21, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (22, 'Poseidón International', '2222-1022', 'poseidoninternational@acuario.com', 22, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (23, 'Nautilus Ltda.', '2222-1023', 'nautilusltda@acuario.com', 23, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (24, 'Delfín Azul Corp.', '2222-1024', 'delfinazulcorp@acuario.com', 24, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (25, 'Nautilus Corp.', '2222-1025', 'nautiluscorp@acuario.com', 25, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (26, 'Marea Alta Ltda.', '2222-1026', 'mareaaltaltda@acuario.com', 26, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (27, 'Mar Profundo Group', '2222-1027', 'marprofundogroup@acuario.com', 27, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (28, 'Océano Group', '2222-1028', 'oceanogroup@acuario.com', 28, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (29, 'Acuario Solutions', '2222-1029', 'acuariosolutions@acuario.com', 29, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (30, 'Brisa Marina Ltda.', '2222-1030', 'brisamarinaltda@acuario.com', 30, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (31, 'Aventura Acuática S.A.', '2222-1031', 'aventuraacuaticasa@acuario.com', 31, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (32, 'Océano Solutions', '2222-1032', 'oceanosolutions@acuario.com', 32, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (33, 'Bahía Coral Ltda.', '2222-1033', 'bahiacoralltda@acuario.com', 33, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (34, 'Bahía Coral International', '2222-1034', 'bahiacoralinternational@acuario.com', 34, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (35, 'Alga Verde Group', '2222-1035', 'algaverdegroup@acuario.com', 35, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (36, 'Atlántico International', '2222-1036', 'atlanticointernational@acuario.com', 36, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (37, 'Poseidón Corp.', '2222-1037', 'poseidoncorp@acuario.com', 37, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (38, 'Estrella Marina Group', '2222-1038', 'estrellamarinagroup@acuario.com', 38, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (39, 'Refugio Marino Solutions', '2222-1039', 'refugiomarinosolutions@acuario.com', 39, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (40, 'Océano Solutions', '2222-1040', 'oceanosolutions@acuario.com', 40, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (41, 'Reef Life Group', '2222-1041', 'reeflifegroup@acuario.com', 41, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (42, 'Caballito de Mar Group', '2222-1042', 'caballitodemargroup@acuario.com', 42, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (43, 'Delfín Azul Corp.', '2222-1043', 'delfinazulcorp@acuario.com', 43, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (44, 'Acuario S.A.', '2222-1044', 'acuariosa@acuario.com', 44, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (45, 'Alga Verde Solutions', '2222-1045', 'algaverdesolutions@acuario.com', 45, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (46, 'Isla Tropical Corp.', '2222-1046', 'islatropicalcorp@acuario.com', 46, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (47, 'Bahía Coral Corp.', '2222-1047', 'bahiacoralcorp@acuario.com', 47, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (48, 'Anémona Group', '2222-1048', 'anemonagroup@acuario.com', 48, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (49, 'Nautilus Corp.', '2222-1049', 'nautiluscorp@acuario.com', 49, 1);
+
+INSERT INTO FIDE_EMPRESA_TB (ID_EMPRESA, NOMBRE_EMPRESA, TELEFONO, CORREO, ID_DIRECCION, ID_ESTADO)
+VALUES (50, 'Poseidón Solutions', '2222-1050', 'poseidonsolutions@acuario.com', 50, 1);
+
+
+
+
+
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (1, TO_DATE('2024-04-30', 'YYYY-MM-DD'), 4, 9, 2);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (2, TO_DATE('2024-03-03', 'YYYY-MM-DD'), 29, 36, 1);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (3, TO_DATE('2024-11-28', 'YYYY-MM-DD'), 21, 68, 8);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (4, TO_DATE('2024-03-26', 'YYYY-MM-DD'), 11, 143, 2);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (5, TO_DATE('2024-03-16', 'YYYY-MM-DD'), 7, 101, 8);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (6, TO_DATE('2024-07-16', 'YYYY-MM-DD'), 47, 21, 11);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (7, TO_DATE('2024-12-29', 'YYYY-MM-DD'), 2, 117, 2);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (8, TO_DATE('2024-09-28', 'YYYY-MM-DD'), 45, 3, 14);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (9, TO_DATE('2024-08-10', 'YYYY-MM-DD'), 28, 13, 4);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (10, TO_DATE('2024-02-01', 'YYYY-MM-DD'), 11, 13, 4);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (11, TO_DATE('2024-12-08', 'YYYY-MM-DD'), 35, 108, 11);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (12, TO_DATE('2024-07-08', 'YYYY-MM-DD'), 37, 115, 2);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (13, TO_DATE('2024-07-07', 'YYYY-MM-DD'), 27, 125, 2);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (14, TO_DATE('2024-06-30', 'YYYY-MM-DD'), 23, 4, 1);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (15, TO_DATE('2024-09-29', 'YYYY-MM-DD'), 42, 91, 12);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (16, TO_DATE('2024-07-28', 'YYYY-MM-DD'), 38, 45, 11);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (17, TO_DATE('2024-11-22', 'YYYY-MM-DD'), 11, 54, 15);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (18, TO_DATE('2024-05-19', 'YYYY-MM-DD'), 7, 125, 9);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (19, TO_DATE('2024-12-20', 'YYYY-MM-DD'), 38, 104, 2);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (20, TO_DATE('2024-01-04', 'YYYY-MM-DD'), 18, 143, 7);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (21, TO_DATE('2024-09-21', 'YYYY-MM-DD'), 34, 66, 7);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (22, TO_DATE('2024-03-30', 'YYYY-MM-DD'), 25, 62, 11);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (23, TO_DATE('2024-02-26', 'YYYY-MM-DD'), 21, 67, 12);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (24, TO_DATE('2024-05-10', 'YYYY-MM-DD'), 37, 114, 8);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (25, TO_DATE('2024-03-04', 'YYYY-MM-DD'), 8, 6, 6);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (26, TO_DATE('2024-06-23', 'YYYY-MM-DD'), 17, 49, 7);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (27, TO_DATE('2024-05-12', 'YYYY-MM-DD'), 49, 132, 14);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (28, TO_DATE('2024-12-04', 'YYYY-MM-DD'), 47, 13, 1);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (29, TO_DATE('2024-04-12', 'YYYY-MM-DD'), 41, 103, 12);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (30, TO_DATE('2024-01-19', 'YYYY-MM-DD'), 31, 56, 3);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (31, TO_DATE('2024-09-20', 'YYYY-MM-DD'), 7, 89, 15);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (32, TO_DATE('2024-01-02', 'YYYY-MM-DD'), 28, 57, 3);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (33, TO_DATE('2024-08-12', 'YYYY-MM-DD'), 9, 119, 2);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (34, TO_DATE('2024-06-20', 'YYYY-MM-DD'), 12, 128, 3);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (35, TO_DATE('2024-09-13', 'YYYY-MM-DD'), 2, 32, 4);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (36, TO_DATE('2024-05-10', 'YYYY-MM-DD'), 1, 44, 6);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (37, TO_DATE('2024-09-26', 'YYYY-MM-DD'), 33, 97, 11);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (38, TO_DATE('2024-07-29', 'YYYY-MM-DD'), 11, 81, 11);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (39, TO_DATE('2024-11-26', 'YYYY-MM-DD'), 7, 42, 2);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (40, TO_DATE('2024-11-18', 'YYYY-MM-DD'), 42, 97, 8);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (41, TO_DATE('2024-08-01', 'YYYY-MM-DD'), 8, 2, 11);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (42, TO_DATE('2024-07-26', 'YYYY-MM-DD'), 27, 131, 14);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (43, TO_DATE('2024-08-06', 'YYYY-MM-DD'), 26, 149, 3);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (44, TO_DATE('2024-07-18', 'YYYY-MM-DD'), 37, 34, 14);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (45, TO_DATE('2024-07-12', 'YYYY-MM-DD'), 17, 142, 2);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (46, TO_DATE('2024-05-09', 'YYYY-MM-DD'), 16, 20, 5);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (47, TO_DATE('2024-03-31', 'YYYY-MM-DD'), 28, 74, 2);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (48, TO_DATE('2024-05-19', 'YYYY-MM-DD'), 8, 34, 11);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (49, TO_DATE('2024-07-23', 'YYYY-MM-DD'), 33, 75, 11);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (50, TO_DATE('2024-12-11', 'YYYY-MM-DD'), 3, 78, 1);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (51, TO_DATE('2024-07-10', 'YYYY-MM-DD'), 34, 111, 1);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (52, TO_DATE('2024-10-16', 'YYYY-MM-DD'), 41, 26, 1);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (53, TO_DATE('2024-08-26', 'YYYY-MM-DD'), 27, 84, 7);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (54, TO_DATE('2024-04-14', 'YYYY-MM-DD'), 13, 128, 15);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (55, TO_DATE('2024-09-06', 'YYYY-MM-DD'), 47, 18, 11);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (56, TO_DATE('2024-02-08', 'YYYY-MM-DD'), 12, 56, 6);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (57, TO_DATE('2024-03-11', 'YYYY-MM-DD'), 47, 17, 12);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (58, TO_DATE('2024-07-18', 'YYYY-MM-DD'), 9, 87, 1);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (59, TO_DATE('2024-04-08', 'YYYY-MM-DD'), 9, 28, 12);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (60, TO_DATE('2024-11-13', 'YYYY-MM-DD'), 8, 68, 1);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (61, TO_DATE('2024-04-18', 'YYYY-MM-DD'), 18, 63, 10);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (62, TO_DATE('2024-06-14', 'YYYY-MM-DD'), 12, 72, 15);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (63, TO_DATE('2024-11-03', 'YYYY-MM-DD'), 10, 11, 13);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (64, TO_DATE('2024-06-02', 'YYYY-MM-DD'), 24, 33, 3);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (65, TO_DATE('2024-03-30', 'YYYY-MM-DD'), 17, 105, 3);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (66, TO_DATE('2024-08-23', 'YYYY-MM-DD'), 24, 133, 10);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (67, TO_DATE('2024-01-21', 'YYYY-MM-DD'), 50, 17, 3);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (68, TO_DATE('2024-05-29', 'YYYY-MM-DD'), 50, 94, 2);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (69, TO_DATE('2024-02-16', 'YYYY-MM-DD'), 30, 41, 4);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (70, TO_DATE('2024-08-30', 'YYYY-MM-DD'), 36, 102, 15);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (71, TO_DATE('2024-02-21', 'YYYY-MM-DD'), 33, 22, 3);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (72, TO_DATE('2024-05-30', 'YYYY-MM-DD'), 38, 74, 7);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (73, TO_DATE('2024-09-11', 'YYYY-MM-DD'), 47, 90, 6);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (74, TO_DATE('2024-03-03', 'YYYY-MM-DD'), 26, 15, 14);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (75, TO_DATE('2024-12-24', 'YYYY-MM-DD'), 11, 23, 13);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (76, TO_DATE('2024-03-13', 'YYYY-MM-DD'), 18, 11, 2);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (77, TO_DATE('2024-03-19', 'YYYY-MM-DD'), 40, 126, 8);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (78, TO_DATE('2024-11-12', 'YYYY-MM-DD'), 25, 37, 14);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (79, TO_DATE('2024-11-11', 'YYYY-MM-DD'), 28, 150, 9);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (80, TO_DATE('2024-05-31', 'YYYY-MM-DD'), 39, 25, 4);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (81, TO_DATE('2024-05-23', 'YYYY-MM-DD'), 27, 15, 15);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (82, TO_DATE('2024-06-12', 'YYYY-MM-DD'), 31, 120, 2);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (83, TO_DATE('2024-10-21', 'YYYY-MM-DD'), 21, 100, 10);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (84, TO_DATE('2024-07-21', 'YYYY-MM-DD'), 21, 26, 15);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (85, TO_DATE('2024-02-12', 'YYYY-MM-DD'), 18, 85, 3);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (86, TO_DATE('2024-11-08', 'YYYY-MM-DD'), 5, 122, 1);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (87, TO_DATE('2024-12-19', 'YYYY-MM-DD'), 1, 24, 11);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (88, TO_DATE('2024-08-07', 'YYYY-MM-DD'), 2, 119, 15);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (89, TO_DATE('2024-11-28', 'YYYY-MM-DD'), 38, 29, 1);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (90, TO_DATE('2024-03-17', 'YYYY-MM-DD'), 3, 84, 1);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (91, TO_DATE('2024-01-20', 'YYYY-MM-DD'), 16, 89, 12);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (92, TO_DATE('2024-03-19', 'YYYY-MM-DD'), 22, 138, 2);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (93, TO_DATE('2024-07-31', 'YYYY-MM-DD'), 15, 77, 2);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (94, TO_DATE('2024-08-29', 'YYYY-MM-DD'), 38, 91, 14);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (95, TO_DATE('2024-03-03', 'YYYY-MM-DD'), 37, 134, 3);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (96, TO_DATE('2024-10-15', 'YYYY-MM-DD'), 37, 134, 5);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (97, TO_DATE('2024-09-03', 'YYYY-MM-DD'), 22, 148, 12);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (98, TO_DATE('2024-06-28', 'YYYY-MM-DD'), 1, 150, 14);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (99, TO_DATE('2024-02-18', 'YYYY-MM-DD'), 40, 107, 6);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (100, TO_DATE('2024-01-11', 'YYYY-MM-DD'), 11, 146, 11);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (101, TO_DATE('2024-08-16', 'YYYY-MM-DD'), 6, 102, 12);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (102, TO_DATE('2024-04-18', 'YYYY-MM-DD'), 9, 84, 9);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (103, TO_DATE('2024-03-12', 'YYYY-MM-DD'), 40, 131, 10);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (104, TO_DATE('2024-11-26', 'YYYY-MM-DD'), 43, 65, 5);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (105, TO_DATE('2024-12-05', 'YYYY-MM-DD'), 36, 96, 6);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (106, TO_DATE('2024-02-26', 'YYYY-MM-DD'), 38, 138, 5);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (107, TO_DATE('2024-08-30', 'YYYY-MM-DD'), 8, 107, 14);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (108, TO_DATE('2024-04-27', 'YYYY-MM-DD'), 48, 73, 14);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (109, TO_DATE('2024-11-04', 'YYYY-MM-DD'), 14, 8, 2);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (110, TO_DATE('2024-03-13', 'YYYY-MM-DD'), 28, 59, 7);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (111, TO_DATE('2024-10-18', 'YYYY-MM-DD'), 13, 104, 11);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (112, TO_DATE('2024-06-05', 'YYYY-MM-DD'), 39, 101, 10);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (113, TO_DATE('2024-11-09', 'YYYY-MM-DD'), 15, 31, 10);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (114, TO_DATE('2024-05-18', 'YYYY-MM-DD'), 23, 105, 5);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (115, TO_DATE('2024-11-14', 'YYYY-MM-DD'), 30, 56, 7);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (116, TO_DATE('2024-09-27', 'YYYY-MM-DD'), 9, 138, 8);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (117, TO_DATE('2024-10-12', 'YYYY-MM-DD'), 41, 72, 15);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (118, TO_DATE('2024-11-08', 'YYYY-MM-DD'), 41, 6, 11);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (119, TO_DATE('2024-03-10', 'YYYY-MM-DD'), 22, 96, 8);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (120, TO_DATE('2024-10-11', 'YYYY-MM-DD'), 2, 57, 2);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (121, TO_DATE('2024-11-01', 'YYYY-MM-DD'), 15, 103, 13);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (122, TO_DATE('2024-10-15', 'YYYY-MM-DD'), 11, 94, 11);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (123, TO_DATE('2024-09-10', 'YYYY-MM-DD'), 28, 131, 1);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (124, TO_DATE('2024-06-29', 'YYYY-MM-DD'), 45, 87, 4);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (125, TO_DATE('2024-02-15', 'YYYY-MM-DD'), 28, 45, 3);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (126, TO_DATE('2024-09-17', 'YYYY-MM-DD'), 32, 119, 4);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (127, TO_DATE('2024-11-10', 'YYYY-MM-DD'), 33, 12, 7);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (128, TO_DATE('2024-04-02', 'YYYY-MM-DD'), 9, 127, 2);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (129, TO_DATE('2024-02-26', 'YYYY-MM-DD'), 27, 97, 11);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (130, TO_DATE('2024-08-07', 'YYYY-MM-DD'), 2, 43, 11);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (131, TO_DATE('2024-03-06', 'YYYY-MM-DD'), 14, 30, 6);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (132, TO_DATE('2024-03-12', 'YYYY-MM-DD'), 17, 28, 3);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (133, TO_DATE('2024-01-28', 'YYYY-MM-DD'), 1, 3, 10);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (134, TO_DATE('2024-08-21', 'YYYY-MM-DD'), 39, 123, 7);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (135, TO_DATE('2024-08-05', 'YYYY-MM-DD'), 43, 29, 11);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (136, TO_DATE('2024-03-10', 'YYYY-MM-DD'), 3, 138, 5);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (137, TO_DATE('2024-09-06', 'YYYY-MM-DD'), 26, 108, 15);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (138, TO_DATE('2024-01-11', 'YYYY-MM-DD'), 28, 120, 14);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (139, TO_DATE('2024-01-19', 'YYYY-MM-DD'), 13, 4, 8);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (140, TO_DATE('2024-04-14', 'YYYY-MM-DD'), 39, 97, 12);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (141, TO_DATE('2024-02-17', 'YYYY-MM-DD'), 5, 67, 3);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (142, TO_DATE('2024-04-23', 'YYYY-MM-DD'), 17, 106, 8);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (143, TO_DATE('2024-04-11', 'YYYY-MM-DD'), 28, 53, 9);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (144, TO_DATE('2024-07-08', 'YYYY-MM-DD'), 48, 116, 13);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (145, TO_DATE('2024-01-03', 'YYYY-MM-DD'), 33, 98, 11);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (146, TO_DATE('2024-02-13', 'YYYY-MM-DD'), 28, 147, 2);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (147, TO_DATE('2024-04-08', 'YYYY-MM-DD'), 39, 103, 14);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (148, TO_DATE('2024-10-18', 'YYYY-MM-DD'), 44, 94, 10);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (149, TO_DATE('2024-04-23', 'YYYY-MM-DD'), 42, 1, 6);
+
+INSERT INTO FIDE_ENTREGA_TB (ID_ENTREGA, FECHA, ID_DIRECCION, ID_USUARIO, ID_ESTADO)
+VALUES (150, TO_DATE('2024-12-28', 'YYYY-MM-DD'), 9, 17, 11);
+
+
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Suministro de equipos de filtración y purificación de agua. Revisión realizada por el equipo técnico.', 22, 1, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Suministro de suplementos nutricionales y medicamentos. Revisión realizada por el equipo técnico.', 9, 2, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Entrega de alimentos especializados para peces tropicales. Revisión realizada por el equipo técnico.', 49, 3, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Mantenimiento de tanques y sistemas de iluminación LED. Revisión realizada por el equipo técnico.', 47, 4, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Suministro de equipos de filtración y purificación de agua. Revisión realizada por el equipo técnico.', 17, 5, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Recepción de animales marinos provenientes de otras sedes. Revisión realizada por el equipo técnico.', 31, 6, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Reposición de corales artificiales y decoraciones marinas. Revisión realizada por el equipo técnico.', 31, 7, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Entrega de alimentos especializados para peces tropicales. Revisión realizada por el equipo técnico.', 3, 8, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Recepción de animales marinos provenientes de otras sedes. Revisión realizada por el equipo técnico.', 32, 9, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Envío de muestras de agua para análisis de calidad química. Revisión realizada por el equipo técnico.', 45, 10, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Entrega de alimentos especializados para peces tropicales. Revisión realizada por el equipo técnico.', 39, 11, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Envío de muestras de agua para análisis de calidad química. Revisión realizada por el equipo técnico.', 18, 12, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Entrega de alimentos especializados para peces tropicales. Revisión realizada por el equipo técnico.', 3, 13, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Envío de muestras de agua para análisis de calidad química. Revisión realizada por el equipo técnico.', 13, 14, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Mantenimiento de tanques y sistemas de iluminación LED. Revisión realizada por el equipo técnico.', 32, 15, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Reposición de corales artificiales y decoraciones marinas. Revisión realizada por el equipo técnico.', 19, 16, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Entrega de productos de limpieza y tratamiento de acuarios. Revisión realizada por el equipo técnico.', 14, 17, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Reposición de corales artificiales y decoraciones marinas. Revisión realizada por el equipo técnico.', 2, 18, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Instalación de bombas de agua y sistemas de oxigenación. Revisión realizada por el equipo técnico.', 8, 19, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Transporte de nuevas especies marinas para exhibición. Revisión realizada por el equipo técnico.', 34, 20, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Reposición de corales artificiales y decoraciones marinas. Revisión realizada por el equipo técnico.', 27, 21, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Recepción de animales marinos provenientes de otras sedes. Revisión realizada por el equipo técnico.', 35, 22, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Transporte de nuevas especies marinas para exhibición. Revisión realizada por el equipo técnico.', 21, 23, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Entrega de productos de limpieza y tratamiento de acuarios. Revisión realizada por el equipo técnico.', 47, 24, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Entrega de productos de limpieza y tratamiento de acuarios. Revisión realizada por el equipo técnico.', 15, 25, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Entrega de productos de limpieza y tratamiento de acuarios. Revisión realizada por el equipo técnico.', 11, 26, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Instalación de bombas de agua y sistemas de oxigenación. Revisión realizada por el equipo técnico.', 20, 27, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Recepción de animales marinos provenientes de otras sedes. Revisión realizada por el equipo técnico.', 4, 28, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Transporte de nuevas especies marinas para exhibición. Revisión realizada por el equipo técnico.', 49, 29, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Entrega de alimentos especializados para peces tropicales. Revisión realizada por el equipo técnico.', 25, 30, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Recepción de animales marinos provenientes de otras sedes. Revisión realizada por el equipo técnico.', 26, 31, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Recepción de animales marinos provenientes de otras sedes. Revisión realizada por el equipo técnico.', 48, 32, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Envío de muestras de agua para análisis de calidad química. Revisión realizada por el equipo técnico.', 38, 33, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Entrega de productos de limpieza y tratamiento de acuarios. Revisión realizada por el equipo técnico.', 4, 34, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Entrega de productos de limpieza y tratamiento de acuarios. Revisión realizada por el equipo técnico.', 35, 35, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Instalación de bombas de agua y sistemas de oxigenación. Revisión realizada por el equipo técnico.', 36, 36, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Suministro de suplementos nutricionales y medicamentos. Revisión realizada por el equipo técnico.', 32, 37, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Envío de muestras de agua para análisis de calidad química. Revisión realizada por el equipo técnico.', 7, 38, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Instalación de bombas de agua y sistemas de oxigenación. Revisión realizada por el equipo técnico.', 22, 39, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Transporte de nuevas especies marinas para exhibición. Revisión realizada por el equipo técnico.', 20, 40, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Transporte de nuevas especies marinas para exhibición. Revisión realizada por el equipo técnico.', 11, 41, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Recepción de animales marinos provenientes de otras sedes. Revisión realizada por el equipo técnico.', 11, 42, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Reposición de corales artificiales y decoraciones marinas. Revisión realizada por el equipo técnico.', 36, 43, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Mantenimiento de tanques y sistemas de iluminación LED. Revisión realizada por el equipo técnico.', 33, 44, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Suministro de suplementos nutricionales y medicamentos. Revisión realizada por el equipo técnico.', 11, 45, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Instalación de bombas de agua y sistemas de oxigenación. Revisión realizada por el equipo técnico.', 5, 46, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Instalación de bombas de agua y sistemas de oxigenación. Revisión realizada por el equipo técnico.', 29, 47, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Transporte de nuevas especies marinas para exhibición. Revisión realizada por el equipo técnico.', 41, 48, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Suministro de suplementos nutricionales y medicamentos. Revisión realizada por el equipo técnico.', 4, 49, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Transporte de nuevas especies marinas para exhibición. Revisión realizada por el equipo técnico.', 37, 50, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Entrega de alimentos especializados para peces tropicales. Revisión realizada por el equipo técnico.', 35, 51, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Reposición de corales artificiales y decoraciones marinas. Revisión realizada por el equipo técnico.', 6, 52, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Mantenimiento de tanques y sistemas de iluminación LED. Revisión realizada por el equipo técnico.', 43, 53, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Recepción de animales marinos provenientes de otras sedes. Revisión realizada por el equipo técnico.', 29, 54, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Envío de muestras de agua para análisis de calidad química. Revisión realizada por el equipo técnico.', 31, 55, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Instalación de bombas de agua y sistemas de oxigenación. Revisión realizada por el equipo técnico.', 31, 56, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Recepción de animales marinos provenientes de otras sedes. Revisión realizada por el equipo técnico.', 49, 57, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Reposición de corales artificiales y decoraciones marinas. Revisión realizada por el equipo técnico.', 6, 58, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Entrega de alimentos especializados para peces tropicales. Revisión realizada por el equipo técnico.', 18, 59, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Reposición de corales artificiales y decoraciones marinas. Revisión realizada por el equipo técnico.', 31, 60, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Instalación de bombas de agua y sistemas de oxigenación. Revisión realizada por el equipo técnico.', 50, 61, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Entrega de productos de limpieza y tratamiento de acuarios. Revisión realizada por el equipo técnico.', 7, 62, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Mantenimiento de tanques y sistemas de iluminación LED. Revisión realizada por el equipo técnico.', 40, 63, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Instalación de bombas de agua y sistemas de oxigenación. Revisión realizada por el equipo técnico.', 7, 64, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Entrega de productos de limpieza y tratamiento de acuarios. Revisión realizada por el equipo técnico.', 46, 65, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Mantenimiento de tanques y sistemas de iluminación LED. Revisión realizada por el equipo técnico.', 28, 66, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Suministro de suplementos nutricionales y medicamentos. Revisión realizada por el equipo técnico.', 39, 67, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Entrega de productos de limpieza y tratamiento de acuarios. Revisión realizada por el equipo técnico.', 37, 68, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Reposición de corales artificiales y decoraciones marinas. Revisión realizada por el equipo técnico.', 31, 69, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Suministro de suplementos nutricionales y medicamentos. Revisión realizada por el equipo técnico.', 20, 70, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Recepción de animales marinos provenientes de otras sedes. Revisión realizada por el equipo técnico.', 38, 71, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Suministro de equipos de filtración y purificación de agua. Revisión realizada por el equipo técnico.', 22, 72, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Instalación de bombas de agua y sistemas de oxigenación. Revisión realizada por el equipo técnico.', 7, 73, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Recepción de animales marinos provenientes de otras sedes. Revisión realizada por el equipo técnico.', 40, 74, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Suministro de suplementos nutricionales y medicamentos. Revisión realizada por el equipo técnico.', 26, 75, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Entrega de alimentos especializados para peces tropicales. Revisión realizada por el equipo técnico.', 4, 76, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Recepción de animales marinos provenientes de otras sedes. Revisión realizada por el equipo técnico.', 7, 77, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Transporte de nuevas especies marinas para exhibición. Revisión realizada por el equipo técnico.', 18, 78, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Envío de muestras de agua para análisis de calidad química. Revisión realizada por el equipo técnico.', 37, 79, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Entrega de productos de limpieza y tratamiento de acuarios. Revisión realizada por el equipo técnico.', 14, 80, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Instalación de bombas de agua y sistemas de oxigenación. Revisión realizada por el equipo técnico.', 42, 81, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Mantenimiento de tanques y sistemas de iluminación LED. Revisión realizada por el equipo técnico.', 33, 82, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Recepción de animales marinos provenientes de otras sedes. Revisión realizada por el equipo técnico.', 28, 83, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Suministro de suplementos nutricionales y medicamentos. Revisión realizada por el equipo técnico.', 41, 84, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Entrega de productos de limpieza y tratamiento de acuarios. Revisión realizada por el equipo técnico.', 31, 85, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Suministro de equipos de filtración y purificación de agua. Revisión realizada por el equipo técnico.', 49, 86, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Envío de muestras de agua para análisis de calidad química. Revisión realizada por el equipo técnico.', 12, 87, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Instalación de bombas de agua y sistemas de oxigenación. Revisión realizada por el equipo técnico.', 1, 88, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Recepción de animales marinos provenientes de otras sedes. Revisión realizada por el equipo técnico.', 47, 89, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Recepción de animales marinos provenientes de otras sedes. Revisión realizada por el equipo técnico.', 12, 90, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Suministro de equipos de filtración y purificación de agua. Revisión realizada por el equipo técnico.', 43, 91, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Suministro de suplementos nutricionales y medicamentos. Revisión realizada por el equipo técnico.', 18, 92, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Suministro de suplementos nutricionales y medicamentos. Revisión realizada por el equipo técnico.', 29, 93, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Reposición de corales artificiales y decoraciones marinas. Revisión realizada por el equipo técnico.', 17, 94, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Entrega de productos de limpieza y tratamiento de acuarios. Revisión realizada por el equipo técnico.', 39, 95, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Entrega de alimentos especializados para peces tropicales. Revisión realizada por el equipo técnico.', 27, 96, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Recepción de animales marinos provenientes de otras sedes. Revisión realizada por el equipo técnico.', 20, 97, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Entrega de alimentos especializados para peces tropicales. Revisión realizada por el equipo técnico.', 26, 98, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Entrega de alimentos especializados para peces tropicales. Revisión realizada por el equipo técnico.', 26, 99, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Mantenimiento de tanques y sistemas de iluminación LED. Revisión realizada por el equipo técnico.', 39, 100, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Instalación de bombas de agua y sistemas de oxigenación. Revisión realizada por el equipo técnico.', 39, 101, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Entrega de alimentos especializados para peces tropicales. Revisión realizada por el equipo técnico.', 19, 102, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Transporte de nuevas especies marinas para exhibición. Revisión realizada por el equipo técnico.', 1, 103, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Mantenimiento de tanques y sistemas de iluminación LED. Revisión realizada por el equipo técnico.', 16, 104, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Entrega de productos de limpieza y tratamiento de acuarios. Revisión realizada por el equipo técnico.', 38, 105, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Recepción de animales marinos provenientes de otras sedes. Revisión realizada por el equipo técnico.', 29, 106, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Instalación de bombas de agua y sistemas de oxigenación. Revisión realizada por el equipo técnico.', 5, 107, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Transporte de nuevas especies marinas para exhibición. Revisión realizada por el equipo técnico.', 41, 108, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Envío de muestras de agua para análisis de calidad química. Revisión realizada por el equipo técnico.', 4, 109, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Entrega de productos de limpieza y tratamiento de acuarios. Revisión realizada por el equipo técnico.', 3, 110, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Instalación de bombas de agua y sistemas de oxigenación. Revisión realizada por el equipo técnico.', 28, 111, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Mantenimiento de tanques y sistemas de iluminación LED. Revisión realizada por el equipo técnico.', 24, 112, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Instalación de bombas de agua y sistemas de oxigenación. Revisión realizada por el equipo técnico.', 48, 113, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Entrega de alimentos especializados para peces tropicales. Revisión realizada por el equipo técnico.', 27, 114, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Suministro de suplementos nutricionales y medicamentos. Revisión realizada por el equipo técnico.', 19, 115, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Mantenimiento de tanques y sistemas de iluminación LED. Revisión realizada por el equipo técnico.', 39, 116, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Entrega de alimentos especializados para peces tropicales. Revisión realizada por el equipo técnico.', 3, 117, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Entrega de productos de limpieza y tratamiento de acuarios. Revisión realizada por el equipo técnico.', 12, 118, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Suministro de suplementos nutricionales y medicamentos. Revisión realizada por el equipo técnico.', 39, 119, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Recepción de animales marinos provenientes de otras sedes. Revisión realizada por el equipo técnico.', 40, 120, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Suministro de suplementos nutricionales y medicamentos. Revisión realizada por el equipo técnico.', 32, 121, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Mantenimiento de tanques y sistemas de iluminación LED. Revisión realizada por el equipo técnico.', 26, 122, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Reposición de corales artificiales y decoraciones marinas. Revisión realizada por el equipo técnico.', 30, 123, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Suministro de equipos de filtración y purificación de agua. Revisión realizada por el equipo técnico.', 43, 124, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Mantenimiento de tanques y sistemas de iluminación LED. Revisión realizada por el equipo técnico.', 12, 125, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Envío de muestras de agua para análisis de calidad química. Revisión realizada por el equipo técnico.', 38, 126, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Mantenimiento de tanques y sistemas de iluminación LED. Revisión realizada por el equipo técnico.', 42, 127, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Instalación de bombas de agua y sistemas de oxigenación. Revisión realizada por el equipo técnico.', 46, 128, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Mantenimiento de tanques y sistemas de iluminación LED. Revisión realizada por el equipo técnico.', 8, 129, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Entrega de alimentos especializados para peces tropicales. Revisión realizada por el equipo técnico.', 4, 130, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Reposición de corales artificiales y decoraciones marinas. Revisión realizada por el equipo técnico.', 6, 131, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Envío de muestras de agua para análisis de calidad química. Revisión realizada por el equipo técnico.', 47, 132, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Recepción de animales marinos provenientes de otras sedes. Revisión realizada por el equipo técnico.', 27, 133, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Recepción de animales marinos provenientes de otras sedes. Revisión realizada por el equipo técnico.', 34, 134, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Recepción de animales marinos provenientes de otras sedes. Revisión realizada por el equipo técnico.', 26, 135, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Instalación de bombas de agua y sistemas de oxigenación. Revisión realizada por el equipo técnico.', 12, 136, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Suministro de suplementos nutricionales y medicamentos. Revisión realizada por el equipo técnico.', 32, 137, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Reposición de corales artificiales y decoraciones marinas. Revisión realizada por el equipo técnico.', 33, 138, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Suministro de suplementos nutricionales y medicamentos. Revisión realizada por el equipo técnico.', 30, 139, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Suministro de equipos de filtración y purificación de agua. Revisión realizada por el equipo técnico.', 9, 140, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Entrega de productos de limpieza y tratamiento de acuarios. Revisión realizada por el equipo técnico.', 33, 141, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Suministro de suplementos nutricionales y medicamentos. Revisión realizada por el equipo técnico.', 30, 142, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Suministro de suplementos nutricionales y medicamentos. Revisión realizada por el equipo técnico.', 34, 143, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Transporte de nuevas especies marinas para exhibición. Revisión realizada por el equipo técnico.', 41, 144, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Transporte de nuevas especies marinas para exhibición. Revisión realizada por el equipo técnico.', 5, 145, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Suministro de suplementos nutricionales y medicamentos. Revisión realizada por el equipo técnico.', 41, 146, 5);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Instalación de bombas de agua y sistemas de oxigenación. Revisión realizada por el equipo técnico.', 15, 147, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Entrega de productos de limpieza y tratamiento de acuarios. Revisión realizada por el equipo técnico.', 15, 148, 4);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Entrega de productos de limpieza y tratamiento de acuarios. Revisión realizada por el equipo técnico.', 16, 149, 3);
+INSERT INTO FIDE_DETALLE_ENTREGA_TB (DESCRIPCION, CANTIDAD, ID_ENTREGA, ID_ESTADO)
+VALUES ('Mantenimiento de tanques y sistemas de iluminación LED. Revisión realizada por el equipo técnico.', 38, 150, 5);
+
+
+INSERT INTO FIDE_CATEGORIA_TB (ID_CATEGORIA, NOMBRE_CATEGORIA, ID_ESTADO)
+VALUES (1, 'Alimentos para peces tropicales', 13);
+
+INSERT INTO FIDE_CATEGORIA_TB (ID_CATEGORIA, NOMBRE_CATEGORIA, ID_ESTADO)
+VALUES (2, 'Filtros y bombas acuáticas', 9);
+
+INSERT INTO FIDE_CATEGORIA_TB (ID_CATEGORIA, NOMBRE_CATEGORIA, ID_ESTADO)
+VALUES (3, 'Iluminación LED submarina', 6);
+
+INSERT INTO FIDE_CATEGORIA_TB (ID_CATEGORIA, NOMBRE_CATEGORIA, ID_ESTADO)
+VALUES (4, 'Decoraciones de hábitat marino', 5);
+
+INSERT INTO FIDE_CATEGORIA_TB (ID_CATEGORIA, NOMBRE_CATEGORIA, ID_ESTADO)
+VALUES (5, 'Suplementos nutricionales', 15);
+
+INSERT INTO FIDE_CATEGORIA_TB (ID_CATEGORIA, NOMBRE_CATEGORIA, ID_ESTADO)
+VALUES (6, 'Sistemas de calefacción de tanques', 11);
+
+INSERT INTO FIDE_CATEGORIA_TB (ID_CATEGORIA, NOMBRE_CATEGORIA, ID_ESTADO)
+VALUES (7, 'Equipos de medición de pH y salinidad', 13);
+
+INSERT INTO FIDE_CATEGORIA_TB (ID_CATEGORIA, NOMBRE_CATEGORIA, ID_ESTADO)
+VALUES (8, 'Medicamentos veterinarios marinos', 12);
+
+INSERT INTO FIDE_CATEGORIA_TB (ID_CATEGORIA, NOMBRE_CATEGORIA, ID_ESTADO)
+VALUES (9, 'Tanques y acuarios de exhibición', 1);
+
+INSERT INTO FIDE_CATEGORIA_TB (ID_CATEGORIA, NOMBRE_CATEGORIA, ID_ESTADO)
+VALUES (10, 'Especies marinas tropicales', 11);
+
+INSERT INTO FIDE_CATEGORIA_TB (ID_CATEGORIA, NOMBRE_CATEGORIA, ID_ESTADO)
+VALUES (11, 'Accesorios de limpieza acuática', 1);
+
+INSERT INTO FIDE_CATEGORIA_TB (ID_CATEGORIA, NOMBRE_CATEGORIA, ID_ESTADO)
+VALUES (12, 'Sistemas de oxigenación', 12);
+
+INSERT INTO FIDE_CATEGORIA_TB (ID_CATEGORIA, NOMBRE_CATEGORIA, ID_ESTADO)
+VALUES (13, 'Instrumentos de monitoreo ambiental', 5);
+
+INSERT INTO FIDE_CATEGORIA_TB (ID_CATEGORIA, NOMBRE_CATEGORIA, ID_ESTADO)
+VALUES (14, 'Alimentos vivos (larvas, camarones)', 12);
+
+INSERT INTO FIDE_CATEGORIA_TB (ID_CATEGORIA, NOMBRE_CATEGORIA, ID_ESTADO)
+VALUES (15, 'Rocas y corales artificiales', 1);
+
+
+INSERT INTO FIDE_UNIDAD_MEDIDA_TB (ID_UNIDAD_MEDIDA, NOMBRE_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (1, 'Litros', 7);
+
+INSERT INTO FIDE_UNIDAD_MEDIDA_TB (ID_UNIDAD_MEDIDA, NOMBRE_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (2, 'Mililitros', 5);
+
+INSERT INTO FIDE_UNIDAD_MEDIDA_TB (ID_UNIDAD_MEDIDA, NOMBRE_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (3, 'Galones', 15);
+
+INSERT INTO FIDE_UNIDAD_MEDIDA_TB (ID_UNIDAD_MEDIDA, NOMBRE_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (4, 'Kilogramos', 2);
+
+INSERT INTO FIDE_UNIDAD_MEDIDA_TB (ID_UNIDAD_MEDIDA, NOMBRE_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (5, 'Gramos', 3);
+
+INSERT INTO FIDE_UNIDAD_MEDIDA_TB (ID_UNIDAD_MEDIDA, NOMBRE_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (6, 'Miligramos', 10);
+
+INSERT INTO FIDE_UNIDAD_MEDIDA_TB (ID_UNIDAD_MEDIDA, NOMBRE_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (7, 'Centímetros', 13);
+
+INSERT INTO FIDE_UNIDAD_MEDIDA_TB (ID_UNIDAD_MEDIDA, NOMBRE_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (8, 'Metros', 14);
+
+INSERT INTO FIDE_UNIDAD_MEDIDA_TB (ID_UNIDAD_MEDIDA, NOMBRE_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (9, 'Unidades', 9);
+
+INSERT INTO FIDE_UNIDAD_MEDIDA_TB (ID_UNIDAD_MEDIDA, NOMBRE_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (10, 'Piezas', 11);
+
+INSERT INTO FIDE_UNIDAD_MEDIDA_TB (ID_UNIDAD_MEDIDA, NOMBRE_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (11, 'Milímetros', 12);
+
+INSERT INTO FIDE_UNIDAD_MEDIDA_TB (ID_UNIDAD_MEDIDA, NOMBRE_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (12, 'Microlitros', 9);
+
+INSERT INTO FIDE_UNIDAD_MEDIDA_TB (ID_UNIDAD_MEDIDA, NOMBRE_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (13, 'Toneladas', 8);
+
+INSERT INTO FIDE_UNIDAD_MEDIDA_TB (ID_UNIDAD_MEDIDA, NOMBRE_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (14, 'Cajas', 5);
+
+INSERT INTO FIDE_UNIDAD_MEDIDA_TB (ID_UNIDAD_MEDIDA, NOMBRE_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (15, 'Paquetes', 2);
+
+
+
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (1, 'Decoración temática para crustáceos', 14, 3, 13);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (2, 'Tratamiento médico de medusas', 11, 4, 15);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (3, 'Acuario de exhibición para tiburones pequeños', 5, 10, 10);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (4, 'Suplemento vitamínico de medusas', 10, 5, 15);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (5, 'Lámpara LED sumergible para plantas acuáticas', 14, 8, 12);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (6, 'Lámpara LED sumergible para corales', 9, 3, 8);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (7, 'Medidor digital para tiburones pequeños', 3, 9, 8);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (8, 'Acuario de exhibición para estrellas de mar', 8, 7, 12);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (9, 'Filtro de alta eficiencia para crustáceos', 12, 8, 12);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (10, 'Calentador automático tipo peces dorados', 10, 12, 8);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (11, 'Medidor digital para tanques comunitarios', 1, 9, 8);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (12, 'Calentador automático para caballitos de mar', 9, 10, 13);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (13, 'Acuario de exhibición para corales', 9, 5, 15);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (14, 'Lámpara LED sumergible para caballitos de mar', 14, 8, 15);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (15, 'Filtro de alta eficiencia de medusas', 3, 6, 10);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (16, 'Lámpara LED sumergible para tanques comunitarios', 1, 11, 13);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (17, 'Calentador automático para peces tropicales', 2, 13, 10);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (18, 'Calentador automático de medusas', 2, 12, 12);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (19, 'Acuario de exhibición para corales', 1, 5, 10);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (20, 'Medidor digital para peces de agua salada', 8, 11, 12);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (21, 'Lámpara LED sumergible para caballitos de mar', 13, 8, 15);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (22, 'Alimento premium para especies marinas exóticas', 3, 10, 10);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (23, 'Alimento premium para tanques comunitarios', 1, 1, 15);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (24, 'Calentador automático para estrellas de mar', 6, 9, 8);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (25, 'Calentador automático para anfibios acuáticos', 6, 12, 15);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (26, 'Filtro de alta eficiencia para anfibios acuáticos', 2, 12, 15);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (27, 'Acuario de exhibición tipo peces dorados', 8, 1, 15);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (28, 'Lámpara LED sumergible para estrellas de mar', 4, 2, 12);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (29, 'Calentador automático para tanques comunitarios', 13, 2, 10);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (30, 'Decoración temática para especies marinas exóticas', 6, 11, 8);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (31, 'Suplemento vitamínico para plantas acuáticas', 10, 10, 13);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (32, 'Alimento premium para caballitos de mar', 4, 10, 12);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (33, 'Oxigenador de medusas', 14, 13, 13);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (34, 'Acuario de exhibición para caballitos de mar', 7, 13, 10);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (35, 'Decoración temática para tanques comunitarios', 2, 3, 15);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (36, 'Oxigenador rosado de medusas', 14, 12, 13);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (37, 'Tratamiento médico para peces de agua salada', 6, 5, 15);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (38, 'Medidor digital para estrellas de mar', 10, 4, 10);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (39, 'Acuario de exhibición para especies marinas exóticas', 4, 12, 12);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (40, 'Suplemento vitamínico de medusas', 3, 4, 13);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (41, 'Medidor digital para peces de agua salada', 12, 10, 12);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (42, 'Tratamiento médico para crustáceos', 12, 2, 13);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (43, 'Alimento premium para crustáceos', 11, 2, 13);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (44, 'Tratamiento médico para crustáceos', 8, 10, 15);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (45, 'Tratamiento médico para anfibios acuáticos', 1, 13, 15);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (46, 'Lámpara LED sumergible para plantas acuáticas', 1, 8, 8);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (47, 'Decoración temática tipo peces dorados', 15, 11, 12);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (48, 'Lámpara LED sumergible de medusas', 14, 2, 8);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (49, 'Suplemento vitamínico para anfibios acuáticos', 8, 13, 12);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (50, 'Decoración temática para tiburones pequeños', 15, 3, 12);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (51, 'Lámpara LED sumergible para crustáceos', 7, 9, 8);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (52, 'Calentador automático para crustáceos', 15, 4, 13);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (53, 'Filtro de alta eficiencia tipo peces dorados', 12, 7, 10);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (54, 'Medidor digital para anfibios acuáticos', 2, 11, 12);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (55, 'Acuario de exhibición para plantas acuáticas', 15, 13, 10);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (56, 'Suplemento  para anfibios acuáticos', 8, 7, 13);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (57, 'Filtro de alta eficiencia para tanques comunitarios', 10, 13, 10);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (58, 'Alimento premium para tanques comunitarios', 4, 3, 15);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (59, 'Tratamiento médico de medusas', 13, 1, 10);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (60, 'Alimento premium de medusas', 7, 11, 13);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (61, 'Calentador automático para peces de agua salada', 5, 6, 8);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (62, 'Decoración temática para anfibios acuáticos', 2, 13, 10);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (63, 'Acuario de exhibición para tanques comunitarios', 5, 7, 15);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (64, 'Suplemento vitamínico para tiburones pequeños', 9, 1, 8);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (65, 'Tratamiento médico para tanques comunitarios', 3, 11, 10);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (66, 'Decoración para tanques comunitarios', 2, 12, 8);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (67, 'Decoración temática para estrellas de mar', 6, 3, 12);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (68, 'Acuario de exhibición para crustáceos', 14, 12, 10);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (69, 'Filtro de alta eficiencia para especies marinas exóticas', 2, 7, 8);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (70, 'Oxigenador para tanques comunitarios', 4, 10, 8);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (71, 'Alimento premium tipo peces dorados', 4, 2, 13);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (72, 'Decoración temática para caballitos de mar', 9, 8, 12);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (73, 'Filtro de alta eficiencia para anfibios acuáticos', 6, 8, 10);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (74, 'Lámpara LED sumergible de medusas', 15, 7, 13);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (75, 'Decoración temática para anfibios acuáticos', 5, 7, 13);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (76, 'Oxigenador de medusas', 5, 5, 8);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (77, 'Decoración temática para anfibios acuáticos', 4, 8, 13);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (78, 'Calentador automático para especies marinas exóticas', 1, 13, 12);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (79, 'Lámpara LED sumergible tipo peces dorados', 7, 8, 15);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (80, 'Lámpara LED sumergible tipo peces dorados', 5, 4, 10);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (81, 'Medidor digital para caballitos de mar', 10, 7, 12);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (82, 'Oxigenador para caballitos de mar', 14, 1, 15);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (83, 'Calentador automático negro para caballitos de mar', 14, 13, 8);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (84, 'Filtro de alta eficiencia para corales', 7, 10, 12);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (85, 'Medidor digital para especies marinas exóticas', 15, 13, 10);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (86, 'Calentador para caballitos de mar', 14, 2, 8);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (87, 'Lámpara LED sumergible para corales', 4, 5, 15);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (88, 'Medidor digital para peces tropicales', 2, 7, 12);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (89, 'Alimento premium para peces tropicales', 4, 12, 15);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (90, 'Acuario de exhibición para anfibios acuáticos', 10, 8, 8);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (91, 'Decoración temática para estrellas de mar', 7, 13, 8);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (92, 'Tratamiento médico para tiburones pequeños', 8, 9, 15);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (93, 'Alimento premium para caballitos de mar', 8, 13, 12);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (94, 'Suplemento vitamínico para peces de agua salada', 15, 1, 15);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (95, 'Lámpara LED sumergible para plantas acuáticas', 8, 6, 15);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (96, 'Alimento premium para tiburones pequeños', 11, 8, 8);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (97, 'Acuario de exhibición para crustáceos', 7, 12, 8);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (98, 'Oxigenador para tanques comunitarios', 3, 10, 8);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (99, 'Lámpara LED sumergible para estrellas de mar', 13, 7, 15);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (100, 'Calentador automático para tiburones pequeños', 3, 9, 15);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (101, 'Alimento premium para tiburones pequeños', 15, 2, 15);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (102, 'Oxigenador para peces de agua salada', 6, 4, 10);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (103, 'Lámpara LED sumergible tipo peces dorados', 14, 9, 12);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (104, 'Medidor digital para estrellas de mar', 1, 3, 8);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (105, 'Calentador automático para tiburones pequeños', 15, 4, 13);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (106, 'Acuario de exhibición para caballitos de mar', 6, 9, 15);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (107, 'Tratamiento médico para caballitos de mar', 8, 12, 8);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (108, 'Filtro de alta eficiencia para estrellas de mar', 13, 8, 12);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (109, 'Lámpara LED sumergible para estrellas de mar', 7, 11, 8);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (110, 'Acuario de exhibición para corales', 5, 7, 13);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (111, 'Oxigenador para plantas acuáticas', 8, 10, 12);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (112, 'Decoración temática para corales', 12, 13, 13);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (113, 'Lámpara rosada sumergible de medusas', 14, 5, 13);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (114, 'Tratamiento médico para tiburones pequeños', 5, 4, 13);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (115, 'Tratamiento médico para tiburones pequeños', 7, 12, 12);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (116, 'Acuario de exhibición para corales', 13, 12, 13);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (117, 'Decoración temática para crustáceos', 3, 10, 12);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (118, 'Suplemento vitamínico para peces tropicales', 1, 3, 12);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (119, 'Suplemento vitamínico para plantas acuáticas', 6, 11, 13);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (120, 'Oxigenador para crustáceos', 11, 2, 12);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (121, 'Filtro de alta eficiencia para peces tropicales', 1, 13, 13);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (122, 'Lámpara amarillo sumergible para caballitos de mar', 13, 8, 10);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (123, 'Decoración temática para crustáceos', 4, 11, 13);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (124, 'Calentador automático para plantas acuáticas', 14, 12, 15);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (125, 'Decoración temática para caballitos de mar', 15, 5, 15);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (126, 'Acuario de exhibición para tiburones pequeños', 14, 11, 13);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (127, 'Acuario de exhibición tipo peces dorados', 12, 6, 15);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (128, 'Decoración temática para plantas acuáticas', 6, 7, 10);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (129, 'Oxigenador tipo peces dorados', 6, 6, 12);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (130, 'Calentador automático para peces de agua salada', 4, 7, 13);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (131, 'Acuario de exhibición para anfibios acuáticos', 13, 12, 8);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (132, 'Suplemento vitamínico de medusas', 11, 2, 10);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (133, 'Medidor digital de medusas', 15, 4, 8);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (134, 'Lámpara LED sumergible para anfibios acuáticos', 3, 3, 12);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (135, 'Suplemento vitamínico de medusas', 7, 6, 10);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (136, 'Lámpara negra sumergible para caballitos de mar', 13, 3, 13);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (137, 'Calentador automático para plantas acuáticas', 10, 13, 15);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (138, 'Acuario de exhibición para peces tropicales', 15, 1, 12);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (139, 'Lámpara LED sumergible para anfibios acuáticos', 4, 4, 13);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (140, 'Acuario de exhibición para plantas acuáticas', 4, 13, 8);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (141, 'Medidor digital tipo peces dorados', 7, 1, 10);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (142, 'Decoración temática para anfibios acuáticos', 1, 9, 8);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (143, 'Decoración temática tipo peces dorados', 4, 5, 15);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (144, 'Acuario de exhibición para caballitos de mar', 3, 7, 13);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (145, 'Calentador automático para anfibios acuáticos', 13, 9, 10);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (146, 'Suplemento vitamínico para plantas acuáticas', 12, 1, 10);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (147, 'Suplemento vitamínico tipo peces dorados', 7, 13, 12);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (148, 'Lámpara LED sumergible para estrellas de mar', 2, 2, 10);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (149, 'Calentador automático tipo peces dorados', 9, 10, 8);
+
+INSERT INTO FIDE_PRODUCTO_TB (ID_PRODUCTO, NOMBRE, ID_CATEGORIA, ID_UNIDAD_MEDIDA, ID_ESTADO)
+VALUES (150, 'Lámpara LED sumergible para tiburones pequeños', 11, 12, 15);
+
+
+
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (67, TO_DATE('2024-08-07', 'YYYY-MM-DD'), 1, 15);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (125, TO_DATE('2024-11-27', 'YYYY-MM-DD'), 2, 8);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (25, TO_DATE('2025-05-31', 'YYYY-MM-DD'), 3, 11);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (11, TO_DATE('2024-08-21', 'YYYY-MM-DD'), 4, 5);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (155, TO_DATE('2024-09-09', 'YYYY-MM-DD'), 5, 4);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (24, TO_DATE('2025-02-20', 'YYYY-MM-DD'), 6, 11);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (195, TO_DATE('2024-08-24', 'YYYY-MM-DD'), 7, 8);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (34, TO_DATE('2025-04-07', 'YYYY-MM-DD'), 8, 12);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (185, TO_DATE('2025-07-27', 'YYYY-MM-DD'), 9, 15);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (115, TO_DATE('2024-08-18', 'YYYY-MM-DD'), 10, 14);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (62, TO_DATE('2024-10-02', 'YYYY-MM-DD'), 11, 6);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (61, TO_DATE('2025-02-09', 'YYYY-MM-DD'), 12, 11);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (194, TO_DATE('2024-09-12', 'YYYY-MM-DD'), 13, 14);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (169, TO_DATE('2024-08-23', 'YYYY-MM-DD'), 14, 8);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (172, TO_DATE('2025-05-25', 'YYYY-MM-DD'), 15, 10);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (145, TO_DATE('2025-06-25', 'YYYY-MM-DD'), 16, 13);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (55, TO_DATE('2024-12-22', 'YYYY-MM-DD'), 17, 14);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (99, TO_DATE('2025-01-13', 'YYYY-MM-DD'), 18, 14);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (193, TO_DATE('2024-10-02', 'YYYY-MM-DD'), 19, 5);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (165, TO_DATE('2024-11-21', 'YYYY-MM-DD'), 20, 13);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (189, TO_DATE('2025-06-28', 'YYYY-MM-DD'), 21, 5);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (157, TO_DATE('2025-03-05', 'YYYY-MM-DD'), 22, 3);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (71, TO_DATE('2025-03-25', 'YYYY-MM-DD'), 23, 9);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (43, TO_DATE('2025-07-18', 'YYYY-MM-DD'), 24, 12);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (155, TO_DATE('2025-04-21', 'YYYY-MM-DD'), 25, 3);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (86, TO_DATE('2025-02-18', 'YYYY-MM-DD'), 26, 3);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (50, TO_DATE('2024-08-10', 'YYYY-MM-DD'), 27, 4);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (62, TO_DATE('2024-09-04', 'YYYY-MM-DD'), 28, 14);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (75, TO_DATE('2025-06-21', 'YYYY-MM-DD'), 29, 2);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (108, TO_DATE('2024-12-06', 'YYYY-MM-DD'), 30, 8);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (45, TO_DATE('2025-07-23', 'YYYY-MM-DD'), 31, 11);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (138, TO_DATE('2025-02-11', 'YYYY-MM-DD'), 32, 10);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (23, TO_DATE('2025-04-10', 'YYYY-MM-DD'), 33, 7);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (119, TO_DATE('2025-05-14', 'YYYY-MM-DD'), 34, 6);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (98, TO_DATE('2024-12-10', 'YYYY-MM-DD'), 35, 11);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (157, TO_DATE('2024-12-18', 'YYYY-MM-DD'), 36, 13);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (29, TO_DATE('2024-09-13', 'YYYY-MM-DD'), 37, 11);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (138, TO_DATE('2024-10-02', 'YYYY-MM-DD'), 38, 14);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (125, TO_DATE('2025-05-09', 'YYYY-MM-DD'), 39, 15);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (141, TO_DATE('2025-05-25', 'YYYY-MM-DD'), 40, 11);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (28, TO_DATE('2024-09-06', 'YYYY-MM-DD'), 41, 8);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (130, TO_DATE('2025-04-27', 'YYYY-MM-DD'), 42, 14);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (138, TO_DATE('2025-01-07', 'YYYY-MM-DD'), 43, 3);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (174, TO_DATE('2025-06-16', 'YYYY-MM-DD'), 44, 3);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (97, TO_DATE('2025-03-09', 'YYYY-MM-DD'), 45, 12);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (119, TO_DATE('2025-05-02', 'YYYY-MM-DD'), 46, 5);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (71, TO_DATE('2025-02-24', 'YYYY-MM-DD'), 47, 9);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (98, TO_DATE('2024-11-21', 'YYYY-MM-DD'), 48, 14);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (190, TO_DATE('2024-11-24', 'YYYY-MM-DD'), 49, 10);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (10, TO_DATE('2024-10-02', 'YYYY-MM-DD'), 50, 3);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (167, TO_DATE('2024-09-29', 'YYYY-MM-DD'), 51, 6);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (59, TO_DATE('2025-07-09', 'YYYY-MM-DD'), 52, 1);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (12, TO_DATE('2025-06-27', 'YYYY-MM-DD'), 53, 12);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (13, TO_DATE('2025-07-23', 'YYYY-MM-DD'), 54, 2);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (160, TO_DATE('2025-01-16', 'YYYY-MM-DD'), 55, 6);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (81, TO_DATE('2024-12-06', 'YYYY-MM-DD'), 56, 13);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (162, TO_DATE('2024-12-21', 'YYYY-MM-DD'), 57, 3);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (85, TO_DATE('2024-10-06', 'YYYY-MM-DD'), 58, 8);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (150, TO_DATE('2025-01-24', 'YYYY-MM-DD'), 59, 14);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (73, TO_DATE('2024-08-09', 'YYYY-MM-DD'), 60, 13);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (125, TO_DATE('2024-12-10', 'YYYY-MM-DD'), 61, 15);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (160, TO_DATE('2024-09-20', 'YYYY-MM-DD'), 62, 13);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (60, TO_DATE('2025-05-24', 'YYYY-MM-DD'), 63, 4);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (72, TO_DATE('2024-11-05', 'YYYY-MM-DD'), 64, 9);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (134, TO_DATE('2024-10-04', 'YYYY-MM-DD'), 65, 3);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (73, TO_DATE('2025-07-29', 'YYYY-MM-DD'), 66, 15);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (56, TO_DATE('2024-10-20', 'YYYY-MM-DD'), 67, 9);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (27, TO_DATE('2024-08-30', 'YYYY-MM-DD'), 68, 1);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (120, TO_DATE('2025-03-13', 'YYYY-MM-DD'), 69, 15);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (68, TO_DATE('2025-07-19', 'YYYY-MM-DD'), 70, 13);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (155, TO_DATE('2024-12-20', 'YYYY-MM-DD'), 71, 3);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (6, TO_DATE('2025-03-16', 'YYYY-MM-DD'), 72, 15);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (155, TO_DATE('2025-02-27', 'YYYY-MM-DD'), 73, 11);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (69, TO_DATE('2024-12-25', 'YYYY-MM-DD'), 74, 12);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (150, TO_DATE('2025-01-30', 'YYYY-MM-DD'), 75, 9);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (147, TO_DATE('2025-05-14', 'YYYY-MM-DD'), 76, 8);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (94, TO_DATE('2025-04-16', 'YYYY-MM-DD'), 77, 3);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (102, TO_DATE('2025-03-05', 'YYYY-MM-DD'), 78, 6);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (113, TO_DATE('2024-11-14', 'YYYY-MM-DD'), 79, 4);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (71, TO_DATE('2024-09-21', 'YYYY-MM-DD'), 80, 3);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (55, TO_DATE('2024-12-10', 'YYYY-MM-DD'), 81, 14);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (136, TO_DATE('2025-07-08', 'YYYY-MM-DD'), 82, 1);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (127, TO_DATE('2024-11-30', 'YYYY-MM-DD'), 83, 2);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (50, TO_DATE('2025-02-16', 'YYYY-MM-DD'), 84, 4);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (112, TO_DATE('2025-03-19', 'YYYY-MM-DD'), 85, 11);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (107, TO_DATE('2025-03-27', 'YYYY-MM-DD'), 86, 14);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (15, TO_DATE('2025-02-23', 'YYYY-MM-DD'), 87, 12);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (142, TO_DATE('2025-01-09', 'YYYY-MM-DD'), 88, 13);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (8, TO_DATE('2024-12-27', 'YYYY-MM-DD'), 89, 4);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (81, TO_DATE('2025-06-23', 'YYYY-MM-DD'), 90, 7);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (166, TO_DATE('2025-05-13', 'YYYY-MM-DD'), 91, 5);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (177, TO_DATE('2025-04-22', 'YYYY-MM-DD'), 92, 2);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (121, TO_DATE('2025-01-02', 'YYYY-MM-DD'), 93, 1);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (158, TO_DATE('2025-05-24', 'YYYY-MM-DD'), 94, 14);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (192, TO_DATE('2025-01-15', 'YYYY-MM-DD'), 95, 14);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (50, TO_DATE('2024-10-07', 'YYYY-MM-DD'), 96, 10);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (173, TO_DATE('2024-08-24', 'YYYY-MM-DD'), 97, 10);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (122, TO_DATE('2025-02-25', 'YYYY-MM-DD'), 98, 10);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (25, TO_DATE('2024-10-30', 'YYYY-MM-DD'), 99, 13);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (162, TO_DATE('2025-04-18', 'YYYY-MM-DD'), 100, 9);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (27, TO_DATE('2025-06-15', 'YYYY-MM-DD'), 101, 15);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (77, TO_DATE('2024-09-10', 'YYYY-MM-DD'), 102, 3);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (95, TO_DATE('2024-09-09', 'YYYY-MM-DD'), 103, 7);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (16, TO_DATE('2024-10-18', 'YYYY-MM-DD'), 104, 6);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (24, TO_DATE('2024-10-30', 'YYYY-MM-DD'), 105, 14);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (185, TO_DATE('2024-08-08', 'YYYY-MM-DD'), 106, 1);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (142, TO_DATE('2025-04-05', 'YYYY-MM-DD'), 107, 1);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (45, TO_DATE('2025-02-01', 'YYYY-MM-DD'), 108, 5);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (142, TO_DATE('2025-05-22', 'YYYY-MM-DD'), 109, 10);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (124, TO_DATE('2025-01-14', 'YYYY-MM-DD'), 110, 7);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (23, TO_DATE('2024-12-18', 'YYYY-MM-DD'), 111, 12);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (166, TO_DATE('2025-04-18', 'YYYY-MM-DD'), 112, 15);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (90, TO_DATE('2024-10-14', 'YYYY-MM-DD'), 113, 14);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (96, TO_DATE('2025-01-16', 'YYYY-MM-DD'), 114, 9);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (27, TO_DATE('2025-03-07', 'YYYY-MM-DD'), 115, 9);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (63, TO_DATE('2025-05-30', 'YYYY-MM-DD'), 116, 7);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (12, TO_DATE('2024-08-09', 'YYYY-MM-DD'), 117, 1);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (87, TO_DATE('2024-11-12', 'YYYY-MM-DD'), 118, 5);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (15, TO_DATE('2025-06-14', 'YYYY-MM-DD'), 119, 12);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (25, TO_DATE('2025-03-09', 'YYYY-MM-DD'), 120, 2);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (105, TO_DATE('2024-08-21', 'YYYY-MM-DD'), 121, 6);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (170, TO_DATE('2025-03-29', 'YYYY-MM-DD'), 122, 13);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (145, TO_DATE('2025-04-01', 'YYYY-MM-DD'), 123, 8);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (36, TO_DATE('2024-12-19', 'YYYY-MM-DD'), 124, 9);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (156, TO_DATE('2024-08-24', 'YYYY-MM-DD'), 125, 9);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (57, TO_DATE('2024-09-06', 'YYYY-MM-DD'), 126, 8);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (172, TO_DATE('2025-02-06', 'YYYY-MM-DD'), 127, 13);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (138, TO_DATE('2024-08-20', 'YYYY-MM-DD'), 128, 7);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (195, TO_DATE('2025-01-27', 'YYYY-MM-DD'), 129, 6);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (84, TO_DATE('2025-05-20', 'YYYY-MM-DD'), 130, 9);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (20, TO_DATE('2024-10-03', 'YYYY-MM-DD'), 131, 11);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (98, TO_DATE('2024-09-18', 'YYYY-MM-DD'), 132, 4);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (110, TO_DATE('2025-05-19', 'YYYY-MM-DD'), 133, 10);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (167, TO_DATE('2025-07-31', 'YYYY-MM-DD'), 134, 7);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (54, TO_DATE('2025-04-07', 'YYYY-MM-DD'), 135, 12);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (128, TO_DATE('2025-01-13', 'YYYY-MM-DD'), 136, 5);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (111, TO_DATE('2024-12-12', 'YYYY-MM-DD'), 137, 10);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (198, TO_DATE('2025-04-19', 'YYYY-MM-DD'), 138, 8);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (179, TO_DATE('2024-10-23', 'YYYY-MM-DD'), 139, 6);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (12, TO_DATE('2025-05-22', 'YYYY-MM-DD'), 140, 2);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (161, TO_DATE('2024-10-10', 'YYYY-MM-DD'), 141, 3);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (181, TO_DATE('2025-02-02', 'YYYY-MM-DD'), 142, 14);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (7, TO_DATE('2024-08-08', 'YYYY-MM-DD'), 143, 12);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (117, TO_DATE('2025-05-04', 'YYYY-MM-DD'), 144, 7);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (63, TO_DATE('2025-06-20', 'YYYY-MM-DD'), 145, 1);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (29, TO_DATE('2025-05-08', 'YYYY-MM-DD'), 146, 13);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (161, TO_DATE('2024-11-06', 'YYYY-MM-DD'), 147, 14);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (85, TO_DATE('2025-05-11', 'YYYY-MM-DD'), 148, 12);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (137, TO_DATE('2025-08-01', 'YYYY-MM-DD'), 149, 9);
+
+INSERT INTO FIDE_INVENTARIO_TB (CANTIDAD, FECHA_INGRESO, ID_PRODUCTO, ID_ESTADO)
+VALUES (96, TO_DATE('2025-02-18', 'YYYY-MM-DD'), 150, 12);
+
+
+
+INSERT INTO FIDE_METODO_PAGO_TB (ID_METODO_PAGO, NOMBRE_METODO_PAGO, ID_ESTADO)
+VALUES (1, 'Efectivo', 1);
+
+INSERT INTO FIDE_METODO_PAGO_TB (ID_METODO_PAGO, NOMBRE_METODO_PAGO, ID_ESTADO)
+VALUES (2, 'Tarjeta de Crédito', 1);
+
+INSERT INTO FIDE_METODO_PAGO_TB (ID_METODO_PAGO, NOMBRE_METODO_PAGO, ID_ESTADO)
+VALUES (3, 'Transferencia Bancaria', 1);
+
+INSERT INTO FIDE_METODO_PAGO_TB (ID_METODO_PAGO, NOMBRE_METODO_PAGO, ID_ESTADO)
+VALUES (4, 'Sinpe Móvil', 1);
+
+
+
+
+
+
+
+
+
+
+
+
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (1, TO_DATE('2023-07-10', 'YYYY-MM-DD'), 555.29, 504.76, 65.62, 30.01, 137, 4, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (2, TO_DATE('2024-03-27', 'YYYY-MM-DD'), 230.31, 229.51, 29.84, 46.6, 102, 3, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (3, TO_DATE('2024-11-28', 'YYYY-MM-DD'), 411.34, 405.49, 52.71, 10.17, 86, 3, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (4, TO_DATE('2023-11-14', 'YYYY-MM-DD'), 905.35, 847.94, 110.23, 24.3, 31, 4, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (5, TO_DATE('2023-10-11', 'YYYY-MM-DD'), 229.71, 211.46, 27.49, 7.89, 26, 1, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (6, TO_DATE('2023-04-11', 'YYYY-MM-DD'), 434.99, 405.74, 52.75, 32.41, 144, 3, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (7, TO_DATE('2024-06-06', 'YYYY-MM-DD'), 394.16, 361.22, 46.96, 45.69, 123, 3, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (8, TO_DATE('2023-07-03', 'YYYY-MM-DD'), 810.74, 802.79, 104.36, 17.74, 72, 1, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (9, TO_DATE('2024-08-18', 'YYYY-MM-DD'), 465.35, 455.63, 59.23, 44.31, 28, 4, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (10, TO_DATE('2024-05-01', 'YYYY-MM-DD'), 965.38, 889.14, 115.59, 33.8, 115, 1, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (11, TO_DATE('2024-08-08', 'YYYY-MM-DD'), 445.95, 427.31, 55.55, 15.98, 34, 4, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (12, TO_DATE('2023-06-18', 'YYYY-MM-DD'), 332.16, 329.3, 42.81, 32.31, 127, 4, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (13, TO_DATE('2024-09-06', 'YYYY-MM-DD'), 506.13, 469.41, 61.02, 25.74, 112, 1, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (14, TO_DATE('2023-04-09', 'YYYY-MM-DD'), 153.72, 151.61, 19.71, 24.79, 67, 4, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (15, TO_DATE('2024-04-13', 'YYYY-MM-DD'), 1092.72, 1042.83, 135.57, 7.18, 99, 3, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (16, TO_DATE('2024-04-26', 'YYYY-MM-DD'), 617.19, 567.36, 73.76, 48.57, 50, 4, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (17, TO_DATE('2023-10-09', 'YYYY-MM-DD'), 457.83, 442.95, 57.58, 19.81, 65, 1, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (18, TO_DATE('2023-11-03', 'YYYY-MM-DD'), 824.11, 770.25, 100.13, 14.06, 6, 1, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (19, TO_DATE('2024-05-02', 'YYYY-MM-DD'), 758.23, 694.4, 90.27, 17.79, 127, 3, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (20, TO_DATE('2024-04-14', 'YYYY-MM-DD'), 881.98, 800.73, 104.09, 16.76, 63, 4, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (21, TO_DATE('2023-06-25', 'YYYY-MM-DD'), 691.01, 683.76, 88.89, 22.75, 124, 3, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (22, TO_DATE('2023-02-27', 'YYYY-MM-DD'), 661.91, 640.98, 83.33, 16.37, 17, 2, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (23, TO_DATE('2023-05-19', 'YYYY-MM-DD'), 524.54, 505.18, 65.67, 45.79, 150, 3, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (24, TO_DATE('2024-05-19', 'YYYY-MM-DD'), 224.37, 205.95, 26.77, 39.33, 23, 1, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (25, TO_DATE('2024-01-12', 'YYYY-MM-DD'), 849.4, 831.83, 108.14, 48.97, 106, 4, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (26, TO_DATE('2024-07-19', 'YYYY-MM-DD'), 977.42, 895.05, 116.36, 16.29, 46, 2, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (27, TO_DATE('2023-07-12', 'YYYY-MM-DD'), 462.48, 418.32, 54.38, 14.49, 105, 1, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (28, TO_DATE('2024-12-07', 'YYYY-MM-DD'), 851.01, 837.92, 108.93, 17.42, 64, 1, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (29, TO_DATE('2023-08-03', 'YYYY-MM-DD'), 142.1, 134.5, 17.48, 45.97, 146, 1, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (30, TO_DATE('2024-06-03', 'YYYY-MM-DD'), 226.92, 210.53, 27.37, 34.37, 136, 1, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (31, TO_DATE('2023-05-02', 'YYYY-MM-DD'), 606.45, 554.97, 72.15, 28.37, 15, 2, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (32, TO_DATE('2024-06-11', 'YYYY-MM-DD'), 139.35, 137.91, 17.93, 48.93, 55, 4, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (33, TO_DATE('2024-06-23', 'YYYY-MM-DD'), 260.26, 237.65, 30.89, 32.78, 139, 2, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (34, TO_DATE('2024-12-16', 'YYYY-MM-DD'), 220.8, 219.33, 28.51, 22.92, 149, 2, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (35, TO_DATE('2024-06-14', 'YYYY-MM-DD'), 168.39, 160.48, 20.86, 34.71, 128, 1, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (36, TO_DATE('2024-09-16', 'YYYY-MM-DD'), 221.96, 219.53, 28.54, 33.61, 150, 2, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (37, TO_DATE('2024-06-03', 'YYYY-MM-DD'), 461.47, 435.21, 56.58, 49.74, 76, 3, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (38, TO_DATE('2023-03-12', 'YYYY-MM-DD'), 257.3, 252.72, 32.85, 24.76, 97, 2, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (39, TO_DATE('2023-03-01', 'YYYY-MM-DD'), 542.64, 523.12, 68.01, 20.72, 11, 4, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (40, TO_DATE('2024-06-12', 'YYYY-MM-DD'), 856.06, 793.83, 103.2, 9.55, 17, 2, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (41, TO_DATE('2023-08-22', 'YYYY-MM-DD'), 793.31, 792.93, 103.08, 30.18, 51, 3, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (42, TO_DATE('2024-06-28', 'YYYY-MM-DD'), 331.53, 327.85, 42.62, 21.84, 65, 1, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (43, TO_DATE('2024-10-27', 'YYYY-MM-DD'), 1067.41, 1002.52, 130.33, 43.04, 138, 2, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (44, TO_DATE('2023-05-22', 'YYYY-MM-DD'), 753.25, 714.88, 92.93, 21.64, 55, 1, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (45, TO_DATE('2024-12-16', 'YYYY-MM-DD'), 232.42, 216.88, 28.19, 17.64, 21, 3, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (46, TO_DATE('2024-09-21', 'YYYY-MM-DD'), 941.6, 918.64, 119.42, 25.9, 116, 4, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (47, TO_DATE('2024-10-02', 'YYYY-MM-DD'), 772.84, 732.2, 95.19, 40.42, 130, 2, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (48, TO_DATE('2024-01-08', 'YYYY-MM-DD'), 785.67, 718.94, 93.46, 44.11, 109, 4, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (49, TO_DATE('2024-11-22', 'YYYY-MM-DD'), 721.24, 694.71, 90.31, 20.18, 95, 2, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (50, TO_DATE('2024-04-08', 'YYYY-MM-DD'), 243.43, 219.55, 28.54, 24.27, 39, 4, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (51, TO_DATE('2024-12-15', 'YYYY-MM-DD'), 321.0, 315.98, 41.08, 35.33, 141, 3, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (52, TO_DATE('2023-09-19', 'YYYY-MM-DD'), 144.98, 134.25, 17.45, 27.54, 27, 2, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (53, TO_DATE('2023-06-27', 'YYYY-MM-DD'), 263.27, 262.99, 34.19, 28.57, 121, 4, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (54, TO_DATE('2023-10-10', 'YYYY-MM-DD'), 439.45, 409.46, 53.23, 17.8, 99, 1, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (55, TO_DATE('2024-06-10', 'YYYY-MM-DD'), 1043.01, 994.74, 129.32, 32.53, 110, 1, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (56, TO_DATE('2024-12-03', 'YYYY-MM-DD'), 105.65, 98.7, 12.83, 24.97, 99, 4, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (57, TO_DATE('2023-03-01', 'YYYY-MM-DD'), 146.59, 133.63, 17.37, 16.41, 146, 3, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (58, TO_DATE('2024-05-22', 'YYYY-MM-DD'), 202.43, 200.63, 26.08, 44.56, 35, 3, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (59, TO_DATE('2024-04-02', 'YYYY-MM-DD'), 928.68, 873.3, 113.53, 15.1, 140, 2, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (60, TO_DATE('2023-03-06', 'YYYY-MM-DD'), 954.59, 930.88, 121.01, 10.42, 141, 2, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (61, TO_DATE('2023-04-10', 'YYYY-MM-DD'), 308.39, 286.29, 37.22, 40.74, 118, 3, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (62, TO_DATE('2023-12-26', 'YYYY-MM-DD'), 1091.37, 987.91, 128.43, 22.43, 88, 2, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (63, TO_DATE('2023-04-19', 'YYYY-MM-DD'), 554.31, 502.02, 65.26, 49.13, 145, 4, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (64, TO_DATE('2024-01-21', 'YYYY-MM-DD'), 513.66, 485.43, 63.11, 5.64, 50, 2, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (65, TO_DATE('2024-05-19', 'YYYY-MM-DD'), 388.25, 354.79, 46.12, 26.45, 144, 4, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (66, TO_DATE('2023-12-20', 'YYYY-MM-DD'), 248.38, 229.25, 29.8, 31.92, 113, 3, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (67, TO_DATE('2024-08-08', 'YYYY-MM-DD'), 406.61, 374.13, 48.64, 25.98, 118, 3, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (68, TO_DATE('2024-03-09', 'YYYY-MM-DD'), 645.84, 604.13, 78.54, 48.9, 18, 3, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (69, TO_DATE('2023-01-09', 'YYYY-MM-DD'), 317.21, 305.58, 39.73, 26.97, 12, 4, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (70, TO_DATE('2023-05-01', 'YYYY-MM-DD'), 711.66, 642.53, 83.53, 32.1, 98, 4, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (71, TO_DATE('2023-09-18', 'YYYY-MM-DD'), 412.91, 384.28, 49.96, 36.06, 112, 4, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (72, TO_DATE('2024-05-13', 'YYYY-MM-DD'), 155.66, 145.1, 18.86, 49.75, 43, 2, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (73, TO_DATE('2024-10-09', 'YYYY-MM-DD'), 855.5, 811.44, 105.49, 37.7, 65, 1, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (74, TO_DATE('2024-06-15', 'YYYY-MM-DD'), 451.77, 417.62, 54.29, 16.11, 63, 2, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (75, TO_DATE('2024-01-24', 'YYYY-MM-DD'), 143.56, 138.26, 17.97, 37.65, 135, 2, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (76, TO_DATE('2023-02-15', 'YYYY-MM-DD'), 612.05, 593.22, 77.12, 42.13, 13, 4, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (77, TO_DATE('2023-10-23', 'YYYY-MM-DD'), 573.71, 551.25, 71.66, 43.24, 38, 4, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (78, TO_DATE('2024-10-19', 'YYYY-MM-DD'), 345.21, 329.81, 42.88, 27.21, 108, 1, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (79, TO_DATE('2023-05-07', 'YYYY-MM-DD'), 1062.37, 1014.5, 131.88, 27.1, 79, 1, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (80, TO_DATE('2024-12-08', 'YYYY-MM-DD'), 630.39, 573.57, 74.56, 49.05, 1, 3, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (81, TO_DATE('2024-09-17', 'YYYY-MM-DD'), 599.2, 547.0, 71.11, 24.88, 49, 1, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (82, TO_DATE('2023-03-20', 'YYYY-MM-DD'), 877.73, 851.85, 110.74, 21.71, 50, 4, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (83, TO_DATE('2024-09-07', 'YYYY-MM-DD'), 369.47, 364.18, 47.34, 48.12, 63, 1, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (84, TO_DATE('2023-06-25', 'YYYY-MM-DD'), 159.95, 154.59, 20.1, 43.64, 127, 3, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (85, TO_DATE('2023-06-12', 'YYYY-MM-DD'), 1008.18, 959.52, 124.74, 28.23, 82, 2, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (86, TO_DATE('2023-11-03', 'YYYY-MM-DD'), 897.25, 887.02, 115.31, 24.24, 147, 2, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (87, TO_DATE('2024-03-16', 'YYYY-MM-DD'), 222.94, 222.54, 28.93, 33.48, 123, 3, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (88, TO_DATE('2024-12-21', 'YYYY-MM-DD'), 145.72, 144.66, 18.81, 22.4, 60, 4, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (89, TO_DATE('2024-04-02', 'YYYY-MM-DD'), 351.11, 321.11, 41.74, 24.83, 32, 2, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (90, TO_DATE('2023-08-22', 'YYYY-MM-DD'), 761.03, 726.95, 94.5, 11.22, 85, 1, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (91, TO_DATE('2024-09-10', 'YYYY-MM-DD'), 644.75, 613.69, 79.78, 28.19, 82, 3, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (92, TO_DATE('2024-04-13', 'YYYY-MM-DD'), 188.32, 186.21, 24.21, 23.11, 16, 4, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (93, TO_DATE('2024-10-01', 'YYYY-MM-DD'), 839.77, 790.73, 102.79, 28.04, 68, 3, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (94, TO_DATE('2023-03-19', 'YYYY-MM-DD'), 1024.14, 993.61, 129.17, 21.8, 39, 3, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (95, TO_DATE('2023-09-01', 'YYYY-MM-DD'), 1049.24, 981.16, 127.55, 35.82, 125, 3, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (96, TO_DATE('2023-11-06', 'YYYY-MM-DD'), 540.28, 525.36, 68.3, 40.04, 120, 2, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (97, TO_DATE('2024-04-18', 'YYYY-MM-DD'), 436.31, 405.69, 52.74, 23.32, 79, 3, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (98, TO_DATE('2024-04-02', 'YYYY-MM-DD'), 367.94, 354.53, 46.09, 42.39, 112, 1, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (99, TO_DATE('2024-12-08', 'YYYY-MM-DD'), 402.34, 393.91, 51.21, 34.33, 93, 2, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (100, TO_DATE('2023-11-22', 'YYYY-MM-DD'), 314.03, 289.65, 37.65, 46.76, 94, 2, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (101, TO_DATE('2023-11-13', 'YYYY-MM-DD'), 671.08, 616.49, 80.14, 31.02, 63, 4, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (102, TO_DATE('2023-02-01', 'YYYY-MM-DD'), 199.75, 181.98, 23.66, 31.42, 133, 1, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (103, TO_DATE('2023-01-05', 'YYYY-MM-DD'), 622.73, 617.46, 80.27, 18.07, 127, 3, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (104, TO_DATE('2024-03-15', 'YYYY-MM-DD'), 107.61, 104.57, 13.59, 39.41, 145, 1, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (105, TO_DATE('2024-10-07', 'YYYY-MM-DD'), 484.94, 438.08, 56.95, 21.64, 3, 2, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (106, TO_DATE('2024-02-20', 'YYYY-MM-DD'), 233.42, 228.49, 29.7, 6.76, 57, 4, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (107, TO_DATE('2023-03-07', 'YYYY-MM-DD'), 1006.33, 917.77, 119.31, 40.28, 82, 2, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (108, TO_DATE('2024-12-14', 'YYYY-MM-DD'), 679.99, 675.78, 87.85, 10.2, 23, 2, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (109, TO_DATE('2023-01-01', 'YYYY-MM-DD'), 138.62, 128.03, 16.64, 13.11, 130, 3, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (110, TO_DATE('2023-06-06', 'YYYY-MM-DD'), 922.02, 906.74, 117.88, 6.5, 106, 4, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (111, TO_DATE('2023-07-03', 'YYYY-MM-DD'), 1086.37, 986.04, 128.19, 7.06, 21, 3, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (112, TO_DATE('2023-10-26', 'YYYY-MM-DD'), 674.65, 634.12, 82.44, 46.18, 2, 3, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (113, TO_DATE('2023-11-26', 'YYYY-MM-DD'), 1014.76, 936.65, 121.76, 31.02, 133, 3, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (114, TO_DATE('2024-02-20', 'YYYY-MM-DD'), 890.62, 870.62, 113.18, 41.49, 128, 3, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (115, TO_DATE('2023-04-21', 'YYYY-MM-DD'), 426.4, 410.22, 53.33, 48.25, 68, 2, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (116, TO_DATE('2024-08-14', 'YYYY-MM-DD'), 942.93, 915.42, 119.0, 32.5, 61, 4, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (117, TO_DATE('2024-09-24', 'YYYY-MM-DD'), 884.16, 802.95, 104.38, 21.97, 89, 1, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (118, TO_DATE('2024-08-27', 'YYYY-MM-DD'), 599.49, 589.37, 76.62, 43.41, 128, 4, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (119, TO_DATE('2023-05-12', 'YYYY-MM-DD'), 568.74, 527.45, 68.57, 27.55, 67, 1, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (120, TO_DATE('2023-04-14', 'YYYY-MM-DD'), 522.6, 495.66, 64.44, 46.46, 24, 4, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (121, TO_DATE('2023-12-17', 'YYYY-MM-DD'), 496.1, 464.04, 60.33, 28.8, 80, 4, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (122, TO_DATE('2024-03-26', 'YYYY-MM-DD'), 195.65, 185.48, 24.11, 34.47, 73, 2, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (123, TO_DATE('2024-08-02', 'YYYY-MM-DD'), 502.3, 462.78, 60.16, 20.19, 51, 3, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (124, TO_DATE('2024-01-04', 'YYYY-MM-DD'), 1067.62, 965.37, 125.5, 43.33, 36, 1, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (125, TO_DATE('2023-12-02', 'YYYY-MM-DD'), 345.93, 326.3, 42.42, 15.65, 55, 4, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (126, TO_DATE('2023-11-11', 'YYYY-MM-DD'), 490.99, 444.65, 57.8, 23.29, 128, 2, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (127, TO_DATE('2023-08-14', 'YYYY-MM-DD'), 784.22, 738.99, 96.07, 40.75, 96, 1, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (128, TO_DATE('2023-05-06', 'YYYY-MM-DD'), 333.24, 317.15, 41.23, 16.64, 48, 1, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (129, TO_DATE('2023-01-15', 'YYYY-MM-DD'), 496.64, 487.33, 63.35, 22.03, 117, 3, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (130, TO_DATE('2023-01-23', 'YYYY-MM-DD'), 928.93, 864.7, 112.41, 25.63, 112, 4, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (131, TO_DATE('2023-06-12', 'YYYY-MM-DD'), 462.77, 424.49, 55.18, 9.17, 107, 4, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (132, TO_DATE('2023-02-15', 'YYYY-MM-DD'), 282.24, 272.49, 35.42, 40.36, 54, 3, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (133, TO_DATE('2024-10-15', 'YYYY-MM-DD'), 303.34, 287.0, 37.31, 28.05, 15, 3, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (134, TO_DATE('2024-10-15', 'YYYY-MM-DD'), 974.26, 932.31, 121.2, 42.9, 84, 4, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (135, TO_DATE('2023-01-20', 'YYYY-MM-DD'), 800.92, 751.44, 97.69, 48.45, 21, 3, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (136, TO_DATE('2024-03-09', 'YYYY-MM-DD'), 345.31, 338.96, 44.06, 47.28, 68, 3, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (137, TO_DATE('2024-02-08', 'YYYY-MM-DD'), 393.46, 385.44, 50.11, 39.55, 146, 1, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (138, TO_DATE('2024-03-20', 'YYYY-MM-DD'), 666.77, 631.67, 82.12, 32.92, 111, 4, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (139, TO_DATE('2024-12-17', 'YYYY-MM-DD'), 315.15, 300.34, 39.04, 7.59, 34, 2, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (140, TO_DATE('2024-07-23', 'YYYY-MM-DD'), 321.29, 303.76, 39.49, 44.94, 53, 1, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (141, TO_DATE('2023-06-12', 'YYYY-MM-DD'), 666.68, 665.04, 86.46, 5.31, 22, 3, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (142, TO_DATE('2023-07-04', 'YYYY-MM-DD'), 810.81, 801.19, 104.15, 6.19, 147, 1, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (143, TO_DATE('2023-06-13', 'YYYY-MM-DD'), 218.53, 206.11, 26.79, 35.9, 142, 2, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (144, TO_DATE('2024-04-09', 'YYYY-MM-DD'), 362.19, 361.41, 46.98, 43.6, 134, 1, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (145, TO_DATE('2023-02-08', 'YYYY-MM-DD'), 654.11, 595.39, 77.4, 38.77, 122, 1, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (146, TO_DATE('2023-07-21', 'YYYY-MM-DD'), 755.39, 698.63, 90.82, 23.77, 2, 1, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (147, TO_DATE('2024-03-16', 'YYYY-MM-DD'), 754.6, 687.84, 89.42, 40.02, 85, 2, 5);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (148, TO_DATE('2024-09-01', 'YYYY-MM-DD'), 185.5, 182.87, 23.77, 16.93, 98, 1, 3);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (149, TO_DATE('2024-08-22', 'YYYY-MM-DD'), 662.76, 624.62, 81.2, 31.46, 109, 2, 4);
+INSERT INTO FIDE_FACTURA_TB (ID_FACTURA, FECHA_REGISTRO, MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO, ID_USUARIO, ID_METODO_PAGO, ID_ESTADO) VALUES (150, TO_DATE('2024-12-18', 'YYYY-MM-DD'), 413.16, 405.48, 52.71, 30.23, 47, 4, 5);
+
+
+
+
+
+
+
+
+
+
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (4, 165.75, 663.0, 84, 48, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (8, 683.52, 5468.16, 101, 90, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (9, 615.61, 5540.49, 71, 40, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (9, 459.77, 4137.93, 55, 26, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (4, 297.19, 1188.76, 62, 131, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (4, 693.61, 2774.44, 129, 122, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (2, 386.33, 772.66, 99, 95, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (10, 149.2, 1492.0, 33, 122, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (5, 407.69, 2038.45, 111, 131, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (1, 246.76, 246.76, 53, 66, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (4, 141.25, 565.0, 146, 14, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (8, 961.22, 7689.76, 17, 94, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (4, 398.47, 1593.88, 141, 5, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (6, 714.42, 4286.52, 89, 131, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (7, 336.12, 2352.84, 31, 130, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (9, 508.6, 4577.4, 30, 65, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (1, 305.85, 305.85, 32, 150, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (4, 37.77, 151.08, 11, 113, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (2, 795.76, 1591.52, 59, 26, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (5, 288.16, 1440.8, 110, 79, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (1, 885.44, 885.44, 107, 72, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (3, 741.79, 2225.37, 132, 106, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (9, 766.77, 6900.93, 80, 75, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (7, 248.36, 1738.52, 139, 40, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (6, 890.94, 5345.64, 121, 98, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (8, 927.41, 7419.28, 52, 125, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (9, 119.98, 1079.82, 101, 66, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (5, 272.57, 1362.85, 121, 59, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (2, 590.96, 1181.92, 116, 8, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (5, 835.88, 4179.4, 150, 65, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (2, 32.58, 65.16, 103, 102, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (6, 98.52, 591.12, 85, 47, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (5, 67.16, 335.8, 15, 72, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (7, 986.56, 6905.92, 55, 125, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (10, 884.44, 8844.4, 18, 56, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (4, 795.34, 3181.36, 124, 79, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (2, 192.16, 384.32, 48, 134, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (9, 410.82, 3697.38, 75, 2, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (5, 207.18, 1035.9, 76, 119, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (7, 791.57, 5540.99, 149, 53, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (1, 542.78, 542.78, 61, 133, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (2, 191.8, 383.6, 93, 117, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (7, 40.03, 280.21, 55, 94, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (7, 845.37, 5917.59, 3, 23, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (8, 638.37, 5106.96, 120, 10, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (5, 373.29, 1866.45, 80, 98, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (9, 133.89, 1205.01, 18, 19, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (6, 529.41, 3176.46, 122, 146, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (6, 764.23, 4585.38, 80, 54, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (2, 639.8, 1279.6, 68, 89, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (2, 36.05, 72.1, 134, 52, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (4, 714.46, 2857.84, 110, 99, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (4, 220.12, 880.48, 21, 65, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (10, 789.69, 7896.9, 118, 101, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (9, 75.93, 683.37, 68, 37, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (10, 351.41, 3514.1, 42, 99, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (2, 447.59, 895.18, 135, 117, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (8, 277.22, 2217.76, 101, 128, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (6, 907.28, 5443.68, 56, 135, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (2, 810.01, 1620.02, 61, 48, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (2, 493.65, 987.3, 132, 70, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (7, 839.85, 5878.95, 80, 121, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (4, 120.61, 482.44, 17, 141, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (3, 611.92, 1835.76, 85, 20, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (5, 345.47, 1727.35, 47, 144, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (4, 15.11, 60.44, 75, 7, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (2, 823.92, 1647.84, 70, 19, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (4, 841.97, 3367.88, 1, 30, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (10, 444.61, 4446.1, 81, 45, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (5, 583.86, 2919.3, 16, 66, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (3, 298.58, 895.74, 71, 53, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (5, 360.29, 1801.45, 130, 72, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (2, 129.19, 258.38, 11, 2, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (3, 238.07, 714.21, 141, 110, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (7, 146.04, 1022.28, 68, 138, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (3, 235.2, 705.6, 67, 32, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (10, 304.55, 3045.5, 134, 113, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (3, 825.16, 2475.48, 57, 150, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (2, 322.24, 644.48, 150, 92, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (7, 119.8, 838.6, 36, 2, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (3, 706.02, 2118.06, 43, 137, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (1, 42.22, 42.22, 13, 123, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (5, 74.32, 371.6, 28, 128, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (10, 582.51, 5825.1, 54, 132, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (3, 891.9, 2675.7, 109, 15, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (7, 220.04, 1540.28, 71, 83, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (9, 945.92, 8513.28, 7, 53, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (8, 939.99, 7519.92, 21, 76, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (4, 492.13, 1968.52, 86, 74, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (5, 689.0, 3445.0, 128, 80, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (10, 319.19, 3191.9, 95, 140, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (1, 483.82, 483.82, 142, 138, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (7, 156.87, 1098.09, 29, 16, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (4, 329.33, 1317.32, 8, 7, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (3, 173.07, 519.21, 44, 86, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (6, 924.04, 5544.24, 38, 141, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (3, 874.09, 2622.27, 47, 149, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (8, 795.03, 6360.24, 60, 66, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (3, 292.98, 878.94, 114, 89, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (2, 565.1, 1130.2, 85, 25, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (2, 129.31, 258.62, 61, 88, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (3, 238.68, 716.04, 6, 48, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (7, 540.45, 3783.15, 31, 46, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (7, 179.26, 1254.82, 141, 113, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (6, 486.33, 2917.98, 78, 19, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (8, 407.33, 3258.64, 140, 57, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (8, 468.2, 3745.6, 115, 133, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (5, 46.56, 232.8, 100, 122, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (8, 366.36, 2930.88, 121, 125, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (9, 527.72, 4749.48, 112, 94, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (9, 658.82, 5929.38, 51, 8, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (4, 649.2, 2596.8, 97, 74, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (8, 763.09, 6104.72, 140, 56, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (2, 991.24, 1982.48, 114, 137, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (6, 768.3, 4609.8, 27, 91, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (8, 472.08, 3776.64, 69, 149, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (6, 267.67, 1606.02, 26, 70, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (4, 343.87, 1375.48, 37, 41, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (7, 951.59, 6661.13, 129, 89, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (10, 846.34, 8463.4, 6, 58, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (1, 223.98, 223.98, 38, 47, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (4, 191.21, 764.84, 34, 57, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (2, 352.35, 704.7, 21, 114, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (4, 172.78, 691.12, 12, 136, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (1, 695.41, 695.41, 115, 56, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (1, 539.94, 539.94, 87, 5, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (9, 675.84, 6082.56, 42, 50, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (8, 200.44, 1603.52, 25, 8, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (8, 232.6, 1860.8, 49, 148, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (5, 764.87, 3824.35, 84, 89, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (7, 86.05, 602.35, 92, 25, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (6, 172.72, 1036.32, 96, 139, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (1, 617.17, 617.17, 15, 84, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (4, 665.47, 2661.88, 44, 90, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (3, 251.07, 753.21, 56, 76, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (9, 412.17, 3709.53, 104, 116, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (9, 330.03, 2970.27, 23, 83, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (8, 859.97, 6879.76, 88, 138, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (3, 948.44, 2845.32, 98, 8, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (3, 843.66, 2530.98, 68, 44, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (9, 311.75, 2805.75, 103, 13, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (5, 313.03, 1565.15, 71, 34, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (1, 824.03, 824.03, 24, 115, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (7, 782.37, 5476.59, 39, 33, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (8, 234.04, 1872.32, 2, 136, 5);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (7, 965.99, 6761.93, 4, 45, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (4, 808.79, 3235.16, 43, 66, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (4, 777.86, 3111.44, 139, 29, 3);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (5, 690.23, 3451.15, 66, 13, 4);
+INSERT INTO FIDE_DETALLE_FACTURA_TB (CANTIDAD, PRECIO_UNITARIO, TOTAL, ID_FACTURA, ID_PRODUCTO, ID_ESTADO)
+VALUES (7, 79.63, 557.41, 88, 150, 3);
+
+
 
 
