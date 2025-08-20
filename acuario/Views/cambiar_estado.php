@@ -10,7 +10,7 @@
     <div class="container">
         <h1>Eliminar Usuario</h1>
 
-        <form method="POST" action="index.php?action=guardarEstadoUsuario">
+        <form method="POST" action="usuario_registrados.php?action=guardarEstadoUsuario">
             <input type="hidden" name="id_usuario" value="<?= htmlspecialchars($usuario['ID_USUARIO']) ?>">
 
             <div class="form-group">
@@ -27,7 +27,7 @@
             </div>
 
             <button type="submit" class="btn btn-danger">Guardar</button>
-            <a href="index.php?action=listarUsuarios" class="btn btn-link">Cancelar</a>
+            <a href="usuario_registrados.php?action=listarUsuarios" class="btn btn-link">Cancelar</a>
         </form>
     </div>
 </body>

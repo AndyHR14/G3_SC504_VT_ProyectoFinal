@@ -34,29 +34,28 @@
                        value="<?= isset($usuario['CORREO']) ? htmlspecialchars($usuario['CORREO']) : '' ?>">
             </div>
 
-            <div class="form-group">
-                <label for="rol">Rol:</label>
-                <select id="rol" name="id_rol" required>
-                    <option value="">Seleccione un rol</option>
-                    <?php
-                    // Recorre el array $roles obtenido del controlador
-                    if (isset($roles) && is_array($roles)) {
-                        foreach ($roles as $rol) {
-                            // Marca la opción como seleccionada si coincide con el rol del usuario (en modo edición)
-                            $selected = (isset($usuario['ID_ROL']) && $usuario['ID_ROL'] == $rol['ID_ROL']) ? 'selected' : '';
-                            echo '<option value="' . htmlspecialchars($rol['ID_ROL']) . '" ' . $selected . '>' . htmlspecialchars($rol['NOMBRE_ROL']) . '</option>';
-                        }
-                    } else {
-                        echo '<option value="">Error: No se pudieron cargar los roles</option>';
-                    }
-                    ?>
-                </select>
-            </div>
+<div class="form-group">
+    <label for="estado">Estado:</label>
+    <select id="estado" name="id_estado" required>
+        <option value="">Seleccione un estado</option>
+        <?php
+        if (isset($estados) && is_array($estados)) {
+            foreach ($estados as $est) {
+                $selected = (isset($usuario['ID_ESTADO']) && $usuario['ID_ESTADO'] == $est['ID_ESTADO']) ? 'selected' : '';
+                echo '<option value="' . htmlspecialchars($est['ID_ESTADO']) . '" ' . $selected . '>' . htmlspecialchars($est['NOMBRE_ESTADO']) . '</option>';
+            }
+        } else {
+            echo '<option value="">Error: No se pudieron cargar los estados</option>';
+        }
+        ?>
+    </select>
+</div>
+
 
             
 
             <button type="submit" class="btn btn-primary">Guardar</button>
-            <a href="index.php?action=listarUsuarios" class="btn btn-link">Volver</a>
+            <a href="usuario_registrados.php?action=listarUsuarios" class="btn btn-link">Volver</a>
         </form>
     </div>
 </body>

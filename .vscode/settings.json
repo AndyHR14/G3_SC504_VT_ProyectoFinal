@@ -1,0 +1,56 @@
+{
+    "sqltools.connections": [
+        {
+            "oracleOptions": {
+                "privilege": "Normal",
+                "thickMode": false,
+                "autoCommit": false,
+                "lowerCase": false,
+                "limitPrefetchRows": false
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 1521,
+            "driver": "Oracle",
+            "name": "proyectofinal",
+            "username": "root",
+            "password": "Fvasvil123",
+            "database": "citasmedicas"
+        },
+        {
+            "oracleOptions": {
+                "privilege": "Normal",
+                "thickMode": true,
+                "autoCommit": false,
+                "lowerCase": false,
+                "limitPrefetchRows": false
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 1521,
+            "driver": "Oracle",
+            "name": "citasmedicas",
+            "database": "xe",
+            "username": "citasmedicas",
+            "password": "12345"
+        },
+        {
+            "oracleOptions": {
+                "privilege": "Normal",
+                "thickMode": false,
+                "autoCommit": false,
+                "lowerCase": false,
+                "limitPrefetchRows": false
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 1521,
+            "driver": "Oracle",
+            "name": "Proyecto_Final",
+            "username": "Proyecto_Final",
+            "database": "xe",
+            "password": "123"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}

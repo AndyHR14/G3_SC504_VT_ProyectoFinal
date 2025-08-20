@@ -88,7 +88,7 @@
 <body>
     <div class="container">
         <h1>Usuarios Registrados</h1>
-        <a href="index.php?action=nuevoUsuario" class="btn">Registrar nuevo usuario</a>
+        <a href="usuario_registrados.php?action=nuevoUsuario" class="btn">Registrar nuevo usuario</a>
 
         <?php if (!empty($usuarios)): ?>
             <table>
@@ -114,10 +114,10 @@
                             <td><?= htmlspecialchars($u['CORREO'] ?? '') ?></td>
                             <td><?= htmlspecialchars($u['NOMBRE_ROL'] ?? '') ?></td>
                             <td><?= htmlspecialchars($u['NOMBRE_ESTADO'] ?? '') ?></td>
-                            <td class="actions">
-                                <a href="index.php?action=editarUsuario&id=<?= htmlspecialchars($u['ID_USUARIO'] ?? '') ?>">Modificar</a>
-                                <a href="index.php?action=cambiarEstadoUsuario&id=<?= htmlspecialchars($u['ID_USUARIO'] ?? '') ?>">Eliminar</a>
-                            </td>
+                            <!--td class="actions">
+                                <a href="index.php?action=editarUsuario&id=<!?= htmlspecialchars($u['ID_USUARIO'] ?? '') ?>">Modificar</a>
+                                <a href="index.php?action=cambiarEstadoUsuario&id=<!?= htmlspecialchars($u['ID_USUARIO'] ?? '') ?>">Eliminar</a>
+                            </td-->
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
