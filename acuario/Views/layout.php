@@ -12,16 +12,21 @@ function h($s)
     <meta charset="utf-8">
     <title><?= h($title ?? 'Acuario') ?></title>
     <link rel="stylesheet" href="/public/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 
 <body>
     <header class="topbar">
-        <h1>Acuario · <?= h($title ?? '') ?></h1>
-        <nav>
-            <a class="btn" href="/index.php">Inicio</a>
-            <a class="btn primary" href="/index.php?action=create">+ Agregar</a>
-        </nav>
-    </header>
+  <div class="container">
+    <h1>Acuario · <?= h($title ?? '') ?></h1>
+    <nav>
+      <a class="btn outline" href="<?= BASE_PATH ?>/index.php?mod=dashboard">Dashboard</a>
+      <a class="btn" href="<?= BASE_PATH ?>/index.php?mod=home">Módulos</a>
+    </nav>
+  </div>
+</header>
+
 
     <main class="container">
         <?php

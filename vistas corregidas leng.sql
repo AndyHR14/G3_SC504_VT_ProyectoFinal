@@ -1,22 +1,16 @@
 CREATE OR REPLACE VIEW FIDE_ANIMAL_V AS
-SELECT a.id_animal,
-       a.nombre_animal,
-       a.fecha_ingreso,
-       a.edad,
-       a.peso,
-       a.observacion,
-       a.id_genero,
-       g.genero        AS genero_nombre,
-       a.id_tipo,
-       t.nombre_tipo   AS tipo_nombre,
-       a.id_habitat,
-       h.nombre_habitat AS habitat_nombre,
-       a.id_estado
+SELECT a.id_animal, a.nombre_animal, a.fecha_ingreso, a.edad, a.peso,
+       a.id_genero, g.genero AS genero_nombre,
+       a.id_tipo, t.nombre_tipo AS tipo_nombre,
+       a.id_habitat, h.nombre_habitat AS habitat_nombre,
+       a.id_estado, e.nombre_estado AS estado_nombre
 FROM FIDE_ANIMAL_TB a
 LEFT JOIN FIDE_GENERO_TB  g ON g.id_genero  = a.id_genero
 LEFT JOIN FIDE_TIPO_TB    t ON t.id_tipo    = a.id_tipo
 LEFT JOIN FIDE_HABITAT_TB h ON h.id_habitat = a.id_habitat
+LEFT JOIN FIDE_ESTADOS_TB e ON e.id_estado  = a.id_estado
 WHERE a.id_estado = 1;
+
 
 
 
@@ -49,7 +43,7 @@ SELECT m.id_marca_alimento AS id, m.nombre AS nombre, m.descripcion
 FROM fide_marca_alimento_tb m
 WHERE m.id_estado = 1;
 
-/* --------- Alimentación --------- */
+/* --------- Alimentaciï¿½n --------- */
 CREATE OR REPLACE VIEW FIDE_ALIMENTACION_V AS
 SELECT a.cantidad,
        a.horario,
@@ -97,7 +91,7 @@ FROM fide_horario_tb h
 LEFT JOIN fide_usuario_tb u ON u.id_usuario = h.id_usuario
 WHERE h.id_estado = 1;
 
-/* --------- Geografía / Dirección --------- */
+/* --------- Geografï¿½a / Direcciï¿½n --------- */
 CREATE OR REPLACE VIEW FIDE_PAIS_V AS
 SELECT p.id_pais AS id, p.nombre_pais AS nombre
 FROM fide_pais_tb p
@@ -174,7 +168,7 @@ FROM fide_inventario_tb i
 LEFT JOIN fide_producto_tb p ON p.id_producto = i.id_producto
 WHERE i.id_estado = 1;
 
-/* --------- Facturación --------- */
+/* --------- Facturaciï¿½n --------- */
 CREATE OR REPLACE VIEW FIDE_METODO_PAGO_V AS
 SELECT m.id_metodo_pago AS id, m.nombre_metodo_pago AS nombre
 FROM fide_metodo_pago_tb m
