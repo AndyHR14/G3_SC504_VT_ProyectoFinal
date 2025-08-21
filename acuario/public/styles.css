@@ -423,11 +423,45 @@ a:hover { text-decoration: underline; }
   .empty { background: linear-gradient(180deg, #052235, #042034); border-color: #0a3c5e; }
   footer { background: linear-gradient(90deg, #004d73, #007aa6); }
 }
+.nav-item.active {
+  background: var(--mint-400);
+  color: #023e8a;
+  font-weight: 600;
+}
+
+.avatar-menu .menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  margin-top: 8px;
+  background: var(--white);
+  border: 1px solid var(--ink-100);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 8px;
+  min-width: 180px;
+}
+
+.avatar-menu .menu.open { display: block; }
+
+.avatar-menu { position: relative; }
 
 /* -------------------------------------------------------
    Layout helpers for your existing PHP structure
    ------------------------------------------------------- */
 main.container { padding: 1.25rem 0 2rem; }
+
+
+/* Cuando no hay sidebar en Home */
+.shell.no-sidebar { display:block; }
+.shell.no-sidebar .content { padding:24px; }
+
+/* Saludo en topbar */
+.welcome { margin-left:12px; font-weight:600; color:#fff; opacity:.9; }
+
+/* (Opcional) Topbar azul sólido */
+.topbar { background: linear-gradient(90deg,#0284c7,#06b6d4); color:#fff; }
+.topbar .brand { color:#fff; }
 
 /* Example usage in Views:
 <div class="hero mt-3">
