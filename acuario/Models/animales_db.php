@@ -1,21 +1,19 @@
 <?php
-// Models/animales_db.php
-require_once 'Models/conexion.php'; // Ajusta si tu árbol cambia
+
+require_once 'Models/conexion.php';
 
 class AnimalesDB
 {
-    /**
-     * Si tu ID_ANIMAL se genera con secuencia, pon aquí su nombre.
-     * Si lo genera un trigger con la secuencia interna, puedes dejarla igual y no usar nextId().
-     */
-    private const SEQ_NAME = 'SEQ_ANIMAL_ID';
+    
+    private const SEQ_NAME = 'FIDE_ID_ANIMAL_SEQ';
+
 
     /* ========= Infra ========= */
 
     private function conn()
     {
         $cx = new Conexion();
-        return $cx->getConexion(); // OCI connection
+        return $cx->getConexion(); // handler OCI
     }
 
     private static function nv($v)
@@ -42,6 +40,10 @@ class AnimalesDB
 
     /* ========= Lecturas ========= */
 
+    /**
+     * Listado para la tabla: usa la VISTA con nombres resueltos.
+     * OJO: OCI devuelve claves en MAYÚSCULAS -> NOMBRE_ANIMAL, ESTADO_NOMBRE, etc.
+     */
     public function obtenerAnimales(): array
     {
         $sql = "SELECT 
@@ -50,8 +52,9 @@ class AnimalesDB
                     TO_CHAR(FECHA_INGRESO,'YYYY-MM-DD') AS FECHA_INGRESO,
                     EDAD,
                     PESO,
-                    ID_ESTADO
-                FROM FIDE_ANIMAL_TB
+                    ID_ESTADO,
+                    ESTADO_NOMBRE
+                FROM FIDE_ANIMAL_V
                 ORDER BY ID_ANIMAL";
         $cn = $this->conn();
         $st = oci_parse($cn, $sql);
@@ -67,23 +70,32 @@ class AnimalesDB
         return $out;
     }
 
+    /**
+     * Detalle/edición: tomamos la TABLA para traer OBSERVACION, y
+     * unimos con la VISTA para obtener los nombres (estado/género/tipo/hábitat).
+     */
     public function obtenerAnimalPorId(int $id): ?array
     {
         $sql = "SELECT 
-                    ID_ANIMAL,
-                    NOMBRE_ANIMAL,
-                    TO_CHAR(FECHA_INGRESO,'YYYY-MM-DD') AS FECHA_INGRESO,
-                    EDAD,
-                    PESO,
-                    OBSERVACION,
-                    ID_GENERO,
-                    ID_TIPO,
-                    ID_HABITAT,
-                    ID_ESTADO,
-                    ID_RUTINA,
-                    ID_MARCA_ALIMENTO
-                FROM FIDE_ANIMAL_TB
-                WHERE ID_ANIMAL = :id";
+                    a.ID_ANIMAL,
+                    a.NOMBRE_ANIMAL,
+                    TO_CHAR(a.FECHA_INGRESO,'YYYY-MM-DD') AS FECHA_INGRESO,
+                    a.EDAD,
+                    a.PESO,
+                    a.OBSERVACION,
+                    a.ID_GENERO,
+                    v.GENERO_NOMBRE,
+                    a.ID_TIPO,
+                    v.TIPO_NOMBRE,
+                    a.ID_HABITAT,
+                    v.HABITAT_NOMBRE,
+                    a.ID_ESTADO,
+                    v.ESTADO_NOMBRE,
+                    a.ID_RUTINA,
+                    a.ID_MARCA_ALIMENTO
+                FROM FIDE_ANIMAL_TB a
+                LEFT JOIN FIDE_ANIMAL_V v ON v.ID_ANIMAL = a.ID_ANIMAL
+                WHERE a.ID_ANIMAL = :id";
         $cn = $this->conn();
         $st = oci_parse($cn, $sql);
         oci_bind_by_name($st, ":id", $id);
@@ -100,9 +112,7 @@ class AnimalesDB
         return $row;
     }
 
-    /* ========= Escrituras por PAQUETE =========
-       Nota: El paquete actual NO recibe ID_RUTINA ni ID_MARCA_ALIMENTO.
-             Se ignoran en las llamadas hasta que amplíes el paquete. */
+    /* ========= Escrituras por PAQUETE ========= */
 
     public function insertarAnimal(
         string $nombre,
@@ -231,7 +241,7 @@ class AnimalesDB
         return $ok;
     }
 
-    /* ========= Catálogos ========= */
+    /* ========= vistas ========= */
 
     private function simpleList(string $sql, string $tag): array
     {
@@ -246,7 +256,7 @@ class AnimalesDB
             return [];
         }
         while ($row = oci_fetch_assoc($st)) {
-            $out[] = $row;
+            $out[] = $row; 
         }
         oci_free_statement($st);
         return $out;
@@ -255,9 +265,7 @@ class AnimalesDB
     public function listarGeneros(): array
     {
         return $this->simpleList(
-            "SELECT ID_GENERO AS ID, GENERO AS NOMBRE
-               FROM FIDE_GENERO_TB
-              ORDER BY GENERO",
+            "SELECT ID, NOMBRE FROM FIDE_GENERO_V ORDER BY NOMBRE",
             "listarGeneros"
         );
     }
@@ -265,9 +273,7 @@ class AnimalesDB
     public function listarTipos(): array
     {
         return $this->simpleList(
-            "SELECT ID_TIPO AS ID, NOMBRE_TIPO AS NOMBRE
-               FROM FIDE_TIPO_TB
-              ORDER BY NOMBRE_TIPO",
+            "SELECT ID, NOMBRE FROM FIDE_TIPO_V ORDER BY NOMBRE",
             "listarTipos"
         );
     }
@@ -275,19 +281,16 @@ class AnimalesDB
     public function listarHabitats(): array
     {
         return $this->simpleList(
-            "SELECT ID_HABITAT AS ID, NOMBRE_HABITAT AS NOMBRE
-               FROM FIDE_HABITAT_TB
-              ORDER BY NOMBRE_HABITAT",
+            "SELECT ID, NOMBRE FROM FIDE_HABITAT_V ORDER BY NOMBRE",
             "listarHabitats"
         );
     }
 
     public function listarEstados(): array
     {
+        
         return $this->simpleList(
-            "SELECT ID_ESTADO AS ID, NOMBRE_ESTADO AS NOMBRE
-               FROM FIDE_ESTADOS_TB
-              ORDER BY NOMBRE_ESTADO",
+            "SELECT ID, NOMBRE FROM FIDE_ESTADO_V ORDER BY NOMBRE",
             "listarEstados"
         );
     }
@@ -295,9 +298,7 @@ class AnimalesDB
     public function listarRutinas(): array
     {
         return $this->simpleList(
-            "SELECT ID_RUTINA AS ID, NOMBRE_RUTINA AS NOMBRE
-               FROM FIDE_RUTINA_TB
-              ORDER BY NOMBRE_RUTINA",
+            "SELECT ID, NOMBRE FROM FIDE_RUTINA_V ORDER BY NOMBRE",
             "listarRutinas"
         );
     }
@@ -305,9 +306,7 @@ class AnimalesDB
     public function listarMarcas(): array
     {
         return $this->simpleList(
-            "SELECT ID_MARCA_ALIMENTO AS ID, NOMBRE AS NOMBRE
-               FROM FIDE_MARCA_ALIMENTO_TB
-              ORDER BY NOMBRE",
+            "SELECT ID, NOMBRE FROM FIDE_MARCA_ALIMENTO_V ORDER BY NOMBRE",
             "listarMarcas"
         );
     }

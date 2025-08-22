@@ -1,15 +1,15 @@
 <?php
-// Models/alimentos_db.php
+
 require_once 'Models/conexion.php';
 
 class AlimentosDB
 {
-    /** Pon el nombre real de tu secuencia o deja '' si usas trigger */
+ 
     private const SEQ_NAME = 'SEQ_MARCA_ALIMENTO_ID';
 
     private function conn() {
         $cx = new Conexion();
-        return $cx->getConexion(); // conexión OCI8
+        return $cx->getConexion(); 
     }
 
     private static function nv($v) {

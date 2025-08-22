@@ -4,8 +4,8 @@ require_once 'Models/conexion.php';
 
 class ColaboradoresDB
 {
-    /** Pon aquí tu secuencia real o deja '' si tienes trigger en la PK */
-    private const SEQ_NAME = 'SEQ_USUARIO_ID';
+
+    private const SEQ_NAME = 'FIDE_ID_USUARIO_SEQ';
 
     private function conn() {
         $cx = new Conexion();
