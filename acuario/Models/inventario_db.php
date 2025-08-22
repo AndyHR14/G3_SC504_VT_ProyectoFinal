@@ -86,7 +86,7 @@ class InventarioDB
         oci_free_statement($st);
         return $row;
     }
-
+    public function insertar(
         string $nombre,
         $id_categoria,
         $id_unidad_medida,
