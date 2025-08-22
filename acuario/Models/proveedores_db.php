@@ -79,7 +79,7 @@ class ProveedoresDB
         return $row;
     }
 
-    /* =============== Escrituras (SP del paquete) =============== */
+    /* ===============  (SP del paquete) =============== */
 
     public function insertar(
         string $nombre,
