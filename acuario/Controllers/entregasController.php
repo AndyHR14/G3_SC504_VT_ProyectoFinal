@@ -17,7 +17,7 @@ class EntregasController
         $direcciones= $m->listarDirecciones();
         $estados    = $m->listarEstados();
         $entrega = null;
-        $detalle = null; // no hay todavía
+        $detalle = null; 
         $titulo_form = "Registrar Entrega";
         require __DIR__ . '/../Views/entregas/form.php';
     }
@@ -85,7 +85,7 @@ class EntregasController
         header('Location: index.php?mod=entregas&action=listarEntregas&msg=error'); exit;
     }
 
-    /* ===== Detalle (CRUD simple anidado) ===== */
+    
 
     public function guardarDetalle()
     {

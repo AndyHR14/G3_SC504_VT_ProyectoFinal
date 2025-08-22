@@ -12,7 +12,7 @@ if ($id <= 0 || !isset($catalogo[$id])) {
 $prod     = $catalogo[$id];
 $nombre   = $_SESSION['user']['nombre'] ?? 'Cliente';
 $precio   = (float)$prod['precio'];
-$IVA_RATE = 0.13;         // si quieres, muévelo a config.php
+$IVA_RATE = 0.13;        
 
 // cantidad inicial y descuento inicial
 $qty  = max(1, min(99, (int)($_GET['qty'] ?? 1)));
@@ -25,7 +25,7 @@ $iva    = round($base * $IVA_RATE, 2);
 $total  = round($base + $iva, 2);
 $facNum = 'FAC-' . date('Ymd-His') . '-' . sprintf('%04d', $id);
 
-// métodos de pago disponibles (clave => etiqueta)
+
 $METODOS = [
   'efectivo'      => 'Efectivo #1',
   'sinpe'         => 'Sinpe Móvil #4',

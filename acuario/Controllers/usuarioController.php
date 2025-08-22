@@ -135,9 +135,7 @@ class UsuarioController {
         }
     }
 
-    /**
-     * Muestra formulario para cambiar el estado del usuario (eliminar lógico).
-     */
+   
     public function cambiarEstado() {
         if (isset($_GET['id']) && is_numeric($_GET['id'])) {
             $id_usuario = $_GET['id'];
@@ -163,9 +161,7 @@ class UsuarioController {
         }
     }
 
-    /**
-     * Guarda el nuevo estado seleccionado del usuario.
-     */
+   
     public function guardarEstado() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_usuario'], $_POST['id_estado'])) {
             $usuarioModel = new Usuario();

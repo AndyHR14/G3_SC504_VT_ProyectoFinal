@@ -1,7 +1,7 @@
 <?php
-// ACUARIO/auth/login.php
+
 session_start();
-require_once __DIR__ . '/../config.php'; // define('BASE_URL', '/G3_SC504_VT_ProyectoFinal/acuario');
+require_once __DIR__ . '/../config.php'; 
 
 // Si ya hay sesión y es Admin, manda al dashboard
 if (!empty($_SESSION['user']) && (int)$_SESSION['user']['rol'] === 1) {

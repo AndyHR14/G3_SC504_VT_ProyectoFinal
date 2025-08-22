@@ -69,12 +69,12 @@ class AlimentosDB
 }
 
 
-    /* ===== Escrituras usando el paquete ===== */
+    /* ===== paquete ===== */
 
     public function insertarAlimento(string $nombre, string $descripcion = '', $id_estado = null): bool
     {
         $cn = $this->conn();
-        $id = $this->nextId(); // si SEQ_NAME = '' y tienes trigger, puedes setear $id = null y ajustar el SP
+        $id = $this->nextId(); 
         if (self::SEQ_NAME !== '' && $id === null) return false;
 
         $pl = "BEGIN
@@ -83,7 +83,7 @@ class AlimentosDB
             );
         END;";
         $st = oci_parse($cn, $pl);
-        // Si usas trigger y tu SP permite NULL, puedes pasar null en :p_id
+      
         oci_bind_by_name($st, ":p_id", $id);
         oci_bind_by_name($st, ":p_nombre", $nombre);
         oci_bind_by_name($st, ":p_desc", $descripcion);
@@ -130,7 +130,7 @@ class AlimentosDB
         return $ok;
     }
 
-    /* ===== Catálogos ===== */
+    
 
     public function listarEstados(): array
     {

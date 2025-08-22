@@ -43,7 +43,7 @@ $galeria = [
     body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu;background:var(--bg);color:var(--txt)}
     a{text-decoration:none;color:inherit}
 
-    /* Topbar (ya es 100% de ancho) */
+    /* Topbar  */
     .topbar{background:linear-gradient(90deg,var(--prim),var(--prim2));color:#fff;padding:16px 0}
     .topbar .row{display:flex;align-items:center;justify-content:space-between}
 

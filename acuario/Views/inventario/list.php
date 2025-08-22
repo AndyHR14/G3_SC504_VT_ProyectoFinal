@@ -103,7 +103,7 @@ if (!function_exists('badgeClase')) {
       <tbody>
       <?php foreach (($items ?? []) as $r): ?>
         <?php
-          // Campos que vienen de la vista FIDE_INVENTARIO_V (OCI => MAYÚSCULAS)
+          // Campos que vienen de la vista FIDE_INVENTARIO_V
           $idProd   = $r['ID_PRODUCTO'] ?? null;
           $prodNom  = $r['NOMBRE_PRODUCTO'] ?? '';
           $catNom   = $r['NOMBRE_CATEGORIA'] ?? '';

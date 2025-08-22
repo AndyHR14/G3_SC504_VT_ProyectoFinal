@@ -9,7 +9,7 @@ class EntregasDB
 
     private function conn() {
         $cx = new Conexion();
-        return $cx->getConexion(); // OCI8
+        return $cx->getConexion(); 
     }
 
     private static function nv($v) {
@@ -82,7 +82,7 @@ class EntregasDB
 
     public function obtenerDetallePorEntrega(int $id_entrega): ?array
     {
-        // Con tu DDL, hay 0..1 fila por entrega (PK = ID_ENTREGA).
+       
         $sql = "SELECT de.DESCRIPCION, de.CANTIDAD, de.ID_ESTADO,
                        s.NOMBRE_ESTADO
                   FROM FIDE_DETALLE_ENTREGA_TB de
@@ -97,11 +97,11 @@ class EntregasDB
         return $row;
     }
 
-    /* ==================== ESCRITURAS (SP) ==================== */
-    /* ----- Entrega (cabecera) ----- */
+    /* ====================  (SP) ==================== */
+    
 
     public function insertarEntrega(
-        ?string $fecha,       // 'YYYY-MM-DD'
+        ?string $fecha,       
         $id_direccion,
         $id_usuario,
         $id_estado
@@ -133,7 +133,7 @@ class EntregasDB
 
     public function actualizarEntrega(
         int $id,
-        ?string $fecha,       // 'YYYY-MM-DD'
+        ?string $fecha,       
         $id_direccion,
         $id_usuario,
         $id_estado
@@ -181,10 +181,8 @@ class EntregasDB
         $cantidad,
         $id_estado
     ): bool {
-        // Intento de UPDATE con SP de MODIFICAR; si NO existe fila, hacemos INSERT.
+        
         $cn = $this->conn();
-
-        // ¿Existe?
         $stx = oci_parse($cn, "SELECT 1 FROM FIDE_DETALLE_ENTREGA_TB WHERE ID_ENTREGA = :id");
         oci_bind_by_name($stx, ':id', $id_entrega);
         @oci_execute($stx);

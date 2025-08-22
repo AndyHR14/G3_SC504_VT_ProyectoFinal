@@ -15,7 +15,7 @@ class InventarioController
         $m = new InventarioDB();
         $categorias = $m->listarCategorias();
         $unidades   = $m->listarUnidades();
-        $estados    = $m->listarEstados(); // para producto e inventario
+        $estados    = $m->listarEstados(); 
         $item = null;
         $titulo_form = "Registrar Producto / Inventario";
         require __DIR__ . '/../Views/inventario/form.php';

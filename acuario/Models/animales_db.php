@@ -8,12 +8,12 @@ class AnimalesDB
     private const SEQ_NAME = 'ID_ANIMAL_SEQ';
 
 
-    /* ========= Infra ========= */
+    
 
     private function conn()
     {
         $cx = new Conexion();
-        return $cx->getConexion(); // handler OCI
+        return $cx->getConexion(); 
     }
 
     private static function nv($v)
@@ -21,7 +21,7 @@ class AnimalesDB
         return ($v === '' || !isset($v)) ? null : $v;
     }
 
-    /** Pide NEXTVAL a la secuencia (si aplica) */
+    /** Pide NEXTVAL a la secuencia */
     private function nextId(): ?int
     {
         if (self::SEQ_NAME === '') return null;
@@ -70,10 +70,7 @@ class AnimalesDB
         return $out;
     }
 
-    /**
-     * Detalle/edición: tomamos la TABLA para traer OBSERVACION, y
-     * unimos con la VISTA para obtener los nombres (estado/género/tipo/hábitat).
-     */
+    
     public function obtenerAnimalPorId(int $id): ?array
     {
         $sql = "SELECT 
@@ -124,12 +121,12 @@ class AnimalesDB
         $id_tipo,
         $id_habitat,
         $id_estado,
-        $id_rutina,            // ignorado por el SP actual
-        $id_marca_alimento,    // ignorado por el SP actual
-        string $usuario = 'WEB'// ignorado por el SP actual
+        $id_rutina,            
+        $id_marca_alimento,    
+        string $usuario = 'WEB'
     ): bool {
         $cn = $this->conn();
-        $id = $this->nextId(); // el SP requiere P_ID_ANIMAL
+        $id = $this->nextId(); 
         if ($id === null) {
             error_log('[insertarAnimal] No se pudo obtener NEXTVAL de la secuencia');
             return false;
@@ -179,9 +176,9 @@ class AnimalesDB
         $id_tipo,
         $id_habitat,
         $id_estado,
-        $id_rutina,            // ignorado por el SP actual
-        $id_marca_alimento,    // ignorado por el SP actual
-        string $usuario = 'WEB'// ignorado por el SP actual
+        $id_rutina,            
+        $id_marca_alimento,    
+        string $usuario = 'WEB'
     ): bool {
         $cn = $this->conn();
 

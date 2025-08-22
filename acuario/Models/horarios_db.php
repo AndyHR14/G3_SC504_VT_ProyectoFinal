@@ -105,8 +105,8 @@ class HorariosDB
     public function actualizarHorario(
         int $id,
         string $dia,
-        string $hora_inicio, // 'HH:MM'
-        string $hora_final,  // 'HH:MM'
+        string $hora_inicio, 
+        string $hora_final,  
         $id_usuario,
         $id_estado
     ): bool {

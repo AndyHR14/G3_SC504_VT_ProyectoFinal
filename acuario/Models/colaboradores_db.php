@@ -1,5 +1,5 @@
 <?php
-// Models/colaboradores_db.php
+
 require_once 'Models/conexion.php';
 
 class ColaboradoresDB
@@ -91,18 +91,18 @@ class ColaboradoresDB
         return $row;
     }
 
-    /* ===== Escrituras con paquete ===== */
+    /* =====  paquete ===== */
 
     public function insertarColaborador(
         string $nombre,
-        ?string $fecha_registro, // 'YYYY-MM-DD'
+        ?string $fecha_registro, 
         string $telefono = '',
         string $correo = '',
         $id_estado = null,
         $id_rol = null
     ): bool {
         $cn = $this->conn();
-        $id = $this->nextId(); // si hay trigger y no quieres calcular ID aquí, pon SEQ_NAME = '' y ajusta el SP
+        $id = $this->nextId(); 
         if (self::SEQ_NAME !== '' && $id === null) return false;
 
         $pl = "BEGIN

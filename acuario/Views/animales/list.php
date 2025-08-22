@@ -43,8 +43,8 @@
                                 <form action="index.php?mod=animales&action=eliminarAnimal" method="post" style="display:inline"
                                     onsubmit="return confirm('¿Eliminar el registro #<?= h($r['ID_ANIMAL']) ?>?');">
                                     <input type="hidden" name="ID_ANIMAL" value="<?= h($r['ID_ANIMAL']) ?>">
-                                    <!-- opcional: para bitácora -->
-                                    <!-- <input type="hidden" name="USUARIO" value="<?= h($_SESSION['usuario'] ?? 'WEB') ?>"> -->
+                                   
+                                   <?= h($_SESSION['usuario'] ?? 'WEB') ?>"> -->
                                     <button type="submit" class="btn btn--sm btn--danger">Eliminar</button>
                                 </form>
 

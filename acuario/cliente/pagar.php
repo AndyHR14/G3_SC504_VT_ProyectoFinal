@@ -21,10 +21,10 @@ $metodoLabel = $METODOS[$metodo] ?? $METODOS['efectivo'];
 $precio = isset($catalogo[$id]) ? (float)$catalogo[$id]['precio'] : 0.0;
 $nombreProd = $catalogo[$id]['nombre'] ?? 'Producto';
 
-// Recalcular del lado servidor (seguro)
+// Recalcular 
 $IVA_RATE = 0.13;
 $sub      = $precio * $qty;
-$desc     = min($descCli, $sub);               // tope máximo
+$desc     = min($descCli, $sub);               
 $base     = $sub - $desc;
 $iva      = round($base * $IVA_RATE, 2);
 $total    = round($base + $iva, 2);

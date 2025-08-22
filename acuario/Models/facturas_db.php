@@ -102,7 +102,7 @@ class FacturasDB
     }
 
     /* ==================== ESCRITURAS (SP) ==================== */
-    /* ----- Factura (cabecera) ----- */
+    
 
     public function insertarFactura(
         ?string $fecha,  // 'YYYY-MM-DD'

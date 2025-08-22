@@ -81,7 +81,7 @@ $estSel = $factura['ID_ESTADO'] ?? '';
       <h2 style="margin:0 0 12px">Detalle de la factura</h2>
       <?php if (isset($_GET['msg'])): ?><div class="alert"><?= h($_GET['msg']) ?></div><?php endif; ?>
 
-      <!-- Formulario para agregar/actualizar 1 renglón -->
+      
       <form method="post" action="index.php?mod=facturas&action=guardarDetalle" class="form">
         <input type="hidden" name="ID_FACTURA" value="<?= h($factura['ID_FACTURA']) ?>">
 

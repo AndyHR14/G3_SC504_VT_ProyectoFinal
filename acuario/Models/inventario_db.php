@@ -179,7 +179,7 @@ class InventarioDB
         oci_free_statement($sp1);
         if (!$ok1) { oci_rollback($cn); return false; }
 
-        // 2) Inventario (firma: cant, fecha, id_producto, id_estado)
+        // 2) Inventario 
         $plInv = "BEGIN
           FIDE_PROYECTO_FINAL_PCK.FIDE_MODIFICAR_INVENTARIO_SP(
             :p_cant,
@@ -204,7 +204,7 @@ class InventarioDB
         return $ok2;
     }
 
-    /** Elimina (inactiva) inventario y luego producto */
+   
     public function eliminar(int $id_prod): bool
     {
         $cn = $this->conn();
@@ -215,9 +215,9 @@ class InventarioDB
         oci_bind_by_name($st1, ':pid', $id_prod);
         $okInv = oci_execute($st1, OCI_NO_AUTO_COMMIT);
         oci_free_statement($st1);
-        if (!$okInv) { oci_rollback($cn); } // no aborta; seguimos con producto
+        if (!$okInv) { oci_rollback($cn); } 
 
-        // Producto (inactiva)
+        // Producto 
         $pl2 = "BEGIN FIDE_PROYECTO_FINAL_PCK.FIDE_ELIMINAR_PRODUCTO_SP(:pid); END;";
         $st2 = oci_parse($cn, $pl2);
         oci_bind_by_name($st2, ':pid', $id_prod);

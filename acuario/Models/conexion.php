@@ -8,9 +8,9 @@ class Conexion {
         $host = "localhost/XE"; 
         
        
-        $charset = "AL32UTF8"; // este es el charset de mi DB Oracle
+        $charset = "AL32UTF8"; 
 
-        // El cuarto parámetro de oci_connect es el conjunto de caracteres.
+        
         $this->conexion = oci_connect($usuario, $contrasena, $host, $charset); 
 
         if (!$this->conexion) {

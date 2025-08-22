@@ -120,7 +120,7 @@ class ClientesDB
 
         $ok = @oci_execute($st, OCI_NO_AUTO_COMMIT);
 
-        // Si quieres guardar ID_DIRECCION también, haz un UPDATE posterior (no hay SP):
+        
         if ($ok && self::nv($id_direccion) !== null) {
             $upd = oci_parse($cn, "UPDATE FIDE_USUARIO_TB SET ID_DIRECCION = :dir WHERE ID_USUARIO = :id");
             oci_bind_by_name($upd, ':dir', $id_direccion);

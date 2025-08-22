@@ -3,7 +3,7 @@ function h($s){ return htmlspecialchars($s ?? '', ENT_QUOTES, 'UTF-8'); }
 if (!headers_sent()) header('Content-Type: text/html; charset=utf-8');
 
 $currentMod  = $_GET['mod'] ?? 'home';
-$showSidebar = ($currentMod !== 'home');   // ⬅️ Sidebar solo fuera del Home
+$showSidebar = ($currentMod !== 'home');   
 $usuario     = $_SESSION['nombre'] ?? 'Administrador';
 ?>
 <!doctype html>
@@ -48,7 +48,7 @@ $usuario     = $_SESSION['nombre'] ?? 'Administrador';
 
   </header>
 
-  <!-- Shell principal -->
+  
   <div class="shell <?= $showSidebar ? '' : 'no-sidebar' ?>">
     <?php if ($showSidebar): ?>
     <aside class="sidebar" id="sidebar" aria-label="Navegación lateral">
@@ -90,7 +90,7 @@ $usuario     = $_SESSION['nombre'] ?? 'Administrador';
       e.currentTarget.setAttribute('aria-pressed', dark ? 'true' : 'false');
     });
 
-    // Sidebar (si existe)
+    // Sidebar 
     (function(){
       const sidebar = document.getElementById('sidebar');
       const toggle  = document.getElementById('sidebarToggle');
