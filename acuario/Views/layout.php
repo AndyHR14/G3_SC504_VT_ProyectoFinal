@@ -3,7 +3,7 @@ function h($s){ return htmlspecialchars($s ?? '', ENT_QUOTES, 'UTF-8'); }
 if (!headers_sent()) header('Content-Type: text/html; charset=utf-8');
 
 $currentMod  = $_GET['mod'] ?? 'home';
-$showSidebar = ($currentMod !== 'home');   // ⬅️ Sidebar solo fuera del Home
+$showSidebar = ($currentMod !== 'home');  
 $usuario     = $_SESSION['nombre'] ?? 'Administrador';
 ?>
 <!doctype html>
@@ -21,7 +21,7 @@ $usuario     = $_SESSION['nombre'] ?? 'Administrador';
   </script>
 </head>
 <body>
-  <!-- Topbar -->
+
   <header class="topbar">
     <div class="container topbar__inner">
       <div class="topbar__right">
@@ -48,7 +48,7 @@ $usuario     = $_SESSION['nombre'] ?? 'Administrador';
 
   </header>
 
-  <!-- Shell principal -->
+
   <div class="shell <?= $showSidebar ? '' : 'no-sidebar' ?>">
     <?php if ($showSidebar): ?>
     <aside class="sidebar" id="sidebar" aria-label="Navegación lateral">
@@ -68,7 +68,6 @@ $usuario     = $_SESSION['nombre'] ?? 'Administrador';
     </aside>
     <?php endif; ?>
 
-    <!-- Contenido -->
     <main class="content" role="main">
       <?php
         $viewFile = __DIR__ . '/' . ($view ?? '') . '.php';
@@ -78,11 +77,11 @@ $usuario     = $_SESSION['nombre'] ?? 'Administrador';
     </main>
   </div>
 
-  <!-- Toast container -->
+
   <div id="toast" class="toast" aria-live="polite"></div>
 
   <script>
-    // Tema
+
     document.getElementById('themeToggle')?.addEventListener('click', (e) => {
       const root = document.documentElement;
       const dark = root.classList.toggle('dark');
@@ -90,7 +89,6 @@ $usuario     = $_SESSION['nombre'] ?? 'Administrador';
       e.currentTarget.setAttribute('aria-pressed', dark ? 'true' : 'false');
     });
 
-    // Sidebar (si existe)
     (function(){
       const sidebar = document.getElementById('sidebar');
       const toggle  = document.getElementById('sidebarToggle');
@@ -103,7 +101,6 @@ $usuario     = $_SESSION['nombre'] ?? 'Administrador';
       });
     })();
 
-    // Dropdown usuario
     (function(){
       const menu = document.getElementById('userMenu');
       const btn  = document.getElementById('userMenuBtn');
@@ -116,7 +113,6 @@ $usuario     = $_SESSION['nombre'] ?? 'Administrador';
       document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') close(); });
     })();
 
-    // Toast
     window.showToast = (msg) => {
       const t = document.getElementById('toast');
       t.textContent = msg; t.classList.add('show');

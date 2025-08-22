@@ -81,8 +81,7 @@ class ProveedoresDB
         return $row;
     }
 
-    /* ===============  (SP del paquete) =============== */
-
+    
     public function insertar(
         string $nombre,
         ?string $telefono,
@@ -152,7 +151,7 @@ class ProveedoresDB
         return $ok;
     }
 
-    /* =============== Catálogos =============== */
+
 
     public function listarDirecciones(): array
     {

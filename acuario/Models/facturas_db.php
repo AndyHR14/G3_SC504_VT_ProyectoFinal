@@ -39,16 +39,17 @@ class FacturasDB
 
     public function listarFacturas(): array
 {
-     $sql = "SELECT ID_EMPRESA,
-                   NOMBRE_EMPRESA,
-                   TELEFONO,
-                   CORREO,
-                   ID_DIRECCION,
-                   ID_ESTADO,
-                   DETALLE_DIRECCION,
-                   ESTADO_NOMBRE
-             FROM FIDE_EMPRESA_V
-             ORDER BY ID_EMPRESA";
+    $sql = "SELECT ID_FACTURA,
+                   TO_CHAR(FECHA_REGISTRO,'YYYY-MM-DD') FECHA_REGISTRO,
+                   MONTO_TOTAL, SUBTOTAL, IVA, DESCUENTO,
+                   ID_USUARIO, NOMBRE,
+                   ID_METODO_PAGO, NOMBRE_METODO_PAGO,
+                   ID_ESTADO, ESTADO_NOMBRE,
+                   (SELECT NVL(SUM(df.CANTIDAD),0)
+                      FROM FIDE_DETALLE_FACTURA_TB df
+                     WHERE df.ID_FACTURA = FIDE_FACTURA_V.ID_FACTURA) AS ITEMS
+             FROM FIDE_FACTURA_V
+             ORDER BY ID_FACTURA";
     $cn = $this->conn();
     $st = oci_parse($cn, $sql);
     @oci_execute($st);
@@ -99,8 +100,6 @@ class FacturasDB
         return $out;
     }
 
-    /* ==================== ESCRITURAS (SP) ==================== */
-    /* ----- Factura (cabecera) ----- */
 
     public function insertarFactura(
         ?string $fecha,  // 'YYYY-MM-DD'
@@ -178,7 +177,6 @@ class FacturasDB
         return $ok;
     }
 
-    /* ----- Detalle de factura ----- */
 
     public function upsertDetalle(
         int $id_factura,
@@ -190,7 +188,7 @@ class FacturasDB
     ): bool {
         $cn = $this->conn();
 
-        // ¿Existe esa (factura, producto)?
+
         $chk = oci_parse($cn, "SELECT 1 FROM FIDE_DETALLE_FACTURA_TB WHERE ID_FACTURA = :f AND ID_PRODUCTO = :p");
         oci_bind_by_name($chk, ':f', $id_factura);
         oci_bind_by_name($chk, ':p', $id_producto);
@@ -239,7 +237,6 @@ class FacturasDB
         return $ok;
     }
 
-    /* ==================== CATÁLOGOS ==================== */
 
     public function listarEstados(): array {
         $cn = $this->conn();

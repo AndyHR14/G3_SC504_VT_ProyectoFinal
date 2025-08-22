@@ -43,36 +43,30 @@ $galeria = [
     body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu;background:var(--bg);color:var(--txt)}
     a{text-decoration:none;color:inherit}
 
-    /* Topbar (ya es 100% de ancho) */
     .topbar{background:linear-gradient(90deg,var(--prim),var(--prim2));color:#fff;padding:16px 0}
     .topbar .row{display:flex;align-items:center;justify-content:space-between}
 
-    /* Contenido centrado dentro de bandas full-bleed */
-    .container{width:min(96vw, 1500px);margin:0 auto;padding:0 22px}
     @media (min-width:1800px){ .container{width:min(92vw, 1700px);} }
 
-    /* Secciones a todo el ancho (“full-bleed”) */
     .bleed{padding:34px 0}
     .hero-band{background:linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(14,165,233,0.08) 100%)}
     .band-sobre{background:var(--band3)}
     .band-productos{background:var(--band2)}
     .band-galeria{background:var(--band1)}
 
-    /* Hero */
     .hero h1{font-size:34px;margin:0 0 8px}
     .hero p{color:var(--muted);max-width:900px;margin:0}
     .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
     .btn{display:inline-block;background:var(--prim);color:#fff;padding:10px 14px;border-radius:12px;font-weight:700}
     .btn.outline{background:transparent;border:2px solid var(--prim);color:var(--prim)}
 
-    /* Sobre nosotros */
     .about{display:grid;grid-template-columns:1.2fr .8fr;gap:26px;align-items:center}
     .about p{line-height:1.7}
     .muted{color:var(--muted)}
     .about .img{border-radius:18px;overflow:hidden;box-shadow:0 14px 34px rgba(2,132,199,.18)}
     .about img{width:100%;height:100%;object-fit:cover;display:block}
 
-    /* Productos */
+
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
     .card{background:#fff;border-radius:16px;box-shadow:0 10px 30px rgba(2,132,199,.12);overflow:hidden;transition:transform .15s ease}
     .card:hover{transform:translateY(-3px)}
@@ -84,7 +78,6 @@ $galeria = [
     .btn.buy{background:var(--ok)}
     .btn.buy:hover{filter:brightness(1.05);transform:translateY(-1px)}
 
-    /* Galería */
     .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
     .gallery img{width:100%;height:200px;object-fit:cover;border-radius:14px;display:block;box-shadow:0 8px 22px rgba(2,132,199,.12)}
 
@@ -93,7 +86,6 @@ $galeria = [
 </head>
 <body>
 
-  <!-- Topbar -->
   <header class="topbar">
     <div class="container row">
       <div><strong>Acuario La Casa del Pez</strong></div>
@@ -104,7 +96,6 @@ $galeria = [
     </div>
   </header>
 
-  <!-- HERO (banda full-bleed) -->
   <section class="bleed hero-band">
     <div class="container hero">
       <h1>Bienvenido al área de clientes</h1>
@@ -117,7 +108,6 @@ $galeria = [
     </div>
   </section>
 
-  <!-- SOBRE NOSOTROS (banda full-bleed) -->
   <section id="sobre" class="bleed band-sobre">
     <div class="container about">
       <div>
@@ -139,7 +129,6 @@ $galeria = [
     </div>
   </section>
 
-  <!-- PRODUCTOS (banda full-bleed) -->
   <section id="productos" class="bleed band-productos">
     <div class="container">
       <h2>Productos destacados</h2>
@@ -162,7 +151,6 @@ $galeria = [
     </div>
   </section>
 
-  <!-- GALERÍA (banda full-bleed) -->
   <section class="bleed band-galeria">
     <div class="container">
       <h2>Galería</h2>

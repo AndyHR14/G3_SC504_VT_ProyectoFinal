@@ -95,7 +95,6 @@ class FacturasController
         header('Location: index.php?mod=facturas&action=listarFacturas&msg=error'); exit;
     }
 
-    /* ===== Detalle (CRUD simple) ===== */
 
     public function guardarDetalle()
     {

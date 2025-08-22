@@ -124,12 +124,12 @@ class AnimalesDB
         $id_tipo,
         $id_habitat,
         $id_estado,
-        $id_rutina,            // ignorado por el SP actual
-        $id_marca_alimento,    // ignorado por el SP actual
-        string $usuario = 'WEB'// ignorado por el SP actual
+        $id_rutina,            
+        $id_marca_alimento,    
+        string $usuario = 'WEB'
     ): bool {
         $cn = $this->conn();
-        $id = $this->nextId(); // el SP requiere P_ID_ANIMAL
+        $id = $this->nextId(); 
         if ($id === null) {
             error_log('[insertarAnimal] No se pudo obtener NEXTVAL de la secuencia');
             return false;
@@ -179,9 +179,9 @@ class AnimalesDB
         $id_tipo,
         $id_habitat,
         $id_estado,
-        $id_rutina,            // ignorado por el SP actual
-        $id_marca_alimento,    // ignorado por el SP actual
-        string $usuario = 'WEB'// ignorado por el SP actual
+        $id_rutina,            
+        $id_marca_alimento,    
+        string $usuario = 'WEB'
     ): bool {
         $cn = $this->conn();
 
@@ -240,8 +240,6 @@ class AnimalesDB
         oci_free_statement($st);
         return $ok;
     }
-
-    /* ========= vistas ========= */
 
     private function simpleList(string $sql, string $tag): array
     {

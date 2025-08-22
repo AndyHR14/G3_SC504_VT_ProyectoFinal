@@ -106,7 +106,6 @@ class AnimalesController
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['ID_ANIMAL'])) {
             $m = new AnimalesDB();
-            // Si quieres pasar el usuario real, agrega un input hidden en el form y úsalo aquí
             $ok = $m->eliminarAnimal((int)$_POST['ID_ANIMAL'], $_POST['USUARIO'] ?? 'WEB');
             header('Location: index.php?mod=animales&action=listarAnimales' . ($ok ? '&msg=inactivado' : '&msg=error'));
             exit;

@@ -52,4 +52,3 @@
   </div>
 </div>
 <?php
-// Helper: escapar HTML

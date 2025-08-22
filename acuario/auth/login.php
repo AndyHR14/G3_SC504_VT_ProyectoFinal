@@ -1,5 +1,4 @@
 <?php
-// ACUARIO/auth/login.php
 session_start();
 require_once __DIR__ . '/../config.php'; // define('BASE_URL', '/G3_SC504_VT_ProyectoFinal/acuario');
 

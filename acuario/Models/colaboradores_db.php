@@ -93,7 +93,6 @@ class ColaboradoresDB
         return $row;
     }
 
-    /* ===== Escrituras con paquete ===== */
 
     public function insertarColaborador(
         string $nombre,
@@ -104,7 +103,7 @@ class ColaboradoresDB
         $id_rol = null
     ): bool {
         $cn = $this->conn();
-        $id = $this->nextId(); // si hay trigger y no quieres calcular ID aquí, pon SEQ_NAME = '' y ajusta el SP
+        $id = $this->nextId();
         if (self::SEQ_NAME !== '' && $id === null) return false;
 
         $pl = "BEGIN
@@ -176,7 +175,6 @@ class ColaboradoresDB
         return $ok;
     }
 
-    /* ===== Listas desde VISTAS ===== */
 
     public function listarEstados(): array
     {

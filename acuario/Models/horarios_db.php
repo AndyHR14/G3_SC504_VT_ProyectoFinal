@@ -27,7 +27,6 @@ class HorariosDB
         return $row && isset($row['ID']) ? (int)$row['ID'] : null;
     }
 
-    /* ===== Listados / Lecturas ===== */
 
     public function listarHorarios(): array
 {
@@ -67,7 +66,7 @@ class HorariosDB
         return $row;
     }
 
-    /* ===== Escrituras con paquete ===== */
+
 
     public function insertarHorario(
         string $dia,
@@ -77,7 +76,7 @@ class HorariosDB
         $id_estado
     ): bool {
         $cn = $this->conn();
-        $id = $this->nextId(); // si usas trigger, pon SEQ_NAME=''
+        $id = $this->nextId();
         if (self::SEQ_NAME !== '' && $id === null) return false;
 
         $pl = "BEGIN
@@ -148,7 +147,6 @@ class HorariosDB
         return $ok;
     }
 
-    /* ===== Catálogos ===== */
 
     public function listarEstados(): array
     {

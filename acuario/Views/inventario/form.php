@@ -60,7 +60,7 @@ $estInv   = $item['ID_ESTADO_INV']     ?? '';
         </select>
       </label>
 
-      <!-- INVENTARIO -->
+ 
       <label>Cantidad
         <input type="number" step="1" name="CANTIDAD" value="<?= h($item['CANTIDAD'] ?? '') ?>">
       </label>

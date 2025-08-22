@@ -12,20 +12,17 @@ if ($id <= 0 || !isset($catalogo[$id])) {
 $prod     = $catalogo[$id];
 $nombre   = $_SESSION['user']['nombre'] ?? 'Cliente';
 $precio   = (float)$prod['precio'];
-$IVA_RATE = 0.13;         // si quieres, muévelo a config.php
-
-// cantidad inicial y descuento inicial
+$IVA_RATE = 0.13;         
 $qty  = max(1, min(99, (int)($_GET['qty'] ?? 1)));
 $desc = max(0.0, (float)($_GET['desc'] ?? 0.0));
 
 $sub    = $precio * $qty;
-$desc   = min($desc, $sub);              // límite
+$desc   = min($desc, $sub);             
 $base   = $sub - $desc;
 $iva    = round($base * $IVA_RATE, 2);
 $total  = round($base + $iva, 2);
 $facNum = 'FAC-' . date('Ymd-His') . '-' . sprintf('%04d', $id);
 
-// métodos de pago disponibles (clave => etiqueta)
 $METODOS = [
   'efectivo'      => 'Efectivo #1',
   'sinpe'         => 'Sinpe Móvil #4',
@@ -53,7 +50,6 @@ $METODOS = [
     .row{display:flex;gap:16px;align-items:flex-start}
     .thumb{width:160px;height:120px;border-radius:12px;object-fit:cover;box-shadow:0 6px 16px rgba(0,0,0,.08)}
 
-    /* Cantidad (+/-) */
     .qty{display:inline-flex;align-items:center;gap:8px}
     .qbtn{
       width:32px;height:32px;border:0;border-radius:10px;cursor:pointer;
@@ -64,7 +60,6 @@ $METODOS = [
       width:62px;padding:6px 8px;border:1px solid #e2e8f0;border-radius:10px;text-align:center;font-weight:700
     }
 
-    /* Controles inferiores (descuento/método) */
     .controls{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
     .control{background:#f8fbff;border:1px solid #eaf3ff;border-radius:12px;padding:12px}
     .control label{display:block;font-size:13px;color:#334155;margin-bottom:6px}
@@ -138,7 +133,6 @@ $METODOS = [
         </table>
       </div>
 
-      <!-- Formulario: descuento, método y envío -->
       <form class="controls" action="<?= BASE_URL ?>/cliente/pagar.php" method="post" id="payForm">
         <div class="control">
           <label for="desc">Descuento (₡)</label>
@@ -153,7 +147,6 @@ $METODOS = [
           </select>
         </div>
 
-        <!-- hidden fields -->
         <input type="hidden" name="id"    value="<?= (int)$prod['id'] ?>">
         <input type="hidden" name="fac"   value="<?= htmlspecialchars($facNum) ?>">
         <input type="hidden" name="qty"   id="qtyInput"   value="<?= $qty ?>">
@@ -168,7 +161,6 @@ $METODOS = [
   </div>
 
   <script>
-    // === Recalcular totales ===
     const PRECIO   = <?= json_encode($precio) ?>;
     const IVA_RATE = <?= json_encode($IVA_RATE) ?>;
 
@@ -214,7 +206,6 @@ $METODOS = [
     minusBtn.addEventListener('click', ()=>{ qty.value = clampQty(qty.value) - 1; recalc(); });
     plusBtn .addEventListener('click', ()=>{ qty.value = clampQty(qty.value) + 1; recalc(); });
 
-    // Inicial
     recalc();
   </script>
 </body>

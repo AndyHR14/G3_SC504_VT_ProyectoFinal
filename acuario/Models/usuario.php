@@ -128,9 +128,7 @@ class Usuario {
         }
     }
 
-    /**
-     * Actualiza solo el estado del usuario (usado para eliminar lógico).
-     */
+    
     public function actualizarEstadoUsuario($id_usuario, $id_estado) {
         try {
             $sql = "

@@ -21,7 +21,6 @@ $metodoLabel = $METODOS[$metodo] ?? $METODOS['efectivo'];
 $precio = isset($catalogo[$id]) ? (float)$catalogo[$id]['precio'] : 0.0;
 $nombreProd = $catalogo[$id]['nombre'] ?? 'Producto';
 
-// Recalcular del lado servidor (seguro)
 $IVA_RATE = 0.13;
 $sub      = $precio * $qty;
 $desc     = min($descCli, $sub);               // tope máximo

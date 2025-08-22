@@ -1,16 +1,4 @@
-
-/* -------------------------------------------------------
-   ACUARIO · THEME CSS
-   Author: ChatGPT
-   Last update: 2025-08-21
-   ------------------------------------------------------- */
-
-/* Google Fonts (optional; add link in HTML):
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-*/
-
 :root {
-  /* Core palette - oceanic */
   --ocean-900: #023e8a;
   --ocean-700: #0077b6;
   --ocean-500: #00b4d8;
@@ -30,7 +18,7 @@
   --bg: #f6fbff;
   --shadow: 0 10px 25px rgba(2, 62, 138, 0.1);
 
-  /* Radii and sizes */
+
   --radius-sm: .5rem;
   --radius-md: 1rem;
   --radius-lg: 1.25rem;
@@ -40,7 +28,6 @@
   --gap: 1rem;
 }
 
-/* Global reset */
 *,
 *::before,
 *::after { box-sizing: border-box; }
@@ -63,12 +50,12 @@ body {
   line-height: 1.6;
 }
 
-/* Utility classes */
+
 .container{
   width: min(96vw, 1600px);   /* ocupa hasta el 96% del ancho de la ventana, límite 1400px */
   margin: 0 auto;
-  padding: 0 18px;            /* bordes laterales más pequeños */
-}}
+  padding: 0 18px;            
+}
 
 .grid {
   display: grid;
@@ -86,7 +73,7 @@ body {
 .mb-0{margin-bottom:0}.mb-1{margin-bottom:.5rem}.mb-2{margin-bottom:1rem}.mb-3{margin-bottom:1.5rem}.mb-4{margin-bottom:2rem}
 .p-0{padding:0}.p-1{padding:.5rem}.p-2{padding:1rem}.p-3{padding:1.5rem}.p-4{padding:2rem}
 
-/* Topbar / Header */
+
 .topbar {
   position: sticky;
   top: 0;
@@ -117,7 +104,7 @@ body {
   justify-content: space-between;
 }
 
-/* Buttons */
+
 .btn {
   --btn-bg: var(--white);
   --btn-fg: var(--ocean-700);
@@ -162,7 +149,6 @@ body {
   border-color: transparent;
 }
 
-/* Hero / Header banner (optional) */
 .hero {
   position: relative;
   overflow: hidden;
@@ -183,7 +169,6 @@ body {
   color: #0d2b42;
 }
 
-/* Cards */
 .card {
   background: var(--white);
   border-radius: var(--radius-lg);
@@ -207,7 +192,7 @@ body {
   background: #fbfeff;
 }
 
-/* Badges / Chips */
+
 .badge {
   display: inline-block;
   padding: .25rem .6rem;
@@ -221,7 +206,7 @@ body {
 .badge.warn { background: #fff7e6; color: #a86a00; }
 .badge.danger { background: #ffedf0; color: #9a1230; }
 
-/* Tables */
+
 .table-wrap { overflow-x: auto; }
 table {
   width: 100%;
@@ -243,7 +228,7 @@ tbody td {
 tbody tr:hover { background: #f8fdff; }
 tbody tr:last-child td { border-bottom: none; }
 
-/* Forms */
+
 input[type="text"], input[type="number"], input[type="date"], input[type="time"],
 input[type="email"], input[type="password"], select, textarea {
   width: 100%;
@@ -276,7 +261,7 @@ label { font-weight: 600; color: var(--ink-700); }
   .col-6, .col-4, .col-3 { grid-column: span 12; }
 }
 
-/* Footer */
+
 footer {
   margin-top: 3rem;
   background: linear-gradient(90deg, var(--ocean-700), var(--ocean-500));
@@ -288,7 +273,7 @@ footer {
   box-shadow: var(--shadow);
 }
 
-/* Decorative bubbles (background) */
+
 .bubbles {
   position: fixed;
   inset: 0;
@@ -321,7 +306,7 @@ footer {
   to   { transform: translateY(-120vh) translateX(var(--x, 20px)); }
 }
 
-/* Alert styles */
+
 .alert {
   padding: .9rem 1rem;
   border-radius: var(--radius-md);
@@ -334,11 +319,11 @@ footer {
 .alert.warn    { border-color: #ffe3b4; background: #fff9ee; color: #7a4e04; }
 .alert.error   { border-color: #ffc1c8; background: #fff5f7; color: #6e1127; }
 
-/* Links */
+
 a { color: var(--ocean-700); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-/* Login card (if needed) */
+
 .auth {
   min-height: calc(100vh - 140px);
   display: grid;
@@ -346,7 +331,7 @@ a:hover { text-decoration: underline; }
 }
 .auth .card { width: min(100% - 2rem, 540px); }
 
-/* Page sections */
+
 .section {
   margin: 2rem 0;
 }
@@ -360,7 +345,7 @@ a:hover { text-decoration: underline; }
   margin-top: 0;
 }
 
-/* Image helpers */
+
 .img-cover {
   width: 100%;
   height: 220px;
@@ -369,7 +354,7 @@ a:hover { text-decoration: underline; }
   border-bottom: 1px solid #eaf5ff;
 }
 
-/* Table of actions */
+
 .table-actions {
   display: inline-flex;
   gap: .4rem;
@@ -380,7 +365,6 @@ a:hover { text-decoration: underline; }
   border-color: #ffd6de;
 }
 
-/* Empty states */
 .empty {
   text-align: center;
   padding: 3rem 1rem;
@@ -389,7 +373,7 @@ a:hover { text-decoration: underline; }
   background: linear-gradient(180deg, #f6fcff, #fbfeff);
 }
 
-/* Loading shimmer */
+
 .shimmer {
   position: relative;
   overflow: hidden;
@@ -405,7 +389,7 @@ a:hover { text-decoration: underline; }
 }
 @keyframes shimmer { 100% { transform: translateX(100%); } }
 
-/* Dark mode (optional) */
+
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #031e2e;
@@ -447,24 +431,22 @@ a:hover { text-decoration: underline; }
 
 .avatar-menu { position: relative; }
 
-/* -------------------------------------------------------
-   Layout helpers for your existing PHP structure
-   ------------------------------------------------------- */
+
 main.container { padding: 1.25rem 0 2rem; }
 
 
-/* Cuando no hay sidebar en Home */
+
 .shell.no-sidebar { display:block; }
 .shell.no-sidebar .content { padding:24px; }
 
-/* Saludo en topbar */
+
 .welcome { margin-left:12px; font-weight:600; color:#fff; opacity:.9; }
 
-/* (Opcional) Topbar azul sólido */
+
 .topbar { background: linear-gradient(90deg,#0284c7,#06b6d4); color:#fff; }
 .topbar .brand { color:#fff; }
 
-/* --- UI tablas modernas --- */
+
 .table-card{
   background:#fff; border-radius:20px; overflow:hidden;
   box-shadow:0 10px 30px rgba(2,132,199,.12);
@@ -508,18 +490,3 @@ main.container { padding: 1.25rem 0 2rem; }
   background:#17a2b8; color:#fff; box-shadow:0 4px 12px rgba(0,0,0,.08);
 }
 .btn-comprar:hover{ filter:brightness(1.05); transform:translateY(-1px); }
-
-/* Example usage in Views:
-<div class="hero mt-3">
-  <h2>Bienvenido al Acuario</h2>
-  <p>Administra especies, hábitats, alimentación y más.</p>
-  <div class="mt-2">
-    <a class="btn primary" href="/index.php?action=create">+ Agregar</a>
-    <a class="btn outline" href="/index.php">Inicio</a>
-  </div>
-</div>
-*/
-
-/* -------------------------------------------------------
-   END
-   ------------------------------------------------------- */

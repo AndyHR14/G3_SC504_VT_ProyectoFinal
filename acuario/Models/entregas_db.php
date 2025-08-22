@@ -81,7 +81,6 @@ public function listarEntregas(): array
 
     public function obtenerDetallePorEntrega(int $id_entrega): ?array
     {
-        // Con tu DDL, hay 0..1 fila por entrega (PK = ID_ENTREGA).
         $sql = "SELECT de.DESCRIPCION, de.CANTIDAD, de.ID_ESTADO,
                        s.NOMBRE_ESTADO
                   FROM FIDE_DETALLE_ENTREGA_TB de
@@ -96,11 +95,8 @@ public function listarEntregas(): array
         return $row;
     }
 
-    /* ==================== ESCRITURAS (SP) ==================== */
-    /* ----- Entrega (cabecera) ----- */
-
     public function insertarEntrega(
-        ?string $fecha,       // 'YYYY-MM-DD'
+        ?string $fecha,   
         $id_direccion,
         $id_usuario,
         $id_estado
@@ -172,7 +168,6 @@ public function listarEntregas(): array
         return $ok;
     }
 
-    /* ----- Detalle de entrega ----- */
 
     public function upsertDetalle(
         int $id_entrega,
@@ -180,10 +175,9 @@ public function listarEntregas(): array
         $cantidad,
         $id_estado
     ): bool {
-        // Intento de UPDATE con SP de MODIFICAR; si NO existe fila, hacemos INSERT.
+    
         $cn = $this->conn();
 
-        // ¿Existe?
         $stx = oci_parse($cn, "SELECT 1 FROM FIDE_DETALLE_ENTREGA_TB WHERE ID_ENTREGA = :id");
         oci_bind_by_name($stx, ':id', $id_entrega);
         @oci_execute($stx);
@@ -227,8 +221,6 @@ public function listarEntregas(): array
         oci_free_statement($st);
         return $ok;
     }
-
-    /* ==================== CATÁLOGOS ==================== */
 
     public function listarEstados(): array {
         $cn = $this->conn();

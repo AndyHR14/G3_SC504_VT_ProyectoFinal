@@ -16,11 +16,11 @@ register_shutdown_function(function () {
     }
 });
 
-// 👇 NUEVO: protege esta página (solo admin general)
-require_once __DIR__ . '/auth/auth_check.php';
-// (auth_check.php ya hace session_start e importa BASE_URL internamente)
 
-$mod    = $_GET['mod']    ?? 'home';           // animales | alimentos | home
+require_once __DIR__ . '/auth/auth_check.php';
+
+
+$mod    = $_GET['mod']    ?? 'home';          
 $action = $_GET['action'] ?? null;
 
 switch ($mod) {
@@ -155,9 +155,8 @@ switch ($mod) {
         break;
 
     default:
-        // ======= HOME (siempre usando el layout) =======
-        $title = 'Inicio';
-        $view  = 'modules/home';                  // archivo en Views/modules/home.php
+        
+        $view  = 'modules/home';                 
         include __DIR__ . '/Views/layout.php';
         exit;
 }

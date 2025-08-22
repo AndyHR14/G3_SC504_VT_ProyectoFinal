@@ -87,10 +87,6 @@ class InventarioDB
         return $row;
     }
 
-    /* ================= Escrituras (SP del paquete) ================= */
-
-    /** Inserta PRODUCTO y su fila en INVENTARIO */
-    public function insertar(
         string $nombre,
         $id_categoria,
         $id_unidad_medida,
@@ -101,8 +97,8 @@ class InventarioDB
     ): bool {
         $cn = $this->conn();
 
-        // 1) Insertar producto
-        $idProd = $this->nextProductoId(); // si usas trigger, deja SEQ_PRODUCTO=''
+    
+        $idProd = $this->nextProductoId();
         if (self::SEQ_PRODUCTO !== '' && $idProd === null) return false;
 
         $plProd = "BEGIN
@@ -121,7 +117,7 @@ class InventarioDB
         oci_free_statement($sp1);
         if (!$ok1) { oci_rollback($cn); return false; }
 
-        // 2) Insertar inventario (PK = ID_PRODUCTO en tu DDL)
+    
         $plInv = "BEGIN
           FIDE_PROYECTO_FINAL_PCK.FIDE_INSERTAR_INVENTARIO_SP(
             :p_cant,
@@ -146,7 +142,6 @@ class InventarioDB
         return $ok2;
     }
 
-    /** Actualiza PRODUCTO e INVENTARIO */
     public function actualizar(
         int $id_prod,
         string $nombre,
@@ -159,7 +154,6 @@ class InventarioDB
     ): bool {
         $cn = $this->conn();
 
-        // 1) Producto
         $plProd = "BEGIN
           FIDE_PROYECTO_FINAL_PCK.FIDE_MODIFICAR_PRODUCTO_SP(
             :p_id, :p_nombre, :p_cat, :p_um, :p_estado
@@ -176,7 +170,7 @@ class InventarioDB
         oci_free_statement($sp1);
         if (!$ok1) { oci_rollback($cn); return false; }
 
-        // 2) Inventario (firma: cant, fecha, id_producto, id_estado)
+        
         $plInv = "BEGIN
           FIDE_PROYECTO_FINAL_PCK.FIDE_MODIFICAR_INVENTARIO_SP(
             :p_cant,
@@ -201,12 +195,11 @@ class InventarioDB
         return $ok2;
     }
 
-    /** Elimina (inactiva) inventario y luego producto */
+
     public function eliminar(int $id_prod): bool
     {
         $cn = $this->conn();
 
-        // Inventario por ID_PRODUCTO
         $pl1 = "BEGIN FIDE_PROYECTO_FINAL_PCK.FIDE_ELIMINAR_INVENTARIO_SP(:pid); END;";
         $st1 = oci_parse($cn, $pl1);
         oci_bind_by_name($st1, ':pid', $id_prod);
@@ -214,7 +207,6 @@ class InventarioDB
         oci_free_statement($st1);
         if (!$okInv) { oci_rollback($cn); } // no aborta; seguimos con producto
 
-        // Producto (inactiva)
         $pl2 = "BEGIN FIDE_PROYECTO_FINAL_PCK.FIDE_ELIMINAR_PRODUCTO_SP(:pid); END;";
         $st2 = oci_parse($cn, $pl2);
         oci_bind_by_name($st2, ':pid', $id_prod);
@@ -224,8 +216,6 @@ class InventarioDB
         if ($okProd) oci_commit($cn); else oci_rollback($cn);
         return $okProd;
     }
-
-    /* ================= Catálogos ================= */
 
     public function listarCategorias(): array
     {
