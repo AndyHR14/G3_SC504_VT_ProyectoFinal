@@ -1,10 +1,10 @@
 <?php
-// Models/clientes_db.php
+
 require_once 'Models/conexion.php';
 
 class ClientesDB
 {
-    // Ajusta si tienes una secuencia real. Si no, cae a MAX+1
+   
     private const SEQ_USUARIO = 'SEQ_USUARIO_ID';
 
     private function conn() {

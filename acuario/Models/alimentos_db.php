@@ -5,7 +5,7 @@ require_once 'Models/conexion.php';
 class AlimentosDB
 {
  
-    private const SEQ_NAME = 'SEQ_MARCA_ALIMENTO_ID';
+    private const SEQ_NAME = 'ID_MARCA_ALIMENTO_SEQ';
 
     private function conn() {
         $cx = new Conexion();

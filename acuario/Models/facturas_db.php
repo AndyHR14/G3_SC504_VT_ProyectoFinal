@@ -1,15 +1,15 @@
 <?php
-// Models/facturas_db.php
+
 require_once 'Models/conexion.php';
 
 class FacturasDB
 {
-    // Cambia por el nombre real de tu secuencia si existe. Si no, hace MAX+1.
-    private const SEQ_FACTURA = 'SEQ_FACTURA_ID';
+    
+    private const SEQ_FACTURA = 'ID_FACTURA_SEQ';
 
     private function conn() {
         $cx = new Conexion();
-        return $cx->getConexion(); // OCI8
+        return $cx->getConexion(); 
     }
 
     private static function nv($v) {

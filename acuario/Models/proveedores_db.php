@@ -1,15 +1,15 @@
 <?php
-// Models/proveedores_db.php
+
 require_once 'Models/conexion.php';
 
 class ProveedoresDB
 {
-    /** Ajusta a tu secuencia real o déjala vacía para usar MAX+1 */
-    private const SEQ_EMPRESA = 'SEQ_EMPRESA_ID';
+    
+    private const SEQ_EMPRESA = 'ID_EMPRESA_SEQ';
 
     private function conn() {
         $cx = new Conexion();
-        return $cx->getConexion(); // OCI8
+        return $cx->getConexion(); 
     }
 
     private static function nv($v) {

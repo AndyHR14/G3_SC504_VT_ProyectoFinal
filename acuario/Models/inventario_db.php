@@ -1,15 +1,15 @@
 <?php
-// Models/inventario_db.php
+
 require_once 'Models/conexion.php';
 
 class InventarioDB
 {
-    /** Cambia por tu secuencia real de productos, o deja '' si tienes trigger en la PK */
-    private const SEQ_PRODUCTO = 'SEQ_PRODUCTO_ID';
+    
+    private const SEQ_PRODUCTO = 'ID_PRODUCTO_SEQ';
 
     private function conn() {
         $cx = new Conexion();
-        return $cx->getConexion(); // OCI8
+        return $cx->getConexion(); 
     }
 
     private static function nv($v) {

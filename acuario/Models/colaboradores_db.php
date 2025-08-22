@@ -5,7 +5,7 @@ require_once 'Models/conexion.php';
 class ColaboradoresDB
 {
 
-    private const SEQ_NAME = 'FIDE_ID_USUARIO_SEQ';
+    private const SEQ_NAME = 'ID_USUARIO_SEQ';
 
     private function conn() {
         $cx = new Conexion();

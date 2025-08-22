@@ -1,15 +1,15 @@
 <?php
-// Models/horarios_db.php
+
 require_once 'Models/conexion.php';
 
 class HorariosDB
 {
-    /** Cambia por tu secuencia real o deja '' si tienes trigger en la PK */
-    private const SEQ_NAME = 'SEQ_HORARIO_ID';
+    
+    private const SEQ_NAME = 'ID_HORARIO_SEQ';
 
     private function conn() {
         $cx = new Conexion();
-        return $cx->getConexion(); // OCI8
+        return $cx->getConexion(); 
     }
 
     private static function nv($v) {

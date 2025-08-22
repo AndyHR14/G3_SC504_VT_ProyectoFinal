@@ -1,11 +1,11 @@
 <?php
-// Models/entregas_db.php
+
 require_once 'Models/conexion.php';
 
 class EntregasDB
 {
-    // Ajusta si tienes secuencia real. Si no, hace MAX+1.
-    private const SEQ_ENTREGA = 'SEQ_ENTREGA_ID';
+    
+    private const SEQ_ENTREGA = 'ID_ENTREGA_SEQ';
 
     private function conn() {
         $cx = new Conexion();
