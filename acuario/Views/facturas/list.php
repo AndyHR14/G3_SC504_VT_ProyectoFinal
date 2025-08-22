@@ -34,7 +34,7 @@
         <tr>
           <td><?= h($r['ID_FACTURA']) ?></td>
           <td><?= h($r['FECHA_REGISTRO']) ?></td>
-          <td><?= h($r['NOMBRE_USUARIO']) ?> <span class="muted">#<?= h($r['ID_USUARIO']) ?></span></td>
+          <td><?= h($r['NOMBRE']) ?> <span class="muted">#<?= h($r['ID_USUARIO']) ?></span></td>
           <td><?= h($r['NOMBRE_METODO_PAGO']) ?> <span class="muted">#<?= h($r['ID_METODO_PAGO']) ?></span></td>
           <td><?= h($r['SUBTOTAL']) ?></td>
           <td><?= h($r['IVA']) ?></td>

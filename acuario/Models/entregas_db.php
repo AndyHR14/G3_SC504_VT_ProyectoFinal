@@ -37,39 +37,38 @@ class EntregasDB
 
     /* ==================== LISTADOS / LECTURAS ==================== */
 
-    public function listarEntregas(): array
-    {
-        $sql = "SELECT e.ID_ENTREGA,
-                       TO_CHAR(e.FECHA,'YYYY-MM-DD') FECHA,
-                       e.ID_DIRECCION,
-                       d.DETALLE_DIRECCION,
-                       e.ID_USUARIO,
-                       u.NOMBRE AS NOMBRE_USUARIO,
-                       e.ID_ESTADO,
-                       s.NOMBRE_ESTADO
-                  FROM FIDE_ENTREGA_TB e
-             LEFT JOIN FIDE_DIRECCION_TB d ON d.ID_DIRECCION = e.ID_DIRECCION
-             LEFT JOIN FIDE_USUARIO_TB  u ON u.ID_USUARIO   = e.ID_USUARIO
-             LEFT JOIN FIDE_ESTADOS_TB  s ON s.ID_ESTADO    = e.ID_ESTADO
-              ORDER BY e.ID_ENTREGA";
-        $cn = $this->conn();
-        $st = oci_parse($cn, $sql);
-        @oci_execute($st);
-        $out = [];
-        while ($r = oci_fetch_assoc($st)) $out[] = $r;
-        oci_free_statement($st);
-        return $out;
-    }
-
+public function listarEntregas(): array
+{
+    $sql = "SELECT ID_ENTREGA,
+                   FECHA,
+                   ID_DIRECCION,
+                   DETALLE_DIRECCION,
+                   ID_USUARIO,
+                   NOMBRE_USUARIO,
+                   ID_ESTADO,
+                   NOMBRE_ESTADO
+              FROM FIDE_ENTREGA_V
+             ORDER BY ID_ENTREGA";
+    $cn = $this->conn();
+    $st = oci_parse($cn, $sql);
+    @oci_execute($st);
+    $out = [];
+    while ($r = oci_fetch_assoc($st)) $out[] = $r;
+    oci_free_statement($st);
+    return $out;
+}
     public function obtenerEntregaPorId(int $id): ?array
     {
-        $sql = "SELECT e.ID_ENTREGA,
-                       TO_CHAR(e.FECHA,'YYYY-MM-DD') FECHA,
-                       e.ID_DIRECCION,
-                       e.ID_USUARIO,
-                       e.ID_ESTADO
-                  FROM FIDE_ENTREGA_TB e
-                 WHERE e.ID_ENTREGA = :id";
+        $sql = "SELECT ID_ENTREGA,
+                   FECHA,
+                   ID_DIRECCION,
+                   DETALLE_DIRECCION,
+                   ID_USUARIO,
+                   NOMBRE_USUARIO,
+                   ID_ESTADO,
+                   NOMBRE_ESTADO
+                FROM FIDE_ENTREGA_V
+                 WHERE ID_ENTREGA = :id";
         $cn = $this->conn();
         $st = oci_parse($cn, $sql);
         oci_bind_by_name($st, ':id', $id);

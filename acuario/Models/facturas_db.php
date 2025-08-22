@@ -38,29 +38,27 @@ class FacturasDB
     /* ==================== LISTADOS / LECTURAS ==================== */
 
     public function listarFacturas(): array
-    {
-        $sql = "SELECT f.ID_FACTURA,
-                       TO_CHAR(f.FECHA_REGISTRO,'YYYY-MM-DD') FECHA_REGISTRO,
-                       f.MONTO_TOTAL, f.SUBTOTAL, f.IVA, f.DESCUENTO,
-                       f.ID_USUARIO, u.NOMBRE AS NOMBRE_USUARIO,
-                       f.ID_METODO_PAGO, mp.NOMBRE_METODO_PAGO,
-                       f.ID_ESTADO, s.NOMBRE_ESTADO,
-                       (SELECT NVL(SUM(df.CANTIDAD),0)
-                          FROM FIDE_DETALLE_FACTURA_TB df
-                         WHERE df.ID_FACTURA = f.ID_FACTURA) AS ITEMS
-                  FROM FIDE_FACTURA_TB f
-             LEFT JOIN FIDE_USUARIO_TB u ON u.ID_USUARIO = f.ID_USUARIO
-             LEFT JOIN FIDE_METODO_PAGO_TB mp ON mp.ID_METODO_PAGO = f.ID_METODO_PAGO
-             LEFT JOIN FIDE_ESTADOS_TB s ON s.ID_ESTADO = f.ID_ESTADO
-              ORDER BY f.ID_FACTURA";
-        $cn = $this->conn();
-        $st = oci_parse($cn, $sql);
-        @oci_execute($st);
-        $out = [];
-        while ($r = oci_fetch_assoc($st)) $out[] = $r;
-        oci_free_statement($st);
-        return $out;
+{
+     $sql = "SELECT ID_EMPRESA,
+                   NOMBRE_EMPRESA,
+                   TELEFONO,
+                   CORREO,
+                   ID_DIRECCION,
+                   ID_ESTADO,
+                   DETALLE_DIRECCION,
+                   ESTADO_NOMBRE
+             FROM FIDE_EMPRESA_V
+             ORDER BY ID_EMPRESA";
+    $cn = $this->conn();
+    $st = oci_parse($cn, $sql);
+    @oci_execute($st);
+    $out = [];
+    while ($r = oci_fetch_assoc($st)) {
+        $out[] = $r;
     }
+    oci_free_statement($st);
+    return $out;
+}
 
     public function obtenerFacturaPorId(int $id): ?array
     {

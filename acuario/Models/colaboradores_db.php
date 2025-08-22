@@ -54,8 +54,9 @@ class ColaboradoresDB
                     v.ID_ESTADO,
                     v.ID_ROL,
                     v.NOMBRE_ROL,
+                    v.ID_ESTADO,
                     v.ESTADO_NOMBRE
-                FROM FIDE_USUARIO_V v
+                FROM FIDE_USUARIO_COLABORADOR_V v
                 ORDER BY v.ID_USUARIO";
         $cn = $this->conn();
         $st = oci_parse($cn, $sql);
@@ -78,8 +79,9 @@ class ColaboradoresDB
                     v.ID_ESTADO,
                     v.ID_ROL,
                     v.NOMBRE_ROL,
+                    v.ID_ESTADO,
                     v.ESTADO_NOMBRE
-                FROM FIDE_USUARIO_V v
+                FROM FIDE_USUARIO_COLABORADOR_V v
                 WHERE v.ID_USUARIO = :id";
         $cn = $this->conn();
         $st = oci_parse($cn, $sql);

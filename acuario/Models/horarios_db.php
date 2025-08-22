@@ -30,24 +30,24 @@ class HorariosDB
     /* ===== Listados / Lecturas ===== */
 
     public function listarHorarios(): array
-    {
-        $sql = "SELECT h.ID_HORARIO, h.DIA,
-                       TO_CHAR(h.HORA_INICIO,'HH24:MI') AS HORA_INICIO,
-                       TO_CHAR(h.HORA_FINAL, 'HH24:MI') AS HORA_FINAL,
-                       h.ID_USUARIO, u.NOMBRE AS NOMBRE_USUARIO,
-                       h.ID_ESTADO, e.NOMBRE_ESTADO
-                  FROM FIDE_HORARIO_TB h
-             LEFT JOIN FIDE_USUARIO_TB u ON u.ID_USUARIO = h.ID_USUARIO
-             LEFT JOIN FIDE_ESTADOS_TB e ON e.ID_ESTADO  = h.ID_ESTADO
-              ORDER BY h.ID_HORARIO";
-        $cn = $this->conn();
-        $st = oci_parse($cn, $sql);
-        @oci_execute($st);
-        $out = [];
-        while ($r = oci_fetch_assoc($st)) $out[] = $r;
-        oci_free_statement($st);
-        return $out;
+{
+    $sql = "SELECT ID_HORARIO, DIA,
+                   TO_CHAR(HORA_INICIO,'HH24:MI') AS HORA_INICIO,
+                   TO_CHAR(HORA_FINAL, 'HH24:MI') AS HORA_FINAL,
+                   ID_USUARIO, NOMBRE,
+                   ID_ESTADO, ESTADO_NOMBRE
+             FROM FIDE_HORARIO_V
+             ORDER BY ID_HORARIO";
+    $cn = $this->conn();
+    $st = oci_parse($cn, $sql);
+    @oci_execute($st);
+    $out = [];
+    while ($r = oci_fetch_assoc($st)) {
+        $out[] = $r;
     }
+    oci_free_statement($st);
+    return $out;
+}
 
     public function obtenerHorarioPorId(int $id): ?array
     {

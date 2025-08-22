@@ -32,7 +32,7 @@
           <td><?= h($r['DIA']) ?></td>
           <td><?= h($r['HORA_INICIO']) ?></td>
           <td><?= h($r['HORA_FINAL']) ?></td>
-          <td><?= h($r['NOMBRE_USUARIO'] ?? ('#'.($r['ID_USUARIO'] ?? ''))) ?></td>
+          <td><?= h($r['NOMBRE'] ?? ('#'.($r['ID_USUARIO'] ?? ''))) ?></td>
           <td><span class="badge"><?= h($r['NOMBRE_ESTADO'] ?? ('#'.($r['ID_ESTADO'] ?? ''))) ?></span></td>
           <td>
             <div class="actions">

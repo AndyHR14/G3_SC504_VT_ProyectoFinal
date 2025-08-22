@@ -5,7 +5,7 @@ require_once 'Models/conexion.php';
 class ClientesDB
 {
    
-    private const SEQ_USUARIO = 'SEQ_USUARIO_ID';
+    private const SEQ_USUARIO = 'ID_USUARIO_SEQ';
 
     private function conn() {
         $cx = new Conexion();
@@ -39,20 +39,21 @@ class ClientesDB
 
     public function listar(): array
     {
-        $sql = "SELECT u.ID_USUARIO,
-                       u.NOMBRE,
-                       TO_CHAR(u.FECHA_REGISTRO,'YYYY-MM-DD') FECHA_REGISTRO,
-                       u.TELEFONO,
-                       u.CORREO,
-                       u.ID_ESTADO,
-                       u.ID_ROL,
-                       u.ID_DIRECCION,
-                       d.DETALLE_DIRECCION,
-                       r.NOMBRE_ROL
-                  FROM FIDE_USUARIO_TB u
-             LEFT JOIN FIDE_DIRECCION_TB d ON d.ID_DIRECCION = u.ID_DIRECCION
-             LEFT JOIN FIDE_ROL_TB r       ON r.ID_ROL = u.ID_ROL
-              ORDER BY u.ID_USUARIO";
+        $sql = "SELECT 
+                    v.ID_USUARIO,
+                    v.NOMBRE,
+                    TO_CHAR(v.FECHA_REGISTRO,'YYYY-MM-DD') AS FECHA_REGISTRO,
+                    v.TELEFONO,
+                    v.CORREO,
+                    v.ID_ESTADO,
+                    v.ID_ROL,
+                    v.NOMBRE_ROL,
+                    v.ID_DIRECCION,
+                    v.DETALLE_DIRECCION,
+                    v.ID_ESTADO,
+                    v.ESTADO_NOMBRE
+                FROM FIDE_USUARIO_CLIENTE_V v
+                ORDER BY v.ID_USUARIO";
         $cn = $this->conn();
         $st = oci_parse($cn, $sql);
         @oci_execute($st);
@@ -62,18 +63,24 @@ class ClientesDB
         return $out;
     }
 
+
     public function obtenerPorId(int $id): ?array
     {
-        $sql = "SELECT u.ID_USUARIO,
-                       u.NOMBRE,
-                       TO_CHAR(u.FECHA_REGISTRO,'YYYY-MM-DD') FECHA_REGISTRO,
-                       u.TELEFONO,
-                       u.CORREO,
-                       u.ID_ESTADO,
-                       u.ID_ROL,
-                       u.ID_DIRECCION
-                  FROM FIDE_USUARIO_TB u
-                 WHERE u.ID_USUARIO = :id";
+        $sql = "SELECT 
+                    v.ID_USUARIO,
+                    v.NOMBRE,
+                    TO_CHAR(v.FECHA_REGISTRO,'YYYY-MM-DD') AS FECHA_REGISTRO,
+                    v.TELEFONO,
+                    v.CORREO,
+                    v.ID_ESTADO,
+                    v.ID_ROL,
+                    v.NOMBRE_ROL,
+                    v.ID_DIRECCION,
+                    v.DETALLE_DIRECCION,
+                    v.ID_ESTADO,
+                    v.ESTADO_NOMBRE
+                FROM FIDE_USUARIO_CLIENTE_V v
+                WHERE v.ID_USUARIO = :id";
         $cn = $this->conn();
         $st = oci_parse($cn, $sql);
         oci_bind_by_name($st, ':id', $id);

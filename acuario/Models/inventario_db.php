@@ -4,7 +4,6 @@ require_once 'Models/conexion.php';
 
 class InventarioDB
 {
-    /
     private const SEQ_PRODUCTO = 'ID_PRODUCTO_SEQ';
 
     private function conn() {
@@ -34,32 +33,30 @@ class InventarioDB
     /* ================= Lecturas (VISTA) ================= */
 
     public function listarInventario(): array
-    {
-        $sql = "SELECT
-                  ID_PRODUCTO,
-                  PRODUCTO_NOMBRE         AS NOMBRE_PRODUCTO,
-                  CATEGORIA_NOMBRE        AS NOMBRE_CATEGORIA,
-                  UNIDAD_MEDIDA_NOMBRE    AS NOMBRE_UNIDAD_MEDIDA,
-                  CANTIDAD,
-                  TO_CHAR(FECHA_INGRESO,'YYYY-MM-DD') AS FECHA_INGRESO,
-                  ID_ESTADO_PRODUCTO,
-                  ESTADO_PRODUCTO,
-                  ID_ESTADO_INVENTARIO,
-                  ESTADO_INVENTARIO
-                FROM FIDE_INVENTARIO_V
-                ORDER BY ID_PRODUCTO";
-        $cn = $this->conn();
-        $st = oci_parse($cn, $sql);
-        $ok = oci_execute($st);
-        $out = [];
-        if ($ok) {
-            while ($r = oci_fetch_assoc($st)) $out[] = $r; // claves en MAYÚSCULAS
-        } else {
-            $e = oci_error($st); error_log('[listarInventario] '.$e['message'] ?? 'Error');
-        }
-        oci_free_statement($st);
-        return $out;
+{
+    $sql = "SELECT
+                ID_PRODUCTO,
+                NOMBRE AS NOMBRE_PRODUCTO,
+                NOMBRE_CATEGORIA,
+                NOMBRE_UNIDAD_MEDIDA,
+                CANTIDAD,
+                -- La fecha de ingreso no existe en la vista, se omite o se maneja de otra forma.
+                ID_ESTADO,
+                NOMBRE_ESTADO
+            FROM FIDE_PRODUCTO_V
+            ORDER BY ID_PRODUCTO";
+    $cn = $this->conn();
+    $st = oci_parse($cn, $sql);
+    $ok = oci_execute($st);
+    $out = [];
+    if ($ok) {
+        while ($r = oci_fetch_assoc($st)) $out[] = $r; // claves en MAYÚSCULAS
+    } else {
+        $e = oci_error($st); error_log('[listarInventario] '.$e['message'] ?? 'Error');
     }
+    oci_free_statement($st);
+    return $out;
+}
 
     public function obtenerPorId(int $id): ?array
     {

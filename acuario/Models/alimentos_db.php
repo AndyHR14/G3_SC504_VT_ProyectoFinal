@@ -36,25 +36,25 @@ class AlimentosDB
     /* ===== Listados / Lecturas ===== */
 
     public function listarAlimentos(): array
-    {
-        $sql = "SELECT a.ID_MARCA_ALIMENTO, a.NOMBRE, a.DESCRIPCION, a.ID_ESTADO,
-                       e.NOMBRE_ESTADO
-                  FROM FIDE_MARCA_ALIMENTO_TB a
-             LEFT JOIN FIDE_ESTADOS_TB e ON e.ID_ESTADO = a.ID_ESTADO
-              ORDER BY a.ID_MARCA_ALIMENTO";
-        $cn = $this->conn();
-        $st = oci_parse($cn, $sql);
-        @oci_execute($st);
-        $out = [];
-        while ($r = oci_fetch_assoc($st)) $out[] = $r;
-        oci_free_statement($st);
-        return $out;
+{
+    $sql = "SELECT ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ESTADO_NOMBRE
+             FROM FIDE_MARCA_ALIMENTO_V
+             ORDER BY ID_MARCA_ALIMENTO";
+    $cn = $this->conn();
+    $st = oci_parse($cn, $sql);
+    @oci_execute($st);
+    $out = [];
+    while ($r = oci_fetch_assoc($st)) {
+        $out[] = $r;
     }
+    oci_free_statement($st);
+    return $out;
+}
 
     public function obtenerAlimentoPorId(int $id): ?array
     {
-        $sql = "SELECT ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO
-                  FROM FIDE_MARCA_ALIMENTO_TB
+       $sql = "SELECT ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ESTADO_NOMBRE
+                FROM FIDE_MARCA_ALIMENTO_V
                  WHERE ID_MARCA_ALIMENTO = :id";
         $cn = $this->conn();
         $st = oci_parse($cn, $sql);

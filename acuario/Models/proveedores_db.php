@@ -40,24 +40,26 @@ class ProveedoresDB
 
     public function listar(): array
     {
-        $sql = "SELECT e.ID_EMPRESA,
-                       e.NOMBRE_EMPRESA,
-                       e.TELEFONO,
-                       e.CORREO,
-                       e.ID_DIRECCION,
-                       e.ID_ESTADO,
-                       d.DETALLE_DIRECCION
-                  FROM FIDE_EMPRESA_TB e
-             LEFT JOIN FIDE_DIRECCION_TB d ON d.ID_DIRECCION = e.ID_DIRECCION
-              ORDER BY e.ID_EMPRESA";
-        $cn = $this->conn();
-        $st = oci_parse($cn, $sql);
-        @oci_execute($st);
-        $out = [];
-        while ($r = oci_fetch_assoc($st)) $out[] = $r;
-        oci_free_statement($st);
-        return $out;
+         $sql = "SELECT ID_EMPRESA,
+                   NOMBRE_EMPRESA,
+                   TELEFONO,
+                   CORREO,
+                   ID_DIRECCION,
+                   ID_ESTADO,
+                   DETALLE_DIRECCION,
+                   ESTADO_NOMBRE
+             FROM FIDE_EMPRESA_V
+             ORDER BY ID_EMPRESA";
+    $cn = $this->conn();
+    $st = oci_parse($cn, $sql);
+    @oci_execute($st);
+    $out = [];
+    while ($r = oci_fetch_assoc($st)) {
+        $out[] = $r;
     }
+    oci_free_statement($st);
+    return $out;
+}
 
     public function obtenerPorId(int $id): ?array
     {
