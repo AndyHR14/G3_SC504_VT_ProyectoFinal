@@ -51,20 +51,23 @@ class AlimentosDB
         return $out;
     }
 
-    public function obtenerAlimentoPorId(int $id): ?array
-    {
-        $sql = "SELECT ID_MARCA_ALIMENTO, NOMBRE, DESCRIPCION, ID_ESTADO
-                  FROM FIDE_MARCA_ALIMENTO_TB
-                 WHERE ID_MARCA_ALIMENTO = :id";
-        $cn = $this->conn();
-        $st = oci_parse($cn, $sql);
-        oci_bind_by_name($st, ":id", $id);
-        $ok = @oci_execute($st);
-        if (!$ok) { oci_free_statement($st); return null; }
-        $row = oci_fetch_assoc($st) ?: null;
-        oci_free_statement($st);
-        return $row;
-    }
+   public function obtenerAlimentoPorId(int $id): ?array {
+  $cn = $this->conn();
+  $sql = "SELECT id AS ID_MARCA_ALIMENTO,
+                 nombre AS NOMBRE,
+                 descripcion AS DESCRIPCION,
+                 NULL AS ID_ESTADO,
+                 estado_nombre AS NOMBRE_ESTADO
+          FROM FIDE_MARCA_ALIMENTO_V
+          WHERE id = :id";
+  $st = oci_parse($cn, $sql);
+  oci_bind_by_name($st, ':id', $id, -1, SQLT_INT);
+  if (!oci_execute($st)) { oci_free_statement($st); return null; }
+  $row = oci_fetch_assoc($st) ?: null;
+  oci_free_statement($st);
+  return $row;
+}
+
 
     /* ===== Escrituras usando el paquete ===== */
 
