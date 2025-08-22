@@ -502,6 +502,12 @@ main.container { padding: 1.25rem 0 2rem; }
 .btn.edit{background:#e0f2fe; color:#075985}
 .btn.delete{background:#fee2e2; color:#991b1b}
 
+.btn-comprar{
+  display:inline-block; padding:.55rem .9rem; border-radius:12px;
+  font-weight:600; text-decoration:none;
+  background:#17a2b8; color:#fff; box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+.btn-comprar:hover{ filter:brightness(1.05); transform:translateY(-1px); }
 
 /* Example usage in Views:
 <div class="hero mt-3">

@@ -1,23 +1,22 @@
 <?php
-// ACUARIO/cliente/index.php
 require_once __DIR__ . '/../auth/auth_check_client.php';
 require_once __DIR__ . '/../config.php';
 $nombre = $_SESSION['user']['nombre'] ?? 'Cliente';
 
-/* Imágenes y productos (usa tus archivos reales) */
+
 $productos = [
-  ['nombre' => 'Pecera 60L',        'img' => BASE_URL . '/public/img/productos/pecera60.jpg'],
-  ['nombre' => 'Filtro interno',    'img' => BASE_URL . '/public/img/productos/filtro-interno.jpg'],
-  ['nombre' => 'Filtro canister',   'img' => BASE_URL . '/public/img/productos/filtro-canister.jpeg'],
-  ['nombre' => 'Alimento Bettas',   'img' => BASE_URL . '/public/img/productos/betta-food.png'],
-  ['nombre' => 'Alimento Tropical', 'img' => BASE_URL . '/public/img/productos/tropical-food.jpg'],
-  ['nombre' => 'Grava blanca',      'img' => BASE_URL . '/public/img/productos/grava-blanca.jpg'],
-  ['nombre' => 'Plantas vivas',     'img' => BASE_URL . '/public/img/productos/plantas.jpg'],
-  ['nombre' => 'Calentador 100W',    'img' => BASE_URL . '/public/img/productos/calentador-100w.jpg'],
-  ['nombre' => 'Bomba de aire',      'img' => BASE_URL . '/public/img/productos/bomba-aire.jpg'],
-  ['nombre' => 'Lámpara LED',        'img' => BASE_URL . '/public/img/productos/lampara-led.jpg'],
-  ['nombre' => 'Acondicionador agua','img' => BASE_URL . '/public/img/productos/acondicionador-agua.jpg'],
-  ['nombre' => 'Red para peces',     'img' => BASE_URL . '/public/img/productos/red-peces.jpg'],
+  ['id'=>1,  'nombre'=>'Pecera 60L',          'img'=>BASE_URL.'/public/img/productos/pecera60.jpg',           'precio'=>45000],
+  ['id'=>2,  'nombre'=>'Filtro interno',      'img'=>BASE_URL.'/public/img/productos/filtro-interno.jpg',     'precio'=>18000],
+  ['id'=>3,  'nombre'=>'Filtro canister',     'img'=>BASE_URL.'/public/img/productos/filtro-canister.jpeg',   'precio'=>75000],
+  ['id'=>4,  'nombre'=>'Alimento Bettas',     'img'=>BASE_URL.'/public/img/productos/betta-food.png',         'precio'=>2500],
+  ['id'=>5,  'nombre'=>'Alimento Tropical',   'img'=>BASE_URL.'/public/img/productos/tropical-food.jpg',      'precio'=>4200],
+  ['id'=>6,  'nombre'=>'Grava blanca',        'img'=>BASE_URL.'/public/img/productos/grava-blanca.jpg',       'precio'=>3500],
+  ['id'=>7,  'nombre'=>'Plantas vivas',       'img'=>BASE_URL.'/public/img/productos/plantas.jpg',            'precio'=>6000],
+  ['id'=>8,  'nombre'=>'Calentador 100W',     'img'=>BASE_URL.'/public/img/productos/calentador-100w.jpg',    'precio'=>22000],
+  ['id'=>9,  'nombre'=>'Bomba de aire',       'img'=>BASE_URL.'/public/img/productos/bomba-aire.jpg',         'precio'=>12000],
+  ['id'=>10, 'nombre'=>'Lámpara LED',         'img'=>BASE_URL.'/public/img/productos/lampara-led.jpg',        'precio'=>18000],
+  ['id'=>11, 'nombre'=>'Acondicionador agua', 'img'=>BASE_URL.'/public/img/productos/acondicionador-agua.jpg','precio'=>5200],
+  ['id'=>12, 'nombre'=>'Red para peces',      'img'=>BASE_URL.'/public/img/productos/red-peces.jpg',          'precio'=>2500],
 ];
 
 $galeria = [
@@ -38,7 +37,7 @@ $galeria = [
   <style>
     :root{
       --prim:#0ea5e9; --prim2:#06b6d4; --txt:#0f172a; --muted:#64748b; --bg:#f6fbff;
-      --band1:#E7F7FF; --band2:#F0FBFF; --band3:#F6F9FF;
+      --band1:#E7F7FF; --band2:#F0FBFF; --band3:#F6F9FF; --ok:#10b981;
     }
     *{box-sizing:border-box}
     body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu;background:var(--bg);color:var(--txt)}
@@ -80,6 +79,10 @@ $galeria = [
     .card img{width:100%;height:200px;object-fit:cover;display:block;background:#ebfaff}
     .card .body{padding:14px}
     .tag{display:inline-block;background:#e0f2fe;color:#075985;padding:4px 8px;border-radius:999px;font-size:12px;font-weight:700}
+    .price{font-weight:800;margin:6px 0 8px}
+    .actions{display:flex;justify-content:flex-end;margin-top:6px}
+    .btn.buy{background:var(--ok)}
+    .btn.buy:hover{filter:brightness(1.05);transform:translateY(-1px)}
 
     /* Galería */
     .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
@@ -148,6 +151,10 @@ $galeria = [
             <div class="body">
               <div class="tag">Disponible</div>
               <h3 style="margin:8px 0 0; font-size:18px;"><?= htmlspecialchars($p['nombre']) ?></h3>
+              <div class="price">₡<?= number_format((float)$p['precio'], 2) ?></div>
+              <div class="actions">
+                <a class="btn buy" href="<?= BASE_URL ?>/cliente/factura.php?id=<?= (int)$p['id'] ?>">Comprar</a>
+              </div>
             </div>
           </article>
         <?php endforeach; ?>
