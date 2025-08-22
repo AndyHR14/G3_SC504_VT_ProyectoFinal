@@ -4,12 +4,12 @@ require_once 'Models/conexion.php';
 
 class ColaboradoresDB
 {
-
     private const SEQ_NAME = 'ID_USUARIO_SEQ';
 
+    
     private function conn() {
         $cx = new Conexion();
-        return $cx->getConexion(); // OCI8
+        return $cx->getConexion(); 
     }
 
     private static function nv($v) {
@@ -28,18 +28,9 @@ class ColaboradoresDB
         return $row && isset($row['ID']) ? (int)$row['ID'] : null;
     }
 
-    /* ===== Listados / Lecturas ===== */
-
-    public function listarColaboradores(): array
+   
+    private function simpleList(string $sql, string $ctx = 'simpleList'): array
     {
-        $sql = "SELECT u.ID_USUARIO, u.NOMBRE, 
-                       TO_CHAR(u.FECHA_REGISTRO,'YYYY-MM-DD') FECHA_REGISTRO,
-                       u.TELEFONO, u.CORREO, u.ID_ESTADO, u.ID_ROL,
-                       e.NOMBRE_ESTADO, r.NOMBRE_ROL
-                  FROM FIDE_USUARIO_TB u
-             LEFT JOIN FIDE_ESTADOS_TB e ON e.ID_ESTADO = u.ID_ESTADO
-             LEFT JOIN FIDE_ROL_TB     r ON r.ID_ROL     = u.ID_ROL
-              ORDER BY u.ID_USUARIO";
         $cn = $this->conn();
         $st = oci_parse($cn, $sql);
         @oci_execute($st);
@@ -49,13 +40,47 @@ class ColaboradoresDB
         return $out;
     }
 
+    
+
+    
+    public function listarColaboradores(): array
+    {
+        $sql = "SELECT 
+                    v.ID_USUARIO,
+                    v.NOMBRE,
+                    TO_CHAR(v.FECHA_REGISTRO,'YYYY-MM-DD') AS FECHA_REGISTRO,
+                    v.TELEFONO,
+                    v.CORREO,
+                    v.ID_ESTADO,
+                    v.ID_ROL,
+                    v.NOMBRE_ROL,
+                    v.ESTADO_NOMBRE
+                FROM FIDE_USUARIO_V v
+                ORDER BY v.ID_USUARIO";
+        $cn = $this->conn();
+        $st = oci_parse($cn, $sql);
+        @oci_execute($st);
+        $out = [];
+        while ($r = oci_fetch_assoc($st)) $out[] = $r;
+        oci_free_statement($st);
+        return $out;
+    }
+
+    
     public function obtenerColaboradorPorId(int $id): ?array
     {
-        $sql = "SELECT ID_USUARIO, NOMBRE,
-                       TO_CHAR(FECHA_REGISTRO,'YYYY-MM-DD') FECHA_REGISTRO,
-                       TELEFONO, CORREO, ID_ESTADO, ID_ROL
-                  FROM FIDE_USUARIO_TB
-                 WHERE ID_USUARIO = :id";
+        $sql = "SELECT 
+                    v.ID_USUARIO,
+                    v.NOMBRE,
+                    TO_CHAR(v.FECHA_REGISTRO,'YYYY-MM-DD') AS FECHA_REGISTRO,
+                    v.TELEFONO,
+                    v.CORREO,
+                    v.ID_ESTADO,
+                    v.ID_ROL,
+                    v.NOMBRE_ROL,
+                    v.ESTADO_NOMBRE
+                FROM FIDE_USUARIO_V v
+                WHERE v.ID_USUARIO = :id";
         $cn = $this->conn();
         $st = oci_parse($cn, $sql);
         oci_bind_by_name($st, ':id', $id);
@@ -77,7 +102,7 @@ class ColaboradoresDB
         $id_rol = null
     ): bool {
         $cn = $this->conn();
-        $id = $this->nextId(); // si SEQ_NAME == '' y hay trigger, puedes dejarlo en null y ajustar el SP
+        $id = $this->nextId(); // si hay trigger y no quieres calcular ID aquí, pon SEQ_NAME = '' y ajusta el SP
         if (self::SEQ_NAME !== '' && $id === null) return false;
 
         $pl = "BEGIN
@@ -149,33 +174,21 @@ class ColaboradoresDB
         return $ok;
     }
 
-    /* ===== Catálogos ===== */
+    /* ===== Listas desde VISTAS ===== */
 
     public function listarEstados(): array
     {
-        $sql = "SELECT ID_ESTADO AS ID, NOMBRE_ESTADO AS NOMBRE
-                  FROM FIDE_ESTADOS_TB
-              ORDER BY NOMBRE_ESTADO";
-        $cn = $this->conn();
-        $st = oci_parse($cn, $sql);
-        @oci_execute($st);
-        $out = [];
-        while ($r = oci_fetch_assoc($st)) $out[] = $r;
-        oci_free_statement($st);
-        return $out;
+        return $this->simpleList(
+            "SELECT ID, NOMBRE FROM FIDE_ESTADO_V ORDER BY NOMBRE",
+            "listarEstados"
+        );
     }
 
     public function listarRoles(): array
     {
-        $sql = "SELECT ID_ROL AS ID, NOMBRE_ROL AS NOMBRE
-                  FROM FIDE_ROL_TB
-              ORDER BY NOMBRE_ROL";
-        $cn = $this->conn();
-        $st = oci_parse($cn, $sql);
-        @oci_execute($st);
-        $out = [];
-        while ($r = oci_fetch_assoc($st)) $out[] = $r;
-        oci_free_statement($st);
-        return $out;
+        return $this->simpleList(
+            "SELECT ID, NOMBRE FROM FIDE_ROL_V ORDER BY NOMBRE",
+            "listarRoles"
+        );
     }
 }
