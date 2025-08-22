@@ -9,7 +9,7 @@ class UsuarioController {
     public function index() {
         $usuarioModel = new Usuario();
         $usuarios = $usuarioModel->obtenerUsuarios();
-        require 'Views/usuario/index.php';
+        require 'Views/usuarios_registrados.php';
     }
 
     public function crear() {
@@ -45,7 +45,7 @@ class UsuarioController {
         $usuario = null;
         $titulo_form = "Registrar Nuevo Usuario";
         $action_form = "guardarUsuario";
-        require 'Views/usuario/form.php';
+        require 'Views/form.php';
     }
 
     public function guardar() {
@@ -99,7 +99,7 @@ class UsuarioController {
 
                 $titulo_form = "Modificar Usuario";
                 $action_form = "actualizarUsuario";
-                require 'Views/usuario/form.php';
+                require 'Views/form.php';
             } else {
                 header('Location: index.php?action=listarUsuarios&error=usuario_no_encontrado');
                 exit;
@@ -156,7 +156,7 @@ class UsuarioController {
                     $estados[] = $row;
                 }
 
-                require 'Views/usuario/cambiar_estado.php';
+                require 'Views/cambiar_estado.php';
             } else {
                 header('Location: index.php?action=listarUsuarios&error=usuario_no_encontrado');
             }
