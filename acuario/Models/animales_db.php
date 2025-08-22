@@ -5,7 +5,7 @@ require_once 'Models/conexion.php';
 class AnimalesDB
 {
     
-    private const SEQ_NAME = 'FIDE_ID_ANIMAL_SEQ';
+    private const SEQ_NAME = 'ID_ANIMAL_SEQ';
 
 
     /* ========= Infra ========= */
